@@ -32,7 +32,7 @@ export const Home = () => {
                                         <div class="medium-font">Cole</div>
                                     </div>
                                     <div class="column">
-                                        <img src="/static/image/Gandalf.jpg" alt="Will" width="100" height="100"/> 
+                                        <img src="/pictures/Will.jpg" alt="Will" width="100" height="100"/> 
                                         <div class="medium-font">Will</div>
                                     </div>
                                     <div class="column">
