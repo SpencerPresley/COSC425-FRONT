@@ -4,11 +4,11 @@ import "./styles/styles.css";
 
 export const Header = () => {
   return (
-    <div class="flavor-header">
-      <header class="site-header">
+    <div className="flavor-header">
+      <div className="site-header">
         <h1>Salsibury Research</h1>
-        <nav class="navigation">
-          <Link href="../app/page.js" className="nav-link">
+        <nav className="navigation">
+          <Link href="/" className="nav-link">
             Home
           </Link>
           <Link href="/html/Version2/TopicAZ.html" className="nav-link">
@@ -21,7 +21,7 @@ export const Header = () => {
             Articles A-Z
           </Link>
         </nav>
-      </header>
+      </div>
     </div>
   );
 };
