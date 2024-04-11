@@ -46,7 +46,6 @@ export const Home = () => {
                 </ul>
             </div>
         </section>`;
-            <CatCard />
         </div>
     );
 };
