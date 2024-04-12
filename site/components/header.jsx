@@ -11,7 +11,7 @@ export const Header = () => {
           <Link href="/" className="nav-link">
             Home
           </Link>
-          <Link href="/topicPage" className="nav-link">
+          <Link href="/TopicAZ" className="nav-link">
             Topic A-Z
           </Link>
           <Link href="/html/Version2/FacultyAZ.html" className="nav-link">

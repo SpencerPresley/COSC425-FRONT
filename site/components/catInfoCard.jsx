@@ -29,7 +29,7 @@ const card = (
 
 export const CatCard = () => {
   return (
-    <Box sx={{ minWidth: 200 }}>
+    <Box sx={{ maxWidth: 200 }}>
       <Card variant="outlined">{card}</Card>
     </Box>
   );
