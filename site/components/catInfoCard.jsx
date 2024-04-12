@@ -24,15 +24,12 @@ const card = (
     <CardContent>
         <CatAccord />
     </CardContent>
-    <CardActions>
-      <Button size="small">Learn More</Button>
-    </CardActions>
   </React.Fragment>
 );
 
 export const CatCard = () => {
   return (
-    <Box sx={{ minWidth: 275 }}>
+    <Box sx={{ minWidth: 200 }}>
       <Card variant="outlined">{card}</Card>
     </Box>
   );
