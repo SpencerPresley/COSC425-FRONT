@@ -21,16 +21,17 @@ export const CatAccord = ({ data }) => {
                             </AccordionContent>
                         ))}
                     </AccordionItem>
-
                     <AccordionItem value="dept">
-                        <AccordionTrigger>1 Department</AccordionTrigger>
-                        <AccordionContent>
-                            Computer science
-                        </AccordionContent>
-                    </AccordionItem>
+                        <AccordionTrigger>{details.department_count} Departments</AccordionTrigger>
+                        {Object.entries(details.departments).map(([d,p]) => (
+                            <AccordionContent> 
+                                {p}
+                            </AccordionContent>
+                        ))}
 
+                    </AccordionItem>
                     <AccordionItem value="article">
-                        <AccordionTrigger>1 Article</AccordionTrigger>
+                        <AccordionTrigger>{details.article_count} Article(s)</AccordionTrigger>
                         <AccordionContent>
                             Mouse Cheese
                         </AccordionContent>
