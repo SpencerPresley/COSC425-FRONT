@@ -1,5 +1,5 @@
 import { CatCard } from "./catInfoCard";
-import "./styles/styles.css";
+import "./styles/style2.css";
 
 export const Home = () => {
     return (
