@@ -14,6 +14,33 @@ export const CatAccord = () => {
                     <AccordionContent>
                         Jing
                     </AccordionContent>
+                    <AccordionContent>
+                        Jing
+                    </AccordionContent>
+                    <AccordionContent>
+                        Jing
+                    </AccordionContent>
+                    <AccordionContent>
+                        Jing
+                    </AccordionContent>
+                    <AccordionContent>
+                        Jing
+                    </AccordionContent>
+                    <AccordionContent>
+                        Jing
+                    </AccordionContent>
+                    <AccordionContent>
+                        Jing
+                    </AccordionContent>
+                    <AccordionContent>
+                        Jing
+                    </AccordionContent>
+                    <AccordionContent>
+                        Jing
+                    </AccordionContent>
+                    <AccordionContent>
+                        Jing
+                    </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="dept">
