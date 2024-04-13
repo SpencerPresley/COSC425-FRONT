@@ -1,7 +1,7 @@
 import { Themes } from "@/components/Research"
 import { CatCard } from "@/components/catInfoCard"
 import { CatAccord } from '@/components/catInfoAccord';
-
+import { labSpace } from '@components/LabSpace'
 import { useCatData } from "@/components/useCatData.server";
   
 export default function page() {
@@ -25,8 +25,8 @@ export default function page() {
                 <div className="bg-green-500 text-white font-bold rounded-lg shadow-xl flex justify-center p-4 col-span-2 row-span-2">
                     <Themes />
                 </div>
-                <div className="bg-cyan-500 text-white font-bold rounded-lg shadow-xl flex justify-center p-4">
-                    <Themes />
+                <div className="bg-cyan-500 rounded-lg shadow-xl flex justify-center p-4">
+                    <labSpace />
                 </div>
             </div>
         </div>
