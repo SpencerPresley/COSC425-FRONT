@@ -1,0 +1,36 @@
+{
+    "Mathematics": {
+        "faculty_count": 9,
+        "department_count": 3,
+        "article_count": 13,
+        "faculty": [
+            "Austin, Jathan",
+            "Fowler, Garrett",
+            "Vennos, A.",
+            "Schneider, Lisa",
+            "Bones, Lela",
+            "Short, Laura",
+            "Warman, Stephanie",
+            "Evans, La'Tier",
+            "Shifler, Ryan M."
+        ],
+        "departments": [
+            "Math"
+        ],
+        "titles": [
+            "GENERATING PYTHAGOREAN TRIPLES OF A GIVEN HEIGHT",
+            "GENERALIZED FIBONACCI SEQUENCES IN PYTHAGOREAN TRIPLE PRESERVING MATRICES",
+            "When is the q-multiplicity of a weight a power of q?",
+            "Curve Neighborhoods of Schubert Varieties in the Odd Symplectic Grassmannian",
+            "Conjecture O holds for the odd symplectic Grassmannian",
+            "Galkin's lower bound conjecture holds for the Grassmannian",
+            "ON PYTHAGOREAN TRIPLE PRESERVING MATRICES THAT CONTAIN FIBONACCI NUMBERS",
+            "ON FROBENIUS-PERRON DIMENSION",
+            "Conjecture O holds for some horospherical varieties of Picard rank 1",
+            "Dedekind sums arising from newform Eisenstein series",
+            "Equivariant quantum cohomology of the odd symplectic Grassmannian",
+            "On the spectral properties of the quantum cohomology of odd quadrics",
+            "A note on generating primitive Pythagorean triples using matrices"
+        ]
+    }
+}

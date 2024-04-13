@@ -14,4 +14,4 @@ Install dependencies:
 `npm install`
 
 Now you can run the site with:
-`npm run dev`  
+`npm run dev`
