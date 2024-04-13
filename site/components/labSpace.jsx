@@ -1,4 +1,4 @@
-export const labSpace= () =>{
+export const LabSpace= () =>{
 return (
     <div className="text-white">
         <h1 className="font-bold">Associated Lab Space
