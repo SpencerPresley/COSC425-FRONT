@@ -32,9 +32,12 @@ export const CatAccord = ({ data }) => {
                     </AccordionItem>
                     <AccordionItem value="article">
                         <AccordionTrigger>{details.article_count} Article(s)</AccordionTrigger>
+                        {Object.entries(details.titles).map(([d,p]) => (
                         <AccordionContent>
-                            Mouse Cheese
-                        </AccordionContent>
+                        {p}
+                    </AccordionContent>
+                        ))}
+
                     </AccordionItem>
                 </Accordion>
             </div>
