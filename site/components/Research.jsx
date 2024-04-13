@@ -2,12 +2,12 @@
 export const Themes = () => {
     return (
         <div>
-            <h1>Research Themes</h1>
+            <h1 className="text-white font-bold">Research Themes</h1>
             <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-                <li>Item 4</li>
+                <li className="text-sm text-white">Item 1</li>
+                <li className="text-sm text-white">Item 2</li>
+                <li className="text-sm text-white">Item 3</li>
+                <li className="text-sm text-white">Item 4</li>
             </ul>
         </div>
     );
