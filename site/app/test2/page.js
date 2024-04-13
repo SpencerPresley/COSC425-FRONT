@@ -30,7 +30,7 @@ export default function page() {
                 <div className="bg-orange-500 text-white font-bold rounded-lg shadow-xl flex justify-center p-4 row-span-2">
                     <Themes />
                 </div>
-                <div className="bg-green-500 text-white rounded-lg shadow-xl p-4 col-span-2 row-span-2">
+                <div className="bg-suMaroon text-white rounded-lg shadow-xl p-4 col-span-2 row-span-2">
                     <KeyFunded/>
                 </div>
                 <div className="bg-suMaroon rounded-lg shadow-xl flex justify-center p-4">
