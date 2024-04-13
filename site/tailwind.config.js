@@ -18,6 +18,7 @@ module.exports = {
     },
     extend: {
       colors: {
+        'suMaroon': '#8A0000',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
