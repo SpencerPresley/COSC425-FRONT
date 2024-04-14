@@ -13,10 +13,10 @@ export default function page() {
 
     return (
         <div>
-            <div className="bg-suMaroon text-white font-bold rounded-lg shadow-xl flex justify-center p-20 row-span-2 mx-[20%]">
+            <div className="grid grid-rows-5 grid-cols-2 gap-4 grid-flow-row-dense mt-10 mx-[20%] m-20 ">
+                <div className="bg-suMaroon text-white font-bold rounded-lg shadow-xl flex justify-center p-2 col-span-2 text-center py-[5%]">
                     <CatTitle data={data}/>
                 </div>
-            <div className="grid grid-rows-5 grid-cols-2 gap-4 grid-flow-row-dense mt-10 mx-[20%] m-20 ">
                 <div className="bg-suMaroon text-white font-bold rounded-lg shadow-xl flex justify-center p-2 row-span-2 ">
                     <CatAccord data={data}/>
                 </div>
