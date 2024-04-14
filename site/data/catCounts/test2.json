@@ -1,0 +1,35 @@
+{
+    "Business": {
+        "faculty_count": 19,
+        "department_count": 5,
+        "article_count": 33,
+        "faculty": [
+            "Morris, Paula T.",
+            "Miao, Chao",
+            "Johnson, Aaron",
+            "Yoon, David J.",
+            "Munemo, Jonathan",
+            "Villalobos, Laura",
+            "Billups, M. Judith",
+            "Fennell, Patrick",
+            "Wu, Yun",
+            "Singh, Nitya P.",
+            "Richerson, Rob",
+            "Pasirayi, Simbarashe",
+            "Sen, Argha",
+            "Adams, Stephen B.",
+            "Gang, KwangWook",
+            "Lei, Shan",
+            "Schneider, Gustavo",
+            "Poddar, Amit",
+            "Eun, Jihyun"
+        ],
+        "departments": [
+            "Management & Mkt",
+            "Mkt",
+            "Environm Studies",
+            "Informat & Decis Sci",
+            "Econ & Finance"
+        ]
+    }
+}
