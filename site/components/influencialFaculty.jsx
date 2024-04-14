@@ -8,30 +8,24 @@ import {
 export const InfluencialFaculty = () => {
     return (
         <div>
-                <h2>Influencial Faculty:</h2>
-                <Accordion type="single" collapsible>
-                    <AccordionItem value="faculty">
-                        <AccordionTrigger>Faculty</AccordionTrigger>
-                            <AccordionContent>
-                                {p}
-                            </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="dept">
-                        <AccordionTrigger>Departments</AccordionTrigger>
-                            <AccordionContent> 
-                                {p}
-                            </AccordionContent>
-
-                    </AccordionItem>
-                    <AccordionItem value="article">
-                        <AccordionTrigger>Article</AccordionTrigger>
-                        <AccordionContent>
-                        {p}
-                    </AccordionContent>
-                    
-
-                    </AccordionItem>
-                </Accordion>            
+            <Accordion type="single" collapsible>
+                <AccordionItem value="faculty">
+                    <h2>Influencial Faculty:</h2>
+                    <li>
+                        <div>
+                            Dr. Sally Smith, Computer science faculty<br />
+                            Member: 12 Publications, 2 Funding Awards
+                        </div>
+                        
+                    </li>
+                    <li>
+                        
+                            Dr. Jeff Richards, Computer science faculty<br />
+                            Member: 7 Publications, 1 Funding Award
+                        
+                    </li>
+                </AccordionItem>
+            </Accordion>
         </div>
     );
 };
