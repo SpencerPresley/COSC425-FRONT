@@ -19,23 +19,23 @@ export default function page() {
             {/* Standard practice is 12 columns and you divide them how you want so i changed that */}
             {/* row-span-2 = take up 2 rows out of 5 */}
             {/* col-span-2 = take up 2 columns out of 12*/}
-            <div className="grid grid-rows-5 grid-cols-3 gap-4 grid-flow-row-dense mt-10 mx-10 m-20">
-                <div className="bg-suMaroon text-white font-bold rounded-lg shadow-xl flex justify-center p-4 row-span-2">
+            <div className="grid grid-rows-5 grid-cols-2 gap-4 grid-flow-row-dense mt-10 mx-[20%] m-20 ">
+                <div className="bg-suMaroon text-white font-bold rounded-lg shadow-xl flex justify-center p-2 row-span-2 md:row-span-2 ">
                     <CatAccord data={data}/>
                 </div>
-                <div className="bg-suMaroon text-white font-bold rounded-lg shadow-xl flex justify-center p-4 col-span-2">
+                <div className="bg-suMaroon text-white font-bold rounded-lg shadow-xl flex justify-center p-2 col-span-1">
                     <InfluencialFaculty />
                 </div>
-                <div className="bg-suMaroon text-white font-bold rounded-lg shadow-xl flex justify-center p-4 col-span-2 row-span-2">
+                <div className="bg-suMaroon text-white font-bold rounded-lg shadow-xl flex justify-center p-2 col-span-1 row-span-2 md:row-span-2">
                     <Themes />
                 </div>
-                <div className="bg-suMaroon text-white font-bold rounded-lg shadow-xl flex justify-center p-4 row-span-2">
+                <div className="bg-suMaroon text-white font-bold rounded-lg shadow-xl flex justify-center p-2 row-span-2 md:row-span-2">
                     <InfluencialArticle />
                 </div>
-                <div className="bg-suMaroon text-white font-bold rounded-lg shadow-xl flex justify-center p-4 col-span-2 row-span-2">
+                <div className="bg-suMaroon text-white font-bold rounded-lg shadow-xl flex justify-center p-2 col-span-1 row-span-2 md:row-span-2">
                     <KeyFunded/>
                 </div>
-                <div className="bg-suMaroon text-white font-bold rounded-lg shadow-xl flex justify-center p-4">
+                <div className="bg-suMaroon text-white font-bold rounded-lg shadow-xl flex justify-center p-2">
                     <LabSpace />
                 </div>
             </div>

@@ -30,7 +30,7 @@ export const LabSpace = () => {
                         <li>
                             Sq ft: 530
                         </li>
-                        <li>
+                        <li className="text-decoration-line: underline">
                             List of Equipment
                         </li>
                     </div>
