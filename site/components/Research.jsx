@@ -1,7 +1,7 @@
 export const Themes = ({ themedata }) => {
     return (
         <div>
-            <h1 className="font-bold">Research Topics</h1>
+            <h1 className="font-bold underline flex justify-center">Research Topics</h1>
             {Object.entries(themedata).map(([theme, details]) => (
                 <div key={theme}>
                     <h2>{theme}</h2>
@@ -16,7 +16,7 @@ export const Themes = ({ themedata }) => {
                                     </li>
                                 ))}
                             </ul>
-                            <hr />
+                            <br />
                         </div>
                     ))}
                 </div>

@@ -29,7 +29,7 @@ export default function page() {
                 <div className="bg-pink-500 text-white font-bold rounded-lg shadow-xl flex justify-center p-4 col-span-2 row-span-2">
                     <LabSpace />
                 </div>
-                <div className="bg-orange-500 text-white font-bold rounded-lg shadow-xl flex justify-center p-4 row-span-2">
+                <div className="bg-suMaroon text-white font-bold rounded-lg shadow-xl flex justify-center p-4 row-span-2">
                     <Themes themedata={themedata} />
                 </div>
                 <div className="bg-suMaroon text-white rounded-lg shadow-xl p-4 col-span-2 row-span-2">
