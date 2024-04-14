@@ -1,25 +1,22 @@
 export const InfluencialArticle = () => {
     return (
         <div>
-            <div value="faculty" className=" px-10 pb-10">
+            <div value="faculty" className=" px-10 pb-10 ">
                 <h2>Influencial Published Articles:</h2>
                 <div className="px-10">
                     <div className="text-sm list-disk;">
                         <li>
-                            Dr. Sally Smith, Computer science faculty<br />
-                            <p className="pl-5">Member: 12 Publications, 2 Funding Awards</p>
+                            Digitial Rights Management in the Age of Generative AI (2023): Class A, 82 Ciations
                         </li>
                     </div>
                     <div className="text-sm list-disk">
                         <li>
-                            Dr. Jeff Richards, Computer science faculty<br />
-                            <p className="pl-5">Member: 7 Publications, 1 Funding Award</p>
+                            AI Bias in Natural Language Model Source Data (2022): Class B, 230 Citations
                         </li>
                     </div>
                     <div className="text-sm list-disk">
                         <li>
-                            Dr. Jeff Richards, Computer science faculty<br />
-                            <p className="pl-5">Member: 7 Publications, 1 Funding Award</p>
+                            AI Prompt Engineering for Visual Representation Accuracy (2024): Class A, 42 Citations
                         </li>
                     </div>
                 </div>
