@@ -1,14 +1,7 @@
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from "@/components/ui/accordion"
-
 export const InfluencialFaculty = () => {
     return (
         <div>
-            <div value="faculty" className="text-white px-10 pb-10">
+            <div value="faculty" className=" px-10 pb-10">
                 <h2>Influencial Faculty:</h2>
                 <div className="px-10">
                     <div className="text-sm list-disk;">
