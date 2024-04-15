@@ -8,7 +8,7 @@ import { useThemeData } from "@/components/useThemeData.server";
   
 export default function page() {
     const data = useCatData();
-    const themedata = useThemeData();
+    // const themedata = useThemeData();
 
     return (
         <div>
@@ -30,7 +30,7 @@ export default function page() {
                     <LabSpace />
                 </div>
                 <div className="bg-suMaroon text-white font-bold rounded-lg shadow-xl flex justify-center p-4 row-span-2">
-                    <Themes themedata={themedata} />
+                    <Themes data={data} />
                 </div>
                 <div className="bg-suMaroon text-white rounded-lg shadow-xl p-4 col-span-2 row-span-2">
                     <KeyFunded/>

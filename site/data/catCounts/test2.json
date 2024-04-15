@@ -30,6 +30,14 @@
             "Environm Studies",
             "Informat & Decis Sci",
             "Econ & Finance"
+        ],
+        "themes": [
+            "Resilience Training",
+            "Job Satisfaction",
+            "Turnover Intentions",
+            "Role Stressors",
+            "Stress Arousal",
+            "Burnout"
         ]
     }
 }

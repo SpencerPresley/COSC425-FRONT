@@ -1,5 +1,6 @@
 {
     "Business": {
+        "url": "business",
         "faculty_count": 19,
         "department_count": 5,
         "article_count": 33,
@@ -65,6 +66,14 @@
             "False advertising or slander? Using location based tweets to assess online rating-reliability",
             "Run-of-the-Mill or Avant Garde? Identifying restaurant category positioning and tastemakers from digital geo-location history",
             "#Activism: Investor Reactions to Corporate Sociopolitical Activism"
+        ],
+        "Themes": [
+            "Resilience Training",
+            "Job Satisfaction",
+            "Turnover Intentions",
+            "Role Stressors",
+            "Stress Arousal",
+            "Burnout"
         ]
     }
 }

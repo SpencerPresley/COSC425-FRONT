@@ -18,3 +18,7 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+// map the json category
+//   map through data grab urlId
+//   <Link {urlId}>{Category} 
