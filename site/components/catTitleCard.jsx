@@ -3,7 +3,7 @@ export const CatTitle = ({ data }) => {
     return (
         <div>
             {Object.entries(data).map(([category, details]) => (
-                <div key={category} className="text-5xl">
+                <div key={category} className="text-5xl ">
                    {category}                    
                 </div>
             ))}
