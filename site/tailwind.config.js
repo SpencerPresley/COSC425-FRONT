@@ -18,6 +18,8 @@ module.exports = {
     },
     extend: {
       colors: {
+        'gold-start': '#D4AF37', // Rich gold
+        'gold-end': '#FFD700',   // Brighter gold
         'suMaroon': '#8A0000',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -52,6 +54,9 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+      },
+      backgroundImage: {
+        'gold-gradient': 'linear-gradient(to right, #D4AF37, #FFD700)',
       },
       borderRadius: {
         lg: "var(--radius)",

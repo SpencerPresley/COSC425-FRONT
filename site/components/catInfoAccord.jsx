@@ -8,18 +8,20 @@ import {
 export const CatAccord = ({ data }) => {
     console.log(data);
     return (
-        <div>
+        <div className="">
             {Object.entries(data).map(([category, details]) => (
-            <div key={category}>
+            <div key={category} >
                 <h2>{category}</h2>
-                <Accordion type="single" collapsible>
+                <Accordion type="single" collapsible > 
                     <AccordionItem value="faculty">
                         <AccordionTrigger>{details.faculty_count} Faculty</AccordionTrigger>
+                        <div className="overflow-scroll max-h-full">
                         {Object.entries(details.faculty).map(([d, p]) => (
                             <AccordionContent>
                                 {p}
                             </AccordionContent>
                         ))}
+                        </div>
                     </AccordionItem>
                     <AccordionItem value="dept">
                         <AccordionTrigger>{details.department_count} Departments</AccordionTrigger>

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "BROWSER='firefox' next dev",
+    "dev": "BROWSER='firefox' next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
