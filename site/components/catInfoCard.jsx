@@ -17,16 +17,20 @@ const bull = (
 );
 
 export const CatCard = ({themedata}) => {
+  // Extract categories from the themedata object
+  const categories = Object.keys(themedata).sort();
+
   return (
     <div className="flex justify-center items-center flex-col" style={{ gap: '20px', width: '100%', padding: '0 20px' }}>
-      {Object.entries(themedata).map(([category, details]) => (
-        <Card key={category} sx={{ maxWidth: 400, minWidth:200, margin: '10px auto' }}>
+      {categories.map((category) => (
+        <Card key={category} sx={{ maxWidth: 400, minWidth: 300,margin: '10px auto' }}>
           <CardContent>
-            <Typography sx={{ fontSize: 25, fontWeight: 'bold' }} color="text.secondary" gutterBottom>
+            <Typography sx={{ fontSize: 25, fontWeight: 'bold' }} color="text.primary" gutterBottom>
               {category}
             </Typography>
           </CardContent>
           <CardActions>
+            {/* Add any actions you want here */}
           </CardActions>
         </Card>
       ))}
