@@ -8,7 +8,6 @@ import { useThemeData } from "@/components/useThemeData.server";
   
 export default function page() {
     const data = useCatData();
-    // const themedata = useThemeData();
 
     return (
         <div>

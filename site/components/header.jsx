@@ -14,6 +14,9 @@ export const Header = () => {
           <Link href="/test2" className="nav-link">
             test2
           </Link>
+          <Link href="/category" className="nav-link">
+            Categories
+          </Link>
         </nav>
       </div>
     </div>

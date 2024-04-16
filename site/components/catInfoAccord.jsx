@@ -6,7 +6,6 @@ import {
 } from "@/components/ui/accordion"
 
 export const CatAccord = ({ data }) => {
-    console.log(data);
     return (
         <div>
             {Object.entries(data).map(([category, details]) => (

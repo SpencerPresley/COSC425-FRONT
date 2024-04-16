@@ -1,7 +1,4 @@
-
-
 import { CatAccord } from "./catInfoAccord";
-
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -19,32 +16,20 @@ const bull = (
   </Box>
 );
 
-export const CatCard = () => {
+export const CatCard = ({themedata}) => {
   return (
-    <div className="flex justify-center">
-    <Card sx={{ maxWidth: 500, minWidth: 300 }}>
-      <div className="border-2 border-red-500">
-      <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Word of the Day
-        </Typography>
-        <Typography variant="h5" component="div">
-          be{bull}nev{bull}o{bull}lent
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          adjective
-        </Typography>
-        <Typography variant="body2">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-      </div>
-    </Card>
+    <div className="flex justify-center items-center flex-col" style={{ gap: '20px', width: '100%', padding: '0 20px' }}>
+      {Object.entries(themedata).map(([category, details]) => (
+        <Card key={category} sx={{ maxWidth: 400, minWidth:200, margin: '10px auto' }}>
+          <CardContent>
+            <Typography sx={{ fontSize: 25, fontWeight: 'bold' }} color="text.secondary" gutterBottom>
+              {category}
+            </Typography>
+          </CardContent>
+          <CardActions>
+          </CardActions>
+        </Card>
+      ))}
     </div>
   );
 }
