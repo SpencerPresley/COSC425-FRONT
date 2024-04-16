@@ -43,7 +43,7 @@ export const CatAccord = ({ data }) => {
                                 </AccordionContent>
                             ))}
                         </AccordionItem>
-                        <AccordionItem value="Proposals">
+                        {/* <AccordionItem value="Proposals">
                             <AccordionTrigger className="font-bold">3 Proposals</AccordionTrigger>
                                 <AccordionContent className=" px-10 pb-10 ">
                                     <li>
@@ -56,7 +56,7 @@ export const CatAccord = ({ data }) => {
                                         Intorduction to Computer Mice 3
                                     </li>
                                 </AccordionContent>
-                        </AccordionItem>
+                        </AccordionItem> */}
                     </Accordion>
                 </div>
             ))}

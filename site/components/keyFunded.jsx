@@ -18,7 +18,8 @@ export const KeyFunded = () => {
                 <div className="px-10">
                 <div className="text-sm list-disk pl-5">
                         <li>
-                        $175,000- Building an AI Natural Language Model for Geographic Information System Analysis, National Science Foundation (NSF), Awarded 2023
+                        {/* $175,000- Building an AI Natural Language Model for Geographic Information System Analysis, National Science Foundation (NSF), Awarded 2023 */}
+                            Coming Soon...
                         </li>
                     </div>
                 </div>
