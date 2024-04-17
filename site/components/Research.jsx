@@ -1,18 +1,16 @@
-export const Themes = ({ data }) => {
+export const Themes = ({ themes }) => {
     return (
         <div>
             <h1 className="font-bold underline flex justify-center">Research Topics</h1>
-            {Object.entries(data).map(([theme, details]) => (
-                <div key={theme}>
+                <div>
                     <br />
-                    {Object.entries(details.Themes).map(([section, themes]) => (
+                    {themes.map((themes) => (
                         <ul>
-                            <li>{themes}</li>
+                            <li key={index}>{themes}</li>
                         </ul>
                     ))}
                     <br />
                 </div>
-            ))}
         </div>
     );
 };

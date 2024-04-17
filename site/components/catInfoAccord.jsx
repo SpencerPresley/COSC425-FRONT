@@ -3,48 +3,40 @@ import {
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from "@/components/ui/accordion"
-
-export const CatAccord = ({ data }) => {
-    console.log(data);
+  } from "@/components/ui/accordion";
+  
+  export const CatAccord = ({ 
+    facultyCount,
+    departmentCount,
+    articleCount,
+    faculty,
+    departments,
+    titles
+    }) => {
     return (
-        <div className="">
-            {Object.entries(data).map(([category, details]) => (
-            <div key={category} >
-                <h2>{category}</h2>
-                <Accordion type="single" collapsible > 
-                    <AccordionItem value="faculty">
-                        <AccordionTrigger>{details.faculty_count} Faculty</AccordionTrigger>
-                        <div className="overflow-scroll max-h-full">
-                        {Object.entries(details.faculty).map(([d, p]) => (
-                            <AccordionContent>
-                                {p}
-                            </AccordionContent>
-                        ))}
-                        </div>
-                    </AccordionItem>
-                    <AccordionItem value="dept">
-                        <AccordionTrigger>{details.department_count} Departments</AccordionTrigger>
-                        {Object.entries(details.departments).map(([d,p]) => (
-                            <AccordionContent> 
-                                {p}
-                            </AccordionContent>
-                        ))}
-
-                    </AccordionItem>
-                    <AccordionItem value="article">
-                        <AccordionTrigger>{details.article_count} Article(s)</AccordionTrigger>
-                        {Object.entries(details.titles).map(([d,p]) => (
-                        <AccordionContent>
-                        {p}
-                    </AccordionContent>
-                        ))}
-
-                    </AccordionItem>
-                </Accordion>
+      <div className="">
+        <Accordion type="single" collapsible>
+          <AccordionItem value="faculty">
+            <AccordionTrigger>({facultyCount}) Faculty</AccordionTrigger>
+            <div className="overflow-scroll max-h-full">
+              {faculty.map((member, index) => (
+                <AccordionContent key={index}>{member}</AccordionContent>
+              ))}
             </div>
+          </AccordionItem>
+          <AccordionItem value="dept">
+            <AccordionTrigger>({departmentCount}) Departments</AccordionTrigger>
+            {departments.map((dept, index) => (
+              <AccordionContent key={index}>{dept}</AccordionContent>
             ))}
-        </div>
+          </AccordionItem>
+          <AccordionItem value="article">
+            <AccordionTrigger>({articleCount}) Article(s)</AccordionTrigger>
+            {titles.map((tit, index) => (
+              <AccordionContent key={index}>{tit}</AccordionContent>
+            ))}
+          </AccordionItem>
+        </Accordion>
+      </div>
     );
-};
-
+  };
