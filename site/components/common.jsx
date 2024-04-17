@@ -1,38 +1,18 @@
 import Link from "next/link";
 
-
 import "./styles/styles.css";
 
 export const Header = () => {
   return (
-    <div className="flavor-header">
-      <div className="site-header">
-        <h1>Salsibury Research</h1>
-        <nav className="navigation">
-          <Link href="/" className="nav-link">
-            Home
-          </Link>
-          <Link href="/test2" className="nav-link">
-            test2
-          </Link>
-        </nav>
-      </div>
-    </div>
-  );
-};
-
-export const Header2 = () => {
-  return (
-    <div>
+    <div className="z-40 sticky ">
       <header class="bg-gray-900 text-white">
         <div class="container h-md mx-auto px-4 py-3 flex justify-between items-center">
             <h1 class="text-xl font-semibold">Salisbury Research Directory</h1>
             <nav>
                 <ul class="flex space-x-4">
-                    <li><Link href="/" class="hover:text-gray-300">Home</Link></li>
-                    <li><Link href="#" class="hover:text-gray-300">TopicA-Z</Link></li>
-                    
-                    <li><Link href="#" class="hover:text-gray-300">Contact</Link></li>
+                    <li className="bg-gold-gradient p-2 rounded-lg"><Link href="/" class="hover:text-gray-300">Home</Link></li>
+                    <li className="bg-gold-gradient rounded-lg"><Link href="#" class="hover:text-gray-300">TopicA-Z</Link></li>
+                    <li className="bg-gold-gradient rounded-lg"><Link href="#" class="hover:text-gray-300">Contact</Link></li>
                 </ul>
             </nav>
         </div>
@@ -43,7 +23,7 @@ export const Header2 = () => {
 
 export const Footer = () => {
   return (
-    <footer class="bg-white dark:bg-gray-900">
+    <footer class="bg-suMaroon border-t border-zinc-200">
         <div class="mx-auto w-full max-w-screen-xl">
           <div class="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
             <div>
@@ -103,7 +83,7 @@ export const Footer = () => {
                 </ul>
             </div>
         </div>
-        <div class="px-4 py-6 bg-gray-100 dark:bg-gray-700 md:flex md:items-center md:justify-between">
+        <div class="px-4 py-6 bg-suMaroon dark:bg-gray-700 md:flex md:items-center md:justify-between">
         <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <Link href="https://github.com/SpencerPresley/COSC425-MAIN" class="hover:underline">SalisburyResearch™</Link>. All Rights Reserved.</span>
             <div class="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
                 <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
@@ -142,6 +122,3 @@ export const Footer = () => {
     </footer>
   );
 };
-  
-  
-  

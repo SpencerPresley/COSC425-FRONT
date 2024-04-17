@@ -2,16 +2,16 @@ import Image from "next/image";
 // import { Home } from "@/components/home"
 
 
-
-export default async function page() {
+export default function Home() {
   return (
-    <div>
-      {/* <Home/> */}
-      {/* {Object.entries(data).map(([key, details]) => (
-        <div key={key}> 
-          <h2>{key}</h2>
-        </div> 
-      ))} */}
-    </div>
+    <>
+      <span className="font-bold text-4xl">Home</span>
+      <div className="border-dashed border border-zinc-500 w-full h-12 rounded-lg"></div>
+      <div className="border-dashed border border-zinc-500 w-full h-64 rounded-lg"></div>
+      <div className="border-dashed border border-zinc-500 w-full h-64 rounded-lg"></div>
+      <div className="border-dashed border border-zinc-500 w-full h-64 rounded-lg"></div>
+      <div className="border-dashed border border-zinc-500 w-full h-64 rounded-lg"></div>
+      <div className="border-dashed border border-zinc-500 w-full h-64 rounded-lg"></div>
+    </>
   );
 }
