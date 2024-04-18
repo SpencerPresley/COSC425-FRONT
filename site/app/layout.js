@@ -17,21 +17,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <CustomNavbar />
-        <OuterWrapper>
-          <div className="bg-suMaroon flex-grow grid grid-cols-1 md:grid-cols-7 h-full w-full">
-            <div className="col-span-2">
-              <SideNav/>
-            </div>
-            <div className="col-span-5">
-              <Wrapper>
-                <PageWrapper>{children}</PageWrapper>
-              </Wrapper>
-            </div>
-          </div>
-          <div>
-            <Footer/>
-          </div>
-        </OuterWrapper>
+        {children}
+        <Footer/>
       </body>
       
     </html>
