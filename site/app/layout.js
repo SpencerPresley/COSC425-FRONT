@@ -1,7 +1,9 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Header, Footer, Header2 } from "../components/header";
-import { CustomNavbar } from "../components/customNavbar";
+import { Header, Footer} from "@/components/common";
+import { Wrapper, PageWrapper, OuterWrapper } from "@/components/wrappers"
+import { SideNav } from "@/components/side-nav"
+import { CustomNavbar } from "@/components/customNavbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,10 +17,23 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <CustomNavbar />
-         {/* <Header2/> */}
-        {children}
-        {/* <Footer/> */}
-        </body>
+        <OuterWrapper>
+          <div className="bg-suMaroon flex-grow grid grid-cols-1 md:grid-cols-7 h-full w-full">
+            <div className="col-span-2">
+              <SideNav/>
+            </div>
+            <div className="col-span-5">
+              <Wrapper>
+                <PageWrapper>{children}</PageWrapper>
+              </Wrapper>
+            </div>
+          </div>
+          <div>
+            <Footer/>
+          </div>
+        </OuterWrapper>
+      </body>
+      
     </html>
   );
 }
