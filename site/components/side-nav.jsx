@@ -34,7 +34,7 @@ async function getUrls() {
               key={url}
               className="shrink-0 border-dashed border w-full h-24 text-center my-auto"
             >
-              <Link href={`/${url}`}>
+              <Link href={`/category/${url}`}>
                 <a>
                   <h2 className="text-white text-xl text-bold">
                     {url

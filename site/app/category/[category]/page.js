@@ -54,7 +54,7 @@ async function getCategoryData(category) {
           <div className="bg-suMaroon w-full h-full flex flex-col space-y-4">
               <span className="font-bold text-4xl text-center text-white flex flex-col justify-center">{categoryName}</span>
               <div className="overflow-scroll max-h-screen flex flex-col space-y-2">
-                <div className="flex flex-row shrink-0 bg-white border-dashed border border-zinc-500 w-full h-64 rounded-lg">
+                <div className="flex lg:flex-row flex-col shrink-0 bg-white border-dashed border border-zinc-500 w-full h-64 rounded-lg">
                   <Card 
                     title={"faculty"}
                     count={categoryData.faculty_count}
