@@ -48,57 +48,50 @@ export default async function Page({ params }) {
   } = categoryData
 
   return (
-    <div>
-        {/* mt-10 = 10px margin top */}
-        {/* mx-10 = 10px margin left and right */}
-        {/* m-20 = 20px margin all around */}
-
-        {/* Standard practice is 12 columns and you divide them how you want so i changed that */}
-        {/* row-span-2 = take up 2 rows out of 5 */}
-        {/* col-span-2 = take up 2 columns out of 12*/}
-        <div className="grid grid-rows-8 grid-cols-5 gap-4 grid-flow-row-dense mt-10 mx-10 m-20 h-dvh">
-            <div className="bg-suMaroon text-white font-bold rounded-lg shadow-xl flex justify-center p-4 sm:row-span-3 row-span-2 sm:col-span-5 col-span-5">
-                <div className="bg-suMaroon text-white font-black rounded-lg shadow-xl flex justify-center p-4 sm:col-span-5"><h1>{categoryName}</h1></div>
-                <div className="overflow-scroll max-h-full">
-                    <CatAccord
-                        facultyCount={categoryData.faculty_count}
-                        departmentCount={categoryData.department_count}
-                        articleCount={categoryData.article_count}
-                        faculty={categoryData.faculty}
-                        departments={categoryData.departments}
-                        titles={categoryData.titles}
-                    />
-                </div>
-            </div>
-            <div className="bg-gold-gradient text-white font-bold rounded-lg shadow-xl flex justify-center p-4 row-span-3 col-span-5">
-                <div className="overflow-scroll max-h-full">
-                    {/* <Themes 
-                        themes={themes}
-                    /> */}
-                    ({console.log(categoryData)})
-                </div>
-            </div>
-            <div className="bg-suMaroon text-white font-bold rounded-lg shadow-xl flex justify-center p-4 row-span-2 col-span-5">
-                <div className="overflow-scroll max-h-full">
-                    <LabSpace />
-                </div>
-            </div>
-            <div className="bg-gold-gradient text-white font-bold rounded-lg shadow-xl flex justify-center p-4 row-span-2 col-span-5 ">
-                <div className="overflow-scroll max-h-full">
-                    <LabSpace />
-                </div>
-            </div>
-            <div className="bg-suMaroon text-white rounded-lg shadow-xl p-4 col-span-5 row-span-2">
-                <div className="overflow-scroll max-h-full">
-                    <KeyFunded/>
-                </div>
-            </div>
-            <div className="bg-suMaroon rounded-lg shadow-xl flex justify-center p-4 col-span-5">
-                <div className="overflow-scroll max-h-full">
-                    <LabSpace />
-                </div>
-            </div>
+    <div className="py-10 px-5 lg:px-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Category Name Card */}
+        <div className="col-span-1 md:col-span-2 lg:col-span-3 bg-suMaroon text-white font-bold rounded-lg shadow-2xl p-6 flex justify-center items-center">
+          <h1 className="text-2xl md:text-3xl">{categoryName}</h1>
         </div>
+  
+        {/* Category Accord Card */}
+        <div className="bg-white text-gray-800 rounded-lg shadow-2xl overflow-hidden">
+          <div className="p-6">
+            <CatAccord
+              facultyCount={categoryData.faculty_count}
+              departmentCount={categoryData.department_count}
+              articleCount={categoryData.article_count}
+              faculty={categoryData.faculty}
+              departments={categoryData.departments}
+              titles={categoryData.titles}
+            />
+          </div>
+        </div>
+  
+        {/* Placeholder for Themes - Uncomment and use when ready */}
+        {/* <div className="bg-gold-gradient text-white rounded-lg shadow-2xl p-6 overflow-hidden">
+          <Themes themes={themes} />
+        </div> */}
+  
+        {/* Lab Space Cards */}
+        <div className="bg-suMaroon text-white rounded-lg shadow-2xl p-6 overflow-hidden">
+          <LabSpace />
+        </div>
+        <div className="bg-gold-gradient text-white rounded-lg shadow-2xl p-6 overflow-hidden">
+          <LabSpace />
+        </div>
+  
+        {/* Key Funded Card */}
+        <div className="bg-white text-gray-800 rounded-lg shadow-2xl p-6 overflow-hidden col-span-1 md:col-span-2">
+          <KeyFunded />
+        </div>
+  
+        {/* Additional Lab Space Card if needed */}
+        <div className="bg-suMaroon text-white rounded-lg shadow-2xl p-6 overflow-hidden">
+          <LabSpace />
+        </div>
+      </div>
     </div>
   );
-}
+};
