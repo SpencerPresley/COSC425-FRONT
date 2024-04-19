@@ -1,10 +1,11 @@
+
 import { Themes } from "@/components/Research";
 import { CatCard } from "@/components/catInfoCard";
 import { CatAccord } from "@/components/catInfoAccord";
 import { LabSpace } from "@/components/labSpace";
-import { useCatData } from "@/components/useCatData.server";
+//import { useCatData } from "@/components/useCatData.server";
 import { KeyFunded } from "@/components/keyFunded";
-import { useThemeData } from "@/components/useThemeData.server";
+// import { useThemeData } from "@/components/useThemeData.server";
 import { Card } from "@/components/Card"
 
 export async function generateStaticParams() {
@@ -137,7 +138,7 @@ async function getCategoryData(category) {
 //               departments={categoryData.departments}
 //               titles={categoryData.titles}
 //             />
-//           </div>
+//           </div>educational
 //         </div>
   
 //         {/* Placeholder for Themes - Uncomment and use when ready */}
