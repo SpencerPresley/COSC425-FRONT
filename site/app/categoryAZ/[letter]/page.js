@@ -1,11 +1,3 @@
-
-import { Themes } from "@/components/Research";
-import { CatCard } from "@/components/catInfoCard";
-import { CatAccord } from "@/components/catInfoAccord";
-import { LabSpace } from "@/components/labSpace";
-//import { useCatData } from "@/components/useCatData.server";
-import { KeyFunded } from "@/components/keyFunded";
-// import { useThemeData } from "@/components/useThemeData.server";
 import { CardAZ } from "@/components/cardAZ"
 
 export async function generateStaticParams() {
@@ -38,6 +30,7 @@ export default async function Page({ params }) {
     // Handle the case when letterData is undefined
     return <div>Letter not found</div>;
   }
+  
   const {
     categoryName,
     url,
