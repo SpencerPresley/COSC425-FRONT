@@ -6,7 +6,7 @@ import { LabSpace } from "@/components/labSpace";
 //import { useCatData } from "@/components/useCatData.server";
 import { KeyFunded } from "@/components/keyFunded";
 // import { useThemeData } from "@/components/useThemeData.server";
-import { Card } from "@/components/Card"
+import { CardAZ } from "@/components/cardAZ"
 
 export async function generateStaticParams() {
   const data = await fetch("http://cosc425-category-data.s3.amazonaws.com/processed_category_data.json").then((res) => res.json());
@@ -52,23 +52,26 @@ export default async function Page({ params }) {
     <div className="bg-suMaroon w-full h-full flex flex-col space-y-4">
       <span className="font-bold text-4xl text-center text-white flex flex-col justify-center">page action</span>
       <div className="overflow-scroll max-h-screen flex flex-col space-y-2 m-8">
-      <div className="flex lg:flex-row flex-col shrink-0 bg-white border-dashed border border-zinc-500 w-full h-64 rounded-lg">
-        <div className="shrink-0 bg-white border border-zinc-500 w-full h-64 rounded-lg"></div>
-        <div className="shrink-0 bg-white border border-zinc-500 w-full h-64 rounded-lg"></div>
-        <div className="shrink-0 bg-white border border-zinc-500 w-full h-64 rounded-lg"></div>
+      <div className="flex lg:flex-row flex-col shrink-0 border-zinc-500 w-full h-64 rounded-lg">
+        <div className="shrink-0 bg-white border border-zinc-500 w-1/4 h-56 rounded-lg"></div>
+        <div className="shrink-0 bg-white border border-zinc-500 w-1/4 h-56 rounded-lg"></div>
+        <div className="shrink-0 bg-white border border-zinc-500 w-1/4 h-56 rounded-lg"></div>
         </div>
       </div>
       <div className="overflow-scroll max-h-screen flex flex-col space-y-2 m-8">
-      <div className="flex lg:flex-row flex-col shrink-0 bg-white border-dashed border border-zinc-500 w-full h-64 rounded-lg">
-        <div className="shrink-0 bg-white border border-zinc-500 w-full h-64 rounded-lg"></div>
-        <div className="shrink-0 bg-white border border-zinc-500 w-full h-64 rounded-lg"></div>
-        <div className="shrink-0 bg-white border border-zinc-500 w-full h-64 rounded-lg"></div>
+      <div className="flex lg:flex-row flex-col shrink-0 border-zinc-500 w-full h-64 rounded-lg content-around">
+        <div className="shrink-0 bg-white border border-zinc-500 w-1/4 h-56 rounded-lg"></div>
+        <div className="shrink-0 bg-white border border-zinc-500 w-1/4 h-56 rounded-lg"></div>
+        <div className="shrink-0 bg-white border border-zinc-500 w-1/4 h-56 rounded-lg"></div>
         </div>
       </div>
       <div className="overflow-scroll max-h-screen flex flex-col space-y-2 m-8">
-      <div className="flex lg:flex-row flex-col shrink-0 bg-white border-dashed border border-zinc-500 w-full h-64 rounded-lg">
-        <div className="shrink-0 bg-white border border-zinc-500 w-full h-64 rounded-lg"></div>
-        <div className="shrink-0 bg-white border border-zinc-500 w-full h-64 rounded-lg"></div>
+      <div className="flex lg:flex-row flex-col shrink-0 border border-zinc-500 w-full h-64 rounded-lg">
+      <CardAZ 
+                    title={categoryName}
+                    count={faculty_count}
+                    items={faculty}
+                  />
         </div>
       </div>
     </div>
