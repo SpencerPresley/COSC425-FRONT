@@ -1,0 +1,13 @@
+/* Assuming this is in a file like styles/global.css or components/Navbar.module.css */
+.tooltip {
+    @apply absolute bg-white text-white text-center rounded p-1 invisible opacity-0 transition-opacity;
+    width: 200px; /* Adjust width as needed */
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50; /* Ensure it's above other content */
+}
+
+.nav-link:hover .tooltip {
+    @apply visible opacity-100;
+}
