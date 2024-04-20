@@ -11,16 +11,18 @@ export const CardAZ = ({
     facultyCount,
     departmentCount,
     articleCount,
+    url,
     }) => {
     return (
-        <div className="bg-white rounded-lg h-56 w-1/4 hover:bg-gray-100 text-center flex flex-col overflow-scroll min-h-full p-1">
+        <div className=" rounded-lg w-1/4 max-h-20 flex flex-col p-10 text-lg">
             <Accordion type="single" collapsible>
-                <AccordionItem value="title"className="border-none rounded-lg">
-                    <AccordionTrigger>({count}) {title}</AccordionTrigger>
-                    <div className="overflow-scroll max-h-full">
-                    {items.map((member, index) => (
-                        <AccordionContent key={index}>{member}</AccordionContent>
-                    ))}
+                <AccordionItem value="title"className="border-none rounded-lg bg-white">
+                    <AccordionTrigger>{title}</AccordionTrigger>
+                    <div className="max-h-full w-full rounded-lg">
+                        <AccordionContent className="text-center">{facultyCount} Faculty</AccordionContent>
+                        <AccordionContent className="text-center">{departmentCount} Department</AccordionContent>
+                        <AccordionContent className="text-center">{articleCount} Article</AccordionContent>
+                        <AccordionContent className="text-right"><Link href={`/category/${url}`} className="hover:text-gray-300">Link</Link></AccordionContent>
                     </div>
                 </AccordionItem>
             </Accordion>
