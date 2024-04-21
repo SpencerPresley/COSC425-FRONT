@@ -8,7 +8,7 @@ export async function generateStaticParams() {
   }));
 }
 
-async function getletterData(letter) {
+async function getLetterData(letter) {
   const data = await fetch("http://cosc425-category-data.s3.amazonaws.com/processed_category_data.json").then((res) => res.json());
 
   // Find the category object based on the first letter in url property
@@ -22,23 +22,20 @@ async function getletterData(letter) {
   return null;
 }
 
-async function getAll (letter) {
+async function getAllData(letter) {
   const data = await fetch("http://cosc425-category-data.s3.amazonaws.com/processed_category_data.json").then((res) => res.json());
-
-  if (filtEntries) {
-    const letterData = filtEntries.map(([categoryName, entry]) => ({ categoryName, ...entry }));
-    return letterData;
-  }
-
-  return null;
+  const letterData = Object.entries(data).map(([categoryName, ...entry]) => ({categoryName, ...entry}));
+  return letterData;
 }
 
 export default async function Page({ params }) {
   const { letter } = params;
-  letterData;
+  let letterData = null;
 
-  if(params=="all"||params==null)
-    letterData = await getletterData(letter);
+  if (letter == "all")
+    letterData = await getAllData(letter);
+  else
+    letterData = await getLetterData(letter);
 
   if (!letterData) {
     // Handle the case when letterData is undefined
@@ -46,8 +43,8 @@ export default async function Page({ params }) {
   }
 
   const entrySets = [];
-  for(let i = 0; i < letterData.length; i += 4){
-    entrySets.push(letterData.slice(i, i+4));
+  for (let i = 0; i < letterData.length; i += 4) {
+    entrySets.push(letterData.slice(i, i + 4));
   }
 
   return (
@@ -55,9 +52,9 @@ export default async function Page({ params }) {
       <span className="font-bold text-4xl text-center text-white flex flex-col justify-center">page action</span>
       <div className="overflow-y-auto">
         {entrySets.map((set, setIndex) => (
-        <div key={setIndex} className="max-h-screen flex flex-col space-y-2 m-8">
-          <div className="flex lg:flex-row flex-col shrink- w-full h-60 rounded-lg">
-            {set.map((entry, index) => (
+          <div key={setIndex} className="max-h-screen flex flex-col space-y-2 m-8">
+            <div className="flex lg:flex-row flex-col shrink- w-full h-60 rounded-lg">
+              {set.map((entry, index) => (
                 <CardAZ
                   title={entry.categoryName}
                   facultyCount={entry.faculty_count}
@@ -65,9 +62,9 @@ export default async function Page({ params }) {
                   articleCount={entry.article_count}
                   url={entry.url}
                 />
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
         ))}
       </div>
     </div>
