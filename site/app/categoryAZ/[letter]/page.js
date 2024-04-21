@@ -12,11 +12,11 @@ async function getletterData(letter) {
   const data = await fetch("http://cosc425-category-data.s3.amazonaws.com/processed_category_data.json").then((res) => res.json());
 
   // Find the letter object based on the 'url' property
-  const letterEntry = Object.entries(data).find(([_, item]) => item.url === letter);
+  const filtEntries = Object.entries(data).filter(([_, item]) => item.url.startsWith(letter));
 
-  if (letterEntry) {
-    const [categoryName, letterData] = letterEntry;
-    return { categoryName, ...letterData };
+  if (filtEntries) {
+    const letterData = filtEntries.map(([categoryName, entry]) => ({ categoryName, ...entry }));
+    return letterData;
   }
 
   return null;
@@ -30,17 +30,6 @@ export default async function Page({ params }) {
     // Handle the case when letterData is undefined
     return <div>Letter not found</div>;
   }
-  
-  const {
-    categoryName,
-    url,
-    faculty_count,
-    department_count,
-    article_count,
-    faculty,
-    departments,
-    titles
-  } = letterData
 
   return (
     <div className="bg-suMaroon w-full h-full flex flex-col space-y-4">
@@ -48,13 +37,17 @@ export default async function Page({ params }) {
       <div className="overflow-y-auto">
         <div className="max-h-screen flex flex-col space-y-2 m-8">
           <div className="flex lg:flex-row flex-col shrink-0 w-full h-60 rounded-lg">
-            <CardAZ
-              title={categoryName}
-              facultyCount={faculty_count}
-              departmentCount={department_count}
-              articleCount={article_count}
-              url={url}
-            />
+            {letterData.map((entry, index) => (
+              <div key={index}>
+                <CardAZ
+                  title={entry.categoryName}
+                  facultyCount={entry.faculty_count}
+                  departmentCount={entry.department_count}
+                  articleCount={entry.article_count}
+                  url={entry.url}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
