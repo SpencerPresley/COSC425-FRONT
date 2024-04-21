@@ -52,7 +52,7 @@ async function getCategoryData(category) {
     } = categoryData
   
     return (
-          <div className="bg-suMaroon w-full h-full flex flex-col space-y-4">
+          <div className="bg-suMaroon w-full h-full flex flex-col space-y-4 m-0 p-0 ">
               <span className="font-bold text-4xl text-center text-white flex flex-col justify-center">{categoryName}</span>
               <div className="overflow-scroll max-h-screen flex flex-col space-y-2">
                 <div className="flex lg:flex-row flex-col shrink-0 bg-white border-dashed border border-zinc-500 w-full h-64 rounded-lg">
