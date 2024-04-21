@@ -1,4 +1,5 @@
 import { CardAZ } from "@/components/cardAZ"
+import { CatAZPage } from "@/components/catAzPage"
 
 export async function generateStaticParams() {
   const data = await fetch("http://cosc425-category-data.s3.amazonaws.com/processed_category_data.json").then((res) => res.json());
@@ -49,7 +50,7 @@ export default async function Page({ params }) {
 
   return (
     <div className="bg-suMaroon w-full h-full flex flex-col space-y-4">
-      <span className="font-bold text-4xl text-center text-white flex flex-col justify-center">page action</span>
+      <CatAZPage />
       <div className="overflow-y-auto">
         {entrySets.map((set, setIndex) => (
           <div key={setIndex} className="max-h-screen flex flex-col space-y-2 m-8">
