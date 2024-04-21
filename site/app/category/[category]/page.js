@@ -55,22 +55,27 @@ async function getCategoryData(category) {
           <div className="bg-suMaroon w-full h-full flex flex-col space-y-4 m-0 p-0 ">
               <span className="font-bold text-4xl text-center text-white flex flex-col justify-center">{categoryName}</span>
               <div className="overflow-scroll max-h-screen flex flex-col space-y-2">
-                <div className="flex lg:flex-row flex-col shrink-0 bg-white border-dashed border border-zinc-500 w-full h-64 rounded-lg">
+                <div className="flex lg:flex-row flex-col shrink-0 bg-white border-dashed border border-zinc-500 w-full lg:h-64 h-full rounded-lg">
+                
+                    <Card 
+                      title={"faculty"}
+                      count={categoryData.faculty_count}
+                      items={categoryData.faculty}
+                    />
+                </div>
+                <div className="shrink-0 bg-white border-dashed border border-zinc-500 w-full h-64 rounded-lg">
                   <Card 
-                    title={"faculty"}
-                    count={categoryData.faculty_count}
-                    items={categoryData.faculty}
-                  />
+                        title={"Departments"}
+                        count={categoryData.department_count}
+                        items={categoryData.departments}
+                      />
+                </div>
+                <div className="shrink-0 bg-white border-dashed border border-zinc-500 w-full h-64 rounded-lg">
                   <Card 
-                    title={"Departments"}
-                    count={categoryData.department_count}
-                    items={categoryData.departments}
-                  />
-                  <Card 
-                    title={"Articles"}
-                    count={categoryData.article_count}
-                    items={categoryData.titles}
-                  />
+                        title={"Articles"}
+                        count={categoryData.article_count}
+                        items={categoryData.titles}
+                      />
                 </div>
                 <div className="shrink-0 bg-white border-dashed border border-zinc-500 w-full h-64 rounded-lg">
                     <div className="overflow-scroll max-h-full text-center">
