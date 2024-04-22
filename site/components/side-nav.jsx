@@ -15,7 +15,7 @@ export const SideNav = async () => {
   categoryUrls.sort()
 
   return (
-    <div className="md:w-full bg-suMaroon h-full hidden md:flex">
+    <div className="md:w-full bg-black h-full hidden md:flex">
       {/* ... */}
       <div className="flex flex-col space-y-2 md:px-6 overflow-scroll max-h-screen">
         <div className="shrink-0 w-full text-center my-auto">

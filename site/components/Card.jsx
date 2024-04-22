@@ -1,28 +1,22 @@
-import Link from "next/link";
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-  } from "@/components/ui/accordion";
 
+import Link from "next/link";
 export const Card = ({ 
     title,
     count,
     items,
     }) => {
     return (
-        <div className="bg-white rounded-lg h-full w-full hover:bg-gray-100 text-center flex flex-col overflow-scroll min-h-full p-1">
-            <Accordion type="single" collapsible>
-                <AccordionItem value="title"className="border-none rounded-lg">
-                    <AccordionTrigger>({count}) {title}</AccordionTrigger>
-                    <div className="overflow-scroll max-h-full columns-3">
+        <div className="rounded-lg h-full w-screen md:w-full text-center flex flex-col p-1">
+            <div className=" flex flex-col h-full w-full">
+                <div className="basis-1/4">
+                    ({count}) {title}
+                </div>
+                <div className="basis-3/4 columns-3"> 
                     {items.map((member, index) => (
-                        <AccordionContent key={index}>{member}</AccordionContent>
+                    <div key={index}>{member}</div>
                     ))}
-                    </div>
-                </AccordionItem>
-            </Accordion>
+                </div>
+            </div>
         </div>
     )
 }

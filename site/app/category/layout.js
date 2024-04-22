@@ -4,23 +4,21 @@ import { Wrapper, PageWrapper, OuterWrapper } from "@/components/wrappers";
 
 export default function CategoryLayout({ children }) {
   return (
-    <OuterWrapper>
-      <div className="bg-suMaroon md:flex h-full w-full">
-        <div className="hidden md:block basis-1/12">
-
-        </div>
-        <div className="hidden md:block basis-2/12 pt-8">
+    // <OuterWrapper>
+      <div className="bg-black flex h-full w-full">
+        <div className="md:basis-1/4 pt-8">
           <SideNav />
         </div>
-        <div className="md:basis-6/12">
-          <Wrapper>
-            <PageWrapper>{children}</PageWrapper>
-          </Wrapper>
+        <div className="basis-4/4 md:basis-2/4 mt-5 mb-20">
+          {/* <Wrapper> */}
+            {/* <PageWrapper>{children}</PageWrapper> */}
+          {/* </Wrapper> */}
+          {children}
         </div>
-        <div className="hidden md:block basis-2/12">
-
+        <div className=" md:basis-1/4">
+          <p></p>
         </div>
       </div>
-    </OuterWrapper>
+    // </OuterWrapper>
   );
 }

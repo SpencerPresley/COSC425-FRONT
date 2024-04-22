@@ -14,7 +14,7 @@ export const CustomNav = () => {
   ];
 
   return (
-    <Navbar className="bg-slate-150" onMenuOpenChange={setIsMenuOpen}>
+    <Navbar className="bg-red-400 fixed" onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
