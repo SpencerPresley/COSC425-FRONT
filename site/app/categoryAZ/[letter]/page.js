@@ -41,7 +41,7 @@ export default async function Page({ params }) {
   }
 
   return (
-    <div className="bg-suMaroon w-full flex flex-col space-y-4 rounded-lg shadow-inner">
+    <div className="bg-suMaroon w-full flex flex-col space-y-4 rounded-lg outline outline-3 outline-su-extra-light-grey">
       <div className="m-8 text-5xl font-bold text-white text-center">Topic A-Z</div>
       <CatAZPag />
       <div>

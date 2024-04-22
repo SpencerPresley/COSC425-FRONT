@@ -20,6 +20,9 @@ module.exports = {
       colors: {
         'gold-start': '#D4AF37', // Rich gold
         'gold-end': '#FFD700',   // Brighter gold
+        'su-extra-light-grey':'#555555',// more light grey
+        'su-light-grey':'#444444',// light grey
+        'su-dark-grey':'#333333',// dark grey
         'suMaroon': '#8A0000',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
