@@ -16,8 +16,8 @@ export const CardAZ = ({
     return (
         <div className=" rounded-lg w-1/4 max-h-20 flex flex-col p-10 text-lg">
             <Accordion type="single" collapsible>
-                <AccordionItem value="title"className="border-none rounded-lg bg-white">
-                    <AccordionTrigger>{title}</AccordionTrigger>
+                <AccordionItem value="title"className="border-none rounded-lg bg-white min-h-24">
+                    <AccordionTrigger className="text-center">{title}</AccordionTrigger>
                     <div className="max-h-full w-full rounded-lg">
                         <AccordionContent className="text-center">{facultyCount} Faculty</AccordionContent>
                         <AccordionContent className="text-center">{departmentCount} Department</AccordionContent>

@@ -18,7 +18,7 @@ export const PageWrapper = ({ children }) => {
 export const OuterWrapper = ({ children }) => {
   return (
     <>
-      <div className="flex flex-col min-h-screen bg-suMaroon w-full h-full">
+      <div className="flex flex-col h-1/3 bg-suMaroon w-full">
           {children}
       </div>
     </>

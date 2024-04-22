@@ -1,14 +1,6 @@
 import { CardAZ } from "@/components/cardAZ"
 import { CatAZPag } from "@/components/catAzPag"
 
-export async function generateStaticParams() {
-  const data = await fetch("http://cosc425-category-data.s3.amazonaws.com/processed_category_data.json").then((res) => res.json());
-
-  return Object.keys(data).map((letter) => ({
-    letter: data[letter].url,
-  }));
-}
-
 async function getLetterData(letter) {
   const data = await fetch("http://cosc425-category-data.s3.amazonaws.com/processed_category_data.json").then((res) => res.json());
 
@@ -49,11 +41,12 @@ export default async function Page({ params }) {
   }
 
   return (
-    <div className="bg-suMaroon w-full h-full flex flex-col space-y-4">
+    <div className="bg-suMaroon w-full flex flex-col space-y-4 rounded-lg shadow-inner">
+      <div className="m-8 text-5xl font-bold text-white text-center">Topic A-Z</div>
       <CatAZPag />
-      <div className="overflow-y-auto">
+      <div>
         {entrySets.map((set, setIndex) => (
-          <div key={setIndex} className="max-h-screen flex flex-col space-y-2 m-8">
+          <div key={setIndex} className="flex flex-col space-y-2 m-8">
             <div className="flex lg:flex-row flex-col shrink- w-full h-60 rounded-lg">
               {set.map((entry, index) => (
                 <CardAZ

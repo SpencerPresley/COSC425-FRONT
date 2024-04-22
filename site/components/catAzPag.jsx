@@ -4,14 +4,16 @@ export const CatAZPag = () => {
     const url = '/categoryAZ/';
     const letters = [...'abcdefghijklmnopqrstuvwxyz'];
     return (
-        <div className="font-bold text-4xl text-center text-white flex flex-col justify-center">
-            <div>
-                <Link href={`${url}all`} className="hover:text-gray-300">all </Link>
-                {letters.map((letter) => (
-                    <Link key={letter} href={`${url}${letter}`} className="hover:text-gray-300">{letter} </Link>
-                ))}
-
-            </div>
+        <div className="text-base font-bold text-center text-black flex flex-col justify-center bg-gold-end">
+                <div>
+                    Pages:  |  
+                    <Link href={`${url}all`} className="hover:text-gray-500">|   all   |</Link>
+                    
+                    {letters.map((letter) => (
+                        <Link key={letter} href={`${url}${letter}`} className="hover:text-gray-500">|   {letter}   |</Link>
+                    ))}
+                    |
+                </div>
         </div>
     )
 }

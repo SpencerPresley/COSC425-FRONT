@@ -5,7 +5,7 @@ import { Wrapper, PageWrapper, OuterWrapper } from "@/components/wrappersAZ";
 export default function CategoryLayout({ children }) {
   return (
     <OuterWrapper>
-      <div className="bg-suMaroon flex-grow grid grid-cols-1 md:grid-cols-7 h-3/6 w-full">
+      <div className="bg-suMaroon flex-grow grid grid-cols-1 md:grid-cols-7 w-full">
         <div className="col-span-2">
           {/* <SideNav /> */}
         </div>
