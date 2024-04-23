@@ -1,5 +1,5 @@
-import { CardAZ } from "@/components/cardAZ"//gets cardaz component
-import { CatAZPag } from "@/components/catAzPag"//gets card az pag line component
+import { CatAZPag } from "@/components/catAzPag"//gets catAZ pagnation component
+import { TopicLink } from "@/components/topicLink"//gets the topicLink component
 
 async function getLetterData(letter) {//returns data of a specific letter that was passed from the parameter
   const data = await fetch("http://cosc425-category-data.s3.amazonaws.com/processed_category_data.json").then((res) => res.json());//gets json file
@@ -52,11 +52,8 @@ export default async function Page({ params }) {//accepts the parameters from th
               {/*goes through each column 4 times for each row*/}
               {set.map((entry, index) => (
                 // displays simple topic data cards
-                <CardAZ
+                <TopicLink
                   title={entry.categoryName}
-                  facultyCount={entry.faculty_count}
-                  departmentCount={entry.department_count}
-                  articleCount={entry.article_count}
                   url={entry.url}
                 />
               ))}
