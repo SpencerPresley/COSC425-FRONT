@@ -30,15 +30,17 @@ export default async function Page({ params }) {//accepts the parameters from th
   else
     letterData = await getLetterData(letter);//returns specific letter data of topics
 
+    letterData.sort();
+
   if (!letterData) {
     // Handle the case when letterData is undefined
     return <div>Letter not found</div>;
   }
 
-  const entrySets = [];//sets up the entries
-  for (let i = 0; i < letterData.length; i += 4) {//goes through four topicsand then slicing them to an 2d array of rows and col
-    entrySets.push(letterData.slice(i, i + 4));//slices data received
-  }
+  // const entrySets = [];//sets up the entries
+  // for (let i = 0; i < letterData.length; i += 4) {//goes through four topicsand then slicing them to an 2d array of rows and col
+  //   entrySets.push(letterData.slice(i, i + 4));//slices data received
+  // }
 
   return (
     <div className="bg-suMaroon w-full flex flex-col space-y-4 rounded-lg outline outline-3 outline-su-extra-light-grey">{/**sets up topic AZ body background */}
@@ -46,17 +48,18 @@ export default async function Page({ params }) {//accepts the parameters from th
       <CatAZPag />{/**displays the begginig topic letter filter */}
       <div>
         {/*goes through each row*/}
-        {entrySets.map((set, setIndex) => ( 
+        {letterData.map((set, setIndex) => ( 
           <div key={setIndex} className="flex flex-col space-y-2 m-8">
-            <div className="flex lg:flex-row flex-col shrink- w-full h-60 rounded-lg">
+            {/* <div className="flex lg:flex-row flex-col shrink- w-full rounded-lg"> */}
+            <div className="flex lg:flex-row flex-col shrink- w-full rounded-lg">
               {/*goes through each column 4 times for each row*/}
-              {set.map((entry, index) => (
-                // displays simple topic data cards
+              {/* {set.map((entry, index) => ( */}
+                {/* // displays simple topic data cards */}
                 <TopicLink
-                  title={entry.categoryName}
-                  url={entry.url}
+                  title={set.categoryName}
+                  url={set.url}
                 />
-              ))}
+              {/* ))} */}
             </div>
           </div>
         ))}
