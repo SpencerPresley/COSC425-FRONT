@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
+import Image from 'next/image'
 
 import { cn } from "@/lib/utils"
 import {
@@ -61,11 +62,7 @@ export function NavigationMenuDemo() {
   <NavigationMenuTrigger className="bg-yellow-500">Home</NavigationMenuTrigger>
 </Link>
 <NavigationMenuContent>
-  <ul className="p-4 w-full">
-    <ListItem>
-      <img src="../app/pictures/preview.jpg" alt="Previw of Homepage" className="w-full h-auto" />
-    </ListItem>
-  </ul>
+    <Image src="/preview.png" alt="Preview of Homepage" width="500" height="500" />
 </NavigationMenuContent>
 
         </NavigationMenuItem>
