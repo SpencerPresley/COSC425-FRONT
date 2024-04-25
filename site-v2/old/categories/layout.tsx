@@ -1,3 +1,4 @@
+import React from "react";
 import { SideNav } from "@/components/componentsCategoryPage/side-nav";
 
 export default function CategoryLayout({

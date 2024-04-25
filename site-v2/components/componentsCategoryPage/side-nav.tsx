@@ -1,18 +1,21 @@
-import Link from "next/link";
+'use client';
 
-async function getUrls() {
-  const res = await fetch("http://cosc425-category-data.s3.amazonaws.com/processed_category_data.json");
-  const data = await res.json();
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import fetchCategoryData from '@/lib/categoryData/fetchCategoryData';
 
-  // Extract the 'url' property from each category
-  const urls = Object.values(data).map((category: any) => category.url);
+export const SideNav = () => {
+  const [categoryUrls, setCategoryUrls] = useState<string[]>([]);
 
-  return urls;
-}
+  useEffect(() => {
+    const getUrls = async () => {
+      const data = await fetchCategoryData();
+      const urls = Object.values(data).map((category: any) => category.url);
+      setCategoryUrls(urls.sort());
+    };
 
-export const SideNav = async () => {
-  const categoryUrls = await getUrls();
-  categoryUrls.sort()
+    getUrls();
+  }, []);
 
   return (
     <div className="md:w-full bg-black h-full hidden md:flex">
@@ -22,21 +25,14 @@ export const SideNav = async () => {
           <h1 className="text-white text-xl text-bold">Category A-Z</h1>
         </div>
         {categoryUrls.map((url) => (
-          <div
-            key={url}
-            className="shrink-0 w-full text-center my-auto"
-          >
+          <div key={url} className="shrink-0 w-full text-center my-auto">
             <Link href={`/category/${url}`}>
-              
-                <h2 className="text-white text-md">
-                  {url
-                    .split("-")
-                    .map(
-                      (word: string) => word.charAt(0).toUpperCase() + word.slice(1)
-                    )
-                    .join(" ")}
-                </h2>
-              
+              <h2 className="text-white text-md">
+                {url
+                  .split('-')
+                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                  .join(' ')}
+              </h2>
             </Link>
           </div>
         ))}

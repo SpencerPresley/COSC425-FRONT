@@ -28,7 +28,7 @@ export const siteConfig = {
 	navMenuItems: [
 		{
 			label: "Categories",
-			href: "/categories",
+			href: "/",
 		}
 		// {
 		// 	label: "Profile",
