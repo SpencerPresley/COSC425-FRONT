@@ -35,15 +35,25 @@ interface Props {
     data: CategoryData;
 }
 
-export async function generateStaticParams() {
+let S3_DATA: CategoryObject | null = null;
+
+async function fetchS3Data() {
+    // if (S3_DATA !== null) {
+    //     console.log("USING CACHED DATA");
+    //     return S3_DATA;
+    // }
+
+    // console.log("FETCHING UNCACHED DATA");
     const data = (await fetch(
         "http://cosc425-category-data.s3.amazonaws.com/processed_category_data.json"
-    ).then((res) => res.json())) as Record<string, CategoryData>;
-    // console.log(data);
+    ).then((res) => res.json())) as CategoryObject;
 
-    // Object.entries(data).map(([_, categoryData]) => {
-    //   console.log(categoryData.url);
-    // })
+    S3_DATA = data;
+    return data;
+}
+
+export async function generateStaticParams() {
+    const data = await fetchS3Data();
 
     return Object.keys(data).map((category) => ({
         category: data[category].url, // This matches the dynamic segment name expected in the file path
@@ -51,9 +61,11 @@ export async function generateStaticParams() {
 }
 
 async function getCategoryData(category: any) {
-    const data = (await fetch(
-        "http://cosc425-category-data.s3.amazonaws.com/processed_category_data.json"
-    ).then((res) => res.json())) as CategoryObject;
+    // const data = (await fetch(
+    //     "http://cosc425-category-data.s3.amazonaws.com/processed_category_data.json"
+    // ).then((res) => res.json())) as CategoryObject;
+
+    const data = await fetchS3Data();
 
     // Find the category object based on the 'url' property
     const categoryEntry = Object.entries(data).find(
@@ -68,15 +80,11 @@ async function getCategoryData(category: any) {
     return null;
 }
 
-export default async function Page({
-    params,
-}: {
-    params: { category: any };
-}) {
+export default async function Page({ params }: { params: { category: any } }) {
     const { category } = params;
-    console.log(category);
+    // console.log(category);
     const data = await getCategoryData(category);
-    console.log(data);
+    // console.log(data);
 
     if (!data) {
         return <div>NOT FOUND</div>;
