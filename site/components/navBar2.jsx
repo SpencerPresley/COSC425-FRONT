@@ -62,24 +62,20 @@ export function NavigationMenuDemo() {
   <NavigationMenuTrigger className="bg-yellow-500">Home</NavigationMenuTrigger>
 </Link>
 <NavigationMenuContent>
-    <Image src="/preview.png" alt="Preview of Homepage" width="500" height="500" />
+  <div className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-1 lg:w-[600px] ">
+      <img src="/preview.png" alt="Preview of Homepage" width="100%" height="90%" />
+  </div>
 </NavigationMenuContent>
+
 
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-yellow-500">Components</NavigationMenuTrigger>
+          <Link href="/category">
+          <NavigationMenuTrigger className="bg-yellow-500">Categories</NavigationMenuTrigger>
+          </Link>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {components.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                  {component.description}
-                </ListItem>
-              ))}
-            </ul>
+            <div className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+            </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
 
