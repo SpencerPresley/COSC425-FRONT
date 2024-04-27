@@ -1,4 +1,11 @@
-import { Card } from "@/components/componentsCategoryPage/card";
+import { Link } from "@nextui-org/link";
+import { Snippet } from "@nextui-org/snippet";
+import { Code } from "@nextui-org/code";
+import { button as buttonStyles } from "@nextui-org/theme";
+import { siteConfig } from "@/config/site";
+import { title, subtitle } from "@/components/primitives";
+import { GithubIcon } from "@/components/icons";
+import { Card } from "@nextui-org/card";
 
 /*
     File to fetch the category data from the S3 bucket
@@ -90,6 +97,15 @@ export default async function Page({ params }: { params: { category: any } }) {
         return <div>NOT FOUND</div>;
     }
 
+    const themes = [
+        "Resilience Training",
+        "Job Satisfaction",
+        "Turnover Intentions",
+        "Role Stressors",
+        "Stress Arousal",
+        "Burnout",
+    ];
+
     const {
         categoryName,
         faculty_count,
@@ -101,23 +117,51 @@ export default async function Page({ params }: { params: { category: any } }) {
     } = data;
 
     return (
-        <div>
-            <h1>{categoryName}</h1>
-            <p>Faculty Count: {faculty_count}</p>
-            <p>Department Count: {department_count}</p>
-            <p>Article Count: {article_count}</p>
-            <h2>Faculty</h2>
-            {faculty.map((facultyName) => (
-                <p key={facultyName}>{facultyName}</p>
-            ))}
-            <h2>Departments</h2>
-            {departments.map((departmentName) => (
-                <p key={departmentName}>{departmentName}</p>
-            ))}
-            <h2>Titles</h2>
-            {titles.map((title) => (
-                <p key={title}>{title}</p>
-            ))}
-        </div>
+        <section className="bg-black dark:bg-gray-500 flex flex-col items-center justify-center gap-4">
+            <div className="inline-block max-w-lg text-center justify-center">
+                <h1 className="text-2xl font-bold text-white">
+                    {categoryName}
+                </h1>
+            </div>
+            {/* <div className="bg-background dark:bg-background border ">
+                <div className="flex flex-col items-center justify-center">
+                    <h1 className="text-2xl font-bold">{categoryName}</h1>
+                </div>
+            </div> */}
+
+            <div className="grid grid-rows-4 grid-cols-4 grid-flow-row-dense text-white ">
+                <Card>
+                    <div className=" p-4">
+                        <p>Faculty Count: {faculty_count}</p>
+                        <p>Department Count: {department_count}</p>
+                        <p>Article Count: {article_count}</p>
+                    </div>
+                </Card>
+                <div className="row-span-2 p-4">
+                    <h2 className="flex justify-center"> Departments</h2>
+                    <ul>
+                        {departments.map((department) => (
+                            <li>{department}</li>
+                        ))}
+                    </ul>
+                </div>
+                <div className="row-span-3  p-4">
+                    <h2 className="flex justify-center">Faculty</h2>
+                    <ul className="overflow-hidden max-h-[50vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+                        {faculty.map((faculty) => (
+                            <li>{faculty}</li>
+                        ))}
+                    </ul>
+                </div>
+                <div className="row-span-4 col-span-1 p-4">
+                    <h2 className="flex justify-center">Titles</h2>
+                    <ul className="overflow-hidden max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+                        {titles.map((title) => (
+                            <li>{title}</li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        </section>
     );
 }
