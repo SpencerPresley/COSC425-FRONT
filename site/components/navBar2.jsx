@@ -55,15 +55,15 @@ const components = [
 
 export function NavigationMenuDemo() {
   return (
-<NavigationMenu className="bg-suMaroon">
+<NavigationMenu className="bg-suMaroon p-2">
       <NavigationMenuList>
-        <NavigationMenuItem>
+        <NavigationMenuItem className="pr-3">
         <Link href="/">
   <NavigationMenuTrigger className="bg-yellow-500">Home</NavigationMenuTrigger>
 </Link>
 <NavigationMenuContent>
   <div className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-1 lg:w-[600px] ">
-      <img src="/preview.png" alt="Preview of Homepage" width="100%" height="90%" />
+      <img src="/preview.png" alt="Preview of Homepage" width="100%" />
   </div>
 </NavigationMenuContent>
 
