@@ -14,7 +14,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
          <NavigationMenuDemo/>
+         <div className="pt-6">
         {children}
+        </div>
         </body>
     </html>
   );
