@@ -60,7 +60,9 @@ async function fetchS3Data() {
 }
 
 export async function generateStaticParams() {
-    const data = await fetchS3Data();
+    const data = (await fetch(
+        "http://cosc425-category-data.s3.amazonaws.com/processed_category_data.json"
+    ).then((res) => res.json())) as CategoryObject;
 
     return Object.keys(data).map((category) => ({
         category: data[category].url, // This matches the dynamic segment name expected in the file path
@@ -132,9 +134,9 @@ export default async function Page({ params }: { params: { category: any } }) {
             <div className="grid grid-rows-4 grid-cols-4 grid-flow-row-dense text-white ">
                 <Card>
                     <div className=" p-4">
-                        <p>Faculty Count: {faculty_count}</p>
+                        <p>Faculty Count: <Link href={`/category/${category}/faculty/${category}`}>{faculty_count}</Link></p>
                         <p>Department Count: {department_count}</p>
-                        <p>Article Count: {article_count}</p>
+                        <p>Article Count: <Link href={`/category/${category}/articles/${category}`}>{article_count}</Link></p>
                     </div>
                 </Card>
                 <div className="row-span-2 p-4">
@@ -146,20 +148,20 @@ export default async function Page({ params }: { params: { category: any } }) {
                     </ul>
                 </div>
                 <div className="row-span-3  p-4">
-                    <h2 className="flex justify-center">Faculty</h2>
-                    <ul className="overflow-hidden max-h-[50vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+                    <h2 className="flex justify-center"><Link href={`/category/${category}/faculty/${category}`}>Faculty</Link></h2>
+                    {/* <ul className="overflow-hidden max-h-[50vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
                         {faculty.map((faculty) => (
                             <li>{faculty}</li>
                         ))}
-                    </ul>
+                    </ul> */}
                 </div>
                 <div className="row-span-4 col-span-1 p-4">
-                    <h2 className="flex justify-center">Titles</h2>
-                    <ul className="overflow-hidden max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+                    <h2 className="flex justify-center"><Link href={`/category/${category}/articles/${category}`}>Titles</Link></h2>
+                    {/* <ul className="overflow-hidden max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
                         {titles.map((title) => (
                             <li>{title}</li>
                         ))}
-                    </ul>
+                    </ul> */}
                 </div>
             </div>
         </section>
