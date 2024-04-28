@@ -131,15 +131,16 @@ export default async function Page({ params }: { params: { category: any } }) {
                 </div>
             </div> */}
 
-            <div className="grid grid-rows-4 grid-cols-4 grid-flow-row-dense text-white ">
+            <div className="grid grid-rows-3 grid-cols-2 grid-flow-row-dense text-white gap-3 pb-3">
                 <Card>
-                    <div className=" p-4">
+                    <div className=" p-4 ">
                         <p>Faculty Count: <Link href={`/category/${category}/faculty/${category}`}>{faculty_count}</Link></p>
                         <p>Department Count: {department_count}</p>
                         <p>Article Count: <Link href={`/category/${category}/articles/${category}`}>{article_count}</Link></p>
                     </div>
                 </Card>
-                <div className="row-span-2 p-4">
+                <Card>
+                <div className="row-span-1 p-4">
                     <h2 className="flex justify-center"> Departments</h2>
                     <ul>
                         {departments.map((department) => (
@@ -147,22 +148,30 @@ export default async function Page({ params }: { params: { category: any } }) {
                         ))}
                     </ul>
                 </div>
-                <div className="row-span-3  p-4">
-                    <h2 className="flex justify-center"><Link href={`/category/${category}/faculty/${category}`}>Faculty</Link></h2>
+                </Card>
+                
+                <div className="row-span-1 col-span-2 ">
+                </div>
+                <Card>
+                <div className="row-span-1  p-4" >
+                    <h2 className="flex justify-center underline"><Link href={`/category/${category}/faculty/${category}`}>Faculty</Link></h2>
                     {/* <ul className="overflow-hidden max-h-[50vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
                         {faculty.map((faculty) => (
                             <li>{faculty}</li>
                         ))}
                     </ul> */}
                 </div>
-                <div className="row-span-4 col-span-1 p-4">
-                    <h2 className="flex justify-center"><Link href={`/category/${category}/articles/${category}`}>Titles</Link></h2>
+                </Card>
+                <Card>
+                <div className="row-span-1 col-span-1 p-4">
+                    <h2 className="flex justify-center underline"><Link href={`/category/${category}/articles/${category}`}>Titles</Link></h2>
                     {/* <ul className="overflow-hidden max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
                         {titles.map((title) => (
                             <li>{title}</li>
                         ))}
                     </ul> */}
                 </div>
+                </Card>
             </div>
         </section>
     );
