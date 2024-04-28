@@ -14,7 +14,7 @@ export const siteConfig = {
     },
     {
       label: "Categories",
-      href: "/categories",
+      href: "/category/agricultural-economics-policy",
     },
     // {
     //   label: "Blog",
