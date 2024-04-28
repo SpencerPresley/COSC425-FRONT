@@ -170,11 +170,11 @@ export default async function Page({ params }: { params: { category: any } }) {
                     </ul> */}
                 </div>
                 </Card>
-                <Card>
+                {/* <Card>
                     <div className="row-span-1 col-span-2">
                     <h2 className="flex justify-center underline"><Link href={`/category/${category}/themes/${category}`}>Themes</Link></h2>
                     </div>
-                </Card>
+                </Card> */}
             </div>
         </section>
     );
