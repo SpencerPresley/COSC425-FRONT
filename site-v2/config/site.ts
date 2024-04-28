@@ -27,9 +27,25 @@ export const siteConfig = {
 	],
 	navMenuItems: [
 		{
-			label: "Categories",
+			label: "Home",
 			href: "/",
-		}
+		},
+    {
+      label: "Docs",
+      href: "/docs",
+    },
+    {
+      label: "Categories",
+      href: "/category/agricultural-economics-policy",
+    },
+    // {
+    //   label: "Blog",
+    //   href: "/blog",
+    // },
+    {
+      label: "About",
+      href: "/about",
+    }
 		// {
 		// 	label: "Profile",
 		// 	href: "/profile",
