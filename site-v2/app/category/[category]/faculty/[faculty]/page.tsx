@@ -89,7 +89,7 @@ export default async function Page ({ params }: { params: { category: any } }) {
 
     return (
 <div className="bg-black dark:bg-gray-500 flex flex-col items-center justify-center gap-4 text-white">
-    <h2 className="text-3xl font-bold"> Article List</h2>
+    <h2 className="text-3xl font-bold"> Faculty List</h2>
     <ul className="overflow-hidden max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
     {faculty.map((faculty, index) => (
             <li key={index} style={{ marginBottom: '10px' }}>
