@@ -119,7 +119,7 @@ export default async function Page({ params }: { params: { category: any } }) {
     } = data;
 
     return (
-        <section className="bg-black dark:bg-gray-500 flex flex-col items-center justify-center gap-4">
+        <section className="bg-black dark:bg-background flex flex-col items-center justify-center gap-4">
             <div className="inline-block max-w-lg text-center justify-center">
                 <h1 className="text-2xl font-bold text-white">
                     {categoryName}
@@ -131,7 +131,7 @@ export default async function Page({ params }: { params: { category: any } }) {
                 </div>
             </div> */}
 
-            <div className="grid grid-rows-3 grid-cols-2 grid-flow-row-dense text-white gap-3 pb-3">
+            <div className="grid grid-rows-3 grid-cols-2 grid-flow-row-dense text-white gap-x-7 gap-y-8 pb-3">
                 <Card>
                     <div className=" p-4 ">
                         <p>Faculty Count: <Link href={`/category/${category}/faculty/${category}`}>{faculty_count}</Link></p>
@@ -150,8 +150,6 @@ export default async function Page({ params }: { params: { category: any } }) {
                 </div>
                 </Card>
                 
-                <div className="row-span-1 col-span-2 ">
-                </div>
                 <Card>
                 <div className="row-span-1  p-4" >
                     <h2 className="flex justify-center underline"><Link href={`/category/${category}/faculty/${category}`}>Faculty</Link></h2>
@@ -171,6 +169,11 @@ export default async function Page({ params }: { params: { category: any } }) {
                         ))}
                     </ul> */}
                 </div>
+                </Card>
+                <Card>
+                    <div className="row-span-1 col-span-2">
+                    <h2 className="flex justify-center underline"><Link href={`/category/${category}/themes/${category}`}>Themes</Link></h2>
+                    </div>
                 </Card>
             </div>
         </section>
