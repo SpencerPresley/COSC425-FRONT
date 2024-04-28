@@ -35,6 +35,13 @@ export default function Home() {
 				</Link>
 				</div>
 				<Link
+					isExternal
+					className={buttonStyles({ variant: "bordered", radius: "full" })}
+					href={siteConfig.links.sponsor}
+				>
+					Meet the Client
+				</Link>
+				<Link
             className={buttonStyles({ color: "primary", radius: "full", variant: "shadow" })}
             href="/category/agricultural-economics-policy"
         >
