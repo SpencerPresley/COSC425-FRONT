@@ -10,14 +10,10 @@ export default function Home() {
 	return (
 		<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
 			<div className="inline-block max-w-lg text-center justify-center">
-				<h1 className={title()}>Make&nbsp;</h1>
-				<h1 className={title({ color: "violet" })}>beautiful&nbsp;</h1>
-				<br />
-				<h1 className={title()}>
-					websites regardless of your design experience.
-				</h1>
+				<h1 className={title()}>Search Through Categories to Find Information on Research Categories Researched in SU</h1>
+				
 				<h2 className={subtitle({ class: "mt-4" })}>
-					Beautiful, fast and modern React UI library.
+					Search through Categories to get information on Faculty, Departments, and Articles that are realted to the category
 				</h2>
 			</div>
 
@@ -25,7 +21,7 @@ export default function Home() {
 				<Link
 					isExternal
 					href={siteConfig.links.docs}
-					className={buttonStyles({ color: "primary", radius: "full", variant: "shadow" })}
+					className={buttonStyles({radius: "full", variant: "bordered" })}
 				>
 					Documentation
 				</Link>
@@ -37,15 +33,14 @@ export default function Home() {
 					<GithubIcon size={20} />
 					GitHub
 				</Link>
-			</div>
+				</div>
+				<Link
+            className={buttonStyles({ color: "primary", radius: "full", variant: "shadow" })}
+            href="/category/agricultural-economics-policy"
+        >
+            Start Browsing Categories
+        </Link>
 
-			<div className="mt-8">
-				<Snippet hideSymbol hideCopyButton variant="flat">
-					<span>
-						Get started by editing <Code color="primary">app/page.tsx</Code>
-					</span>
-				</Snippet>
-			</div>
 		</section>
 	);
 }
