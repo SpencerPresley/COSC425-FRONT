@@ -88,7 +88,8 @@ export default async function Page ({ params }: { params: { articles: any } }) {
 
     return (
 <div className="bg-black dark:bg-gray-500 flex flex-col items-center justify-center gap-4 text-white">
-    <h2 className="text-3xl font-bold"> Article List</h2>
+    <h2 className="text-3x1 font-bold">{categoryName}</h2>
+    <h2 className="text-2xl font-bold"> Article List</h2>
     <ul className="overflow-hidden max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
         {titles.map((title, index) => (
             <li key={index} style={{ marginBottom: '10px' }}>
