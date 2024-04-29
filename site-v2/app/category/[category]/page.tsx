@@ -6,6 +6,8 @@ import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
 import { Card } from "@nextui-org/card";
+import { Tabs, Tab } from "@nextui-org/tabs";
+
 
 /*
     File to fetch the category data from the S3 bucket
@@ -175,6 +177,7 @@ export default async function Page({ params }: { params: { category: any } }) {
                     <h2 className="flex justify-center underline"><Link href={`/category/${category}/themes/${category}`}>Themes</Link></h2>
                     </div>
                 </Card> */}
+                
             </div>
         </section>
     );
