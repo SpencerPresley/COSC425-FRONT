@@ -116,7 +116,7 @@ export  async function RenderCategory ({ category }: CategoryProps) {
                     <h2 className="flex justify-center"> Departments</h2>
                     <ul>
                         {departments.map((department) => (
-                            <li>{department}</li>
+                            <li key={department}>{department}</li>
                         ))}
                     </ul>
                 </div>
