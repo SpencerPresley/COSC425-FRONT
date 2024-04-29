@@ -29,8 +29,8 @@
         "**/*.tsx",
         ".next/types/**/*.ts",
         "components/componentsCategoryPage/card.tsx",
-        "app/category/[categories]/page.tsx",
-        "app/category/layout.tsx"
+        "old/category/[categories]/page.tsx",
+        "old/category/layout.tsx"
     ],
     "exclude": ["node_modules"]
 }
