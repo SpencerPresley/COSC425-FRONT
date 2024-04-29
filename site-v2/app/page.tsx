@@ -10,10 +10,10 @@ export default function Home() {
 	return (
 		<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
 			<div className="inline-block max-w-lg text-center justify-center">
-				<h1 className={title()}>Search Through Categories to Find Information on Research Categories Researched in SU</h1>
+				<h1 className={title()}>Search Through SU Research Categories</h1>
 				
 				<h2 className={subtitle({ class: "mt-4" })}>
-					Search through Categories to get information on Faculty, Departments, and Articles that are realted to the category
+					Search through research categories to get information on Faculty, Departments, and Articles that are realted to the category
 				</h2>
 			</div>
 
@@ -28,19 +28,11 @@ export default function Home() {
 				<Link
 					isExternal
 					className={buttonStyles({ variant: "bordered", radius: "full" })}
-					href={siteConfig.links.github}
+					href=""
 				>
-					<GithubIcon size={20} />
-					GitHub
+				About
 				</Link>
 				</div>
-				<Link
-					isExternal
-					className={buttonStyles({ variant: "bordered", radius: "full" })}
-					href={siteConfig.links.sponsor}
-				>
-					Meet the Client
-				</Link>
 				<Link
             className={buttonStyles({ color: "primary", radius: "full", variant: "shadow" })}
             href="/category/agricultural-economics-policy"
