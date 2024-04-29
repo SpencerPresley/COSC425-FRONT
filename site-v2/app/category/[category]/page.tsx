@@ -132,8 +132,7 @@ export default async function Page({ params }: { params: { category: any } }) {
                     <h1 className="text-2xl font-bold">{categoryName}</h1>
                 </div>
             </div> */}
-
-            <div className="grid grid-rows-3 grid-cols-2 grid-flow-row-dense text-white gap-x-7 gap-y-8 pb-3">
+             <div className="grid grid-rows-3 grid-cols-2 grid-flow-row-dense text-white gap-x-7 gap-y-8 pb-3">
                 <Card>
                     <div className=" p-4 ">
                         <p>Faculty Count: <Link href={`/category/${category}/faculty/${category}`}>{faculty_count}</Link></p>
@@ -179,6 +178,7 @@ export default async function Page({ params }: { params: { category: any } }) {
                 </Card> */}
                 
             </div>
+
         </section>
     );
 }
