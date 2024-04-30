@@ -7,6 +7,15 @@ import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
 
+
+// user clicks a letter
+// wer fetch all the categories and their data that start with that letter
+// we sort it
+// we display it
+
+
+
+
 /* FOR CONDITIONAL RENDERING */
 import { Faculty } from "./facultyRender/faculty";
 import { Articles } from "./articleRender/article";
@@ -49,13 +58,16 @@ export default function Categories ({
         slug?: string[];
     };
 }) {
-    console.log("params.slug", params.slug); // Add this line to check what slug contains
+
+    const letters = "abcdefghijklmnopqrstuvwxyz".split("");
+
+    // console.log("params.slug", params.slug); // Add this line to check what slug contains
 
     /* IF SLUGS EXIST RENDER CONTENT RELATED TO THE SLUG(S) */
     if (params.slug) {
         if (params.slug.length === 2) { 
-            console.log("params.slug[0]", params.slug[0]);
-            console.log("params.slug[1]", params.slug[1]);
+            // console.log("params.slug[0]", params.slug[0]);
+            // console.log("params.slug[1]", params.slug[1]);
             if (params.slug[1] === 'articles') {
                 return <div>
                     <Articles category={params.slug[0]} />

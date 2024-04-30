@@ -41,7 +41,7 @@ export async function SideNav() {
                         key={url}
                         className="shrink-0 w-full text-center my-auto"
                     >
-                        <Link href={`/category/${url}`}>
+                        <Link href={`/categories/category/${url}`}>
                             <h2 className="text-md">
                                 {url
                                     .split("-")

@@ -32,23 +32,21 @@ async function fetchS3Data() {
 }
 
 async function getFacultyData(category: string) {
-    const data = await fetchS3Data();
+  const data = await fetchS3Data();
 
-    console.log("Category: ", category);
-    // Find the category object based on the 'url' property
-    const categoryEntry = Object.entries(data).find(
-        ([categoryName, categoryData]) => categoryData.url === category
-    );
+  // Find the category object based on the 'url' property
+  const categoryEntry = Object.entries(data).find(
+      ([, categoryData]) => categoryData.url === category
+  );
 
-    if (!categoryEntry) {
-        console.log("Category not found");
-        return null;
-    }
+  if (!categoryEntry) {
+      console.log("Category not found");
+      return null;
+  }
 
-    console.log(categoryEntry[0]);
-    console.log(categoryEntry[1]);
+  const [categoryName, categoryData] = categoryEntry;
 
-    return { categoryEntry: categoryEntry[1] };
+  return { categoryName, ...categoryData };
 }
 
 export async function Faculty({ category }: FacultyProps) {
@@ -59,14 +57,14 @@ export async function Faculty({ category }: FacultyProps) {
     return <div>Faculty not found</div>;
   }
 
-  const { categoryEntry: faculty } = data;
+  const { categoryName, faculty, departments, titles } = data;
 
   return (
-    <div>
-      <h1>{category}</h1>
-      <h2>Faculty</h2>
-      <ul>
-        {faculty.faculty.map((facultyMember: string) => (
+<div className="bg-black dark:bg-gray-500 flex flex-col items-center justify-center gap-4 text-white">
+      <h1 className="text-3xl font-bold">{categoryName}</h1>
+      <h2 className="text-2xl font-semibold">Faculty</h2>
+      <ul className="overflow-hidden max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+        {faculty.map((facultyMember: string) => (
           <li key={facultyMember}>{facultyMember}</li>
         ))}
       </ul>
