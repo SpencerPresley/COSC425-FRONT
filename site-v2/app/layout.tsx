@@ -64,7 +64,7 @@ export default function RootLayout({
                                 <span className="text-default-600">
                                     Powered by
                                 </span>
-                                <p className="text-primary">NextUI</p>
+                                <p className="text-primary">SU Students</p>
                             </Link>
                         </footer>
                     </div>
