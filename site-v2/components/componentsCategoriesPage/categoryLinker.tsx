@@ -18,7 +18,7 @@ interface CategoryLinkerProps {
 export const CategoryLinker = ({ title, url }: CategoryLinkerProps) => {
     return (
         <div>
-            <Link href={`/categories/${url}`}>
+            <Link href={`/categories/category/${url}`}>
                 <strong>{title}</strong>
             </Link>
         </div>

@@ -31,43 +31,42 @@ interface CategoryObject {
     return data;
   }
   
-  async function getArticleData (category: string) {
-      const data = await fetchS3Data();
+  async function getArticleData(category: string) {
+    const data = await fetchS3Data();
   
-      console.log("Category: ", category);
-      // Find the category object based on the 'url' property
-      const categoryEntry = Object.entries(data).find(
-          ([categoryName, categoryData]) => categoryData.url === category
-      );
+    // Find the category object based on the 'url' property
+    const categoryEntry = Object.entries(data).find(
+        ([, categoryData]) => categoryData.url === category
+    );
   
-      if (!categoryEntry) {
-          console.log("Category not found");
-          return null;
-      }
+    if (!categoryEntry) {
+        console.log("Category not found");
+        return null;
+    }
   
-      console.log(categoryEntry[0]);
-      console.log(categoryEntry[1]);
+    const [categoryName, categoryData] = categoryEntry;
   
-      return { categoryEntry: categoryEntry[1] };
+    return { categoryName, ...categoryData };
   }
   
   export async function Articles ({ category }: ArticleProps) {
-    console.log("Articles Category: ", category)
+    // console.log("Articles Category: ", category)
     const data = await getArticleData(category);
-    console.log("Return: ", data);
+    // console.log("Return: ", data);
   
     if (!data) {
       return <div>Articles not found</div>;
     }
     
-    const { categoryEntry: titles } = data;
-  
+    const { categoryName, faculty, departments, titles } = data;
+
     return (
-      <div>
-        <h1>{category}</h1>
-        <h2>Articles</h2>
-        <ul>
-          {titles.titles.map((title: string) => (
+<div className="bg-black dark:bg-gray-500 flex flex-col items-center justify-center gap-4 text-white">
+
+        <h1 className="text-3x1 font-bold">{categoryName}</h1>
+        <h2 className="text-2xl font-bold"> Article List</h2>
+        <ul className="overflow-hidden max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+          {titles.map((title: string) => (
             <li key={title}>{title}</li>
           ))}
         </ul>

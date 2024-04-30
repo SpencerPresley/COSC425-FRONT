@@ -66,7 +66,7 @@ async function getCategoryData(category: any) {
 
 export  async function RenderCategory ({ category }: CategoryProps) {
     const data = await getCategoryData(category);
-    console.log(data);
+    // console.log(data);
   
     if (!data) {
       return <div>Faculty not found</div>;
@@ -92,9 +92,9 @@ export  async function RenderCategory ({ category }: CategoryProps) {
     ];
 
     return (
-        <section className="bg-black dark:bg-gray-500 flex flex-col items-center justify-center gap-4">
+        <section className="bg-black  dark:bg-gray-500 flex flex-col items-center justify-center gap-4 text-white">
             <div className="inline-block max-w-lg text-center justify-center">
-                <h1 className="text-2xl font-bold text-white">
+                <h1 className="text-2xl font-bold">
                     {categoryName}
                 </h1>
             </div>
@@ -104,15 +104,16 @@ export  async function RenderCategory ({ category }: CategoryProps) {
                 </div>
             </div> */}
 
-            <div className="grid grid-rows-4 grid-cols-4 grid-flow-row-dense text-white ">
+<div className="grid grid-rows-3 grid-cols-2 grid-flow-row-dense text-white gap-x-7 gap-y-8 pb-3">
                 <Card>
-                    <div className=" p-4">
+                    <div className=" p-4" key={faculty_count}>
                         <p>Faculty Count: <Link href={`/categories/category/${category}/faculty/`}>{faculty_count}</Link></p>
                         <p>Department Count: {department_count}</p>
                         <p>Article Count: <Link href={`/categories/category/${category}/articles/`}>{article_count}</Link></p>
                     </div>
                 </Card>
-                <div className="row-span-2 p-4">
+                <Card>
+                <div className="row-span-1 p-4">
                     <h2 className="flex justify-center"> Departments</h2>
                     <ul>
                         {departments.map((department) => (
@@ -120,23 +121,30 @@ export  async function RenderCategory ({ category }: CategoryProps) {
                         ))}
                     </ul>
                 </div>
-                <div className="row-span-3  p-4">
-                    <h2 className="flex justify-center"><Link href={`/categories/category/${category}/faculty/`}>Faculty</Link></h2>
+                </Card>
+
+                <Card>
+                <div className="row-span-1  p-4" >
+                    <h2 className="flex justify-center underline"><Link href={`/categories/category/${category}/faculty/`}>Faculty</Link></h2>
                     {/* <ul className="overflow-hidden max-h-[50vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
                         {faculty.map((faculty) => (
                             <li>{faculty}</li>
                         ))}
                     </ul> */}
                 </div>
-                <div className="row-span-4 col-span-1 p-4">
-                    <h2 className="flex justify-center"><Link href={`/categories/category/${category}/articles/`}>Titles</Link></h2>
+                </Card>
+
+                <Card>
+                <div className="row-span-1 col-span-1 p-4">
+                    <h2 className="flex justify-center underline"><Link href={`/categories/category/${category}/articles/`}>Titles</Link></h2>
                     {/* <ul className="overflow-hidden max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
                         {titles.map((title) => (
                             <li>{title}</li>
                         ))}
                     </ul> */}
                 </div>
-            </div>
+                </Card>
+                </div>
         </section>
     );
 }

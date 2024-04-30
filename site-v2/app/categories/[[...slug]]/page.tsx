@@ -4,6 +4,8 @@ import { Code } from "@nextui-org/code";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
 import Link from "next/link";
+import { AzRender } from "./azRender/az";
+import { UrlsLetters } from "@/components/componentsCategoriesPage/urlsLetters";
 
 interface CategoryObject {
   [key: string]: {
@@ -43,31 +45,57 @@ async function fetchS3Data() {
 }
 
 async function getUrls() {
-    const data = await fetchS3Data();
-    
-    return Object.values(data).map((item) => item.url).sort();
+  const data = await fetchS3Data();
+
+  return Object.values(data)
+    .map((item) => item.url)
+    .sort();
 }
 
-export default async function CategoriesPage() {
-    const urls = await getUrls();
-    console.log(urls);
+export default async function CategoriesPage({
+  params,
+}: {
+  params: {
+      slug?: string[];
+  };
+}) {
+  const slugs = params.slug || [];
+  const urls = await getUrls();
+  // console.log(urls);
 
   if (!urls) {
     return <div>Loading...</div>;
   }
 
-  return <>
-    <div className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="inline-block max-w-lg text-center justify-center">
-        <h1 className="text-3xl font-bold pb-10">Categories</h1>
-        <div className="grid grid-cols-1 gap-4">
-          {urls.map((url) => (
+  if (slugs.length === 1) {
+    return (
+      <div>
+        <AzRender letter={slugs[0]} />
+      </div>
+    );
+  }
+
+  if (slugs.length === 0) {  
+
+  return (
+    <>
+      <div className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+        <div className="inline-block max-w-lg text-center justify-center">
+          <h1 className="text-3xl font-bold pb-10">Categories</h1>
+          <UrlsLetters />
+          <div className="grid grid-cols-1 gap-4">
+            {urls.map((url) => (
               <Card key={url} className="p-4">
-                <h2 className="text-xl font-bold"><Link href={`/categories/category/${url}`}>{url}</Link></h2>
-            </Card>
-          ))}
+                <h2 className="text-xl font-bold">
+                  <Link href={`/categories/category/${url}`}>{url}</Link>
+                </h2>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-  </>;
+    </>
+  );
+  }
 }
+  

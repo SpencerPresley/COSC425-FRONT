@@ -27,8 +27,20 @@ export const siteConfig = {
 	],
 	navMenuItems: [
 		{
-			label: "Categories",
-			href: "/",
+			"label": "Home",
+			"href": "/"
+		},
+		{
+			label: "Categories A-Z",
+			href: "/categories",
+		},
+		{
+			"label": "Docs",
+			"href": "/docs"
+		},
+		{
+			"label": "About",
+			"href": "/about"
 		}
 		// {
 		// 	label: "Profile",
@@ -65,10 +77,10 @@ export const siteConfig = {
 
 	],
 	links: {
-		github: "https://github.com/nextui-org/nextui",
-		twitter: "https://twitter.com/getnextui",
-		docs: "https://nextui.org",
-		discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev"
+		github: "https://github.com/SpencerPresley/COSC425-MAIN",
+		// twitter: "https://twitter.com/getnextui",
+		// docs: "https://nextui.org",
+		// discord: "https://discord.gg/9b6yyZKmH4",
+		sponsor: "https://www.salisbury.edu/faculty-and-staff/mdjensen"
 	},
 };
