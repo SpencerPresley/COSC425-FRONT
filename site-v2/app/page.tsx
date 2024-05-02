@@ -13,7 +13,7 @@ export default function Home() {
 				<h1 className={title()}>Search Through SU Research Categories</h1>
 				
 				<h2 className={subtitle({ class: "mt-4" })}>
-					Search through research categories to get information on Faculty, Departments, and Articles that are realted to the category
+					Search through research categories to get information on Faculty, Departments, and Articles that are related to the category
 				</h2>
 			</div>
 
