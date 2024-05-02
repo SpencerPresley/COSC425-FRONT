@@ -30,7 +30,7 @@ export async function SideNav() {
     const categoryUrls = await getUrls();
 
     return (
-        <div className="md:w-full text-white dark:text-white bg-slate-900 dark:bg-background hidden md:flex max-h-screen">
+        <div className="md:w-full text-black dark:text-white bg-white dark:bg-background hidden md:flex max-h-screen">
             {/* ... */}
             <div className="flex flex-col space-y-2 md:px-6 overflow-scroll max-h-screen">
                 <h1 className="shrink-0 pb-5 font-bold text-3xl w-full text-center my-auto">

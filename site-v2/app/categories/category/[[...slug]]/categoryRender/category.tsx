@@ -92,7 +92,7 @@ export  async function RenderCategory ({ category }: CategoryProps) {
     ];
 
     return (
-        <section className="bg-black  dark:bg-gray-500 flex flex-col items-center justify-center gap-4 text-white">
+        <section className="bg-white  dark:bg-gray-500 flex flex-col items-center justify-center gap-4 text-white">
             <div className="inline-block max-w-lg text-center justify-center">
                 <h1 className="text-2xl font-bold">
                     {categoryName}

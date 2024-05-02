@@ -60,10 +60,10 @@ export async function Faculty({ category }: FacultyProps) {
   const { categoryName, faculty, departments, titles } = data;
 
   return (
-<div className="bg-black dark:bg-gray-500 flex flex-col items-center justify-center gap-4 text-white">
+<div className="bg-white dark:bg-gray-500 flex flex-col items-center justify-center gap-4 dark:text-white text-black">
       <h1 className="text-3xl font-bold">{categoryName}</h1>
       <h2 className="text-2xl font-semibold">Faculty</h2>
-      <ul className="overflow-hidden max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+      <ul className="overflow-hidden max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 flex flex-col space-y-4">
         {faculty.sort().map((facultyMember: string) => (
           <li key={facultyMember}>{facultyMember}</li>
         ))}
