@@ -64,7 +64,7 @@ export async function Faculty({ category }: FacultyProps) {
       <h1 className="text-3xl font-bold">{categoryName}</h1>
       <h2 className="text-2xl font-semibold">Faculty</h2>
       <ul className="overflow-hidden max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-        {faculty.map((facultyMember: string) => (
+        {faculty.sort().map((facultyMember: string) => (
           <li key={facultyMember}>{facultyMember}</li>
         ))}
       </ul>

@@ -66,7 +66,7 @@ interface CategoryObject {
         <h1 className="text-3x1 font-bold">{categoryName}</h1>
         <h2 className="text-2xl font-bold"> Article List</h2>
         <ul className="overflow-hidden max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-          {titles.map((title: string) => (
+          {titles.sort().map((title: string) => (
             <li key={title}>{title}</li>
           ))}
         </ul>
