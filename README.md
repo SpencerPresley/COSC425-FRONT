@@ -1,6 +1,10 @@
 # COSC425-FRONT
 
+For link to site see description.
+
 Repo for the front end module of the full project.
+
+If you want to contribute see instructions below.
 
 ## Instructions
 
