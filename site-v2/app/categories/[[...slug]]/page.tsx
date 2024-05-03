@@ -33,6 +33,20 @@ interface CategoryProps {
     category: string;
 }
 
+function groupUrlsByFirstLetter(urls: { key: string; url: string }[]) {
+    return urls.reduce(
+        (acc: { [key: string]: { key: string; url: string }[] }, url) => {
+            const firstLetter = url.key[0].toUpperCase();
+            if (!acc[firstLetter]) {
+                acc[firstLetter] = [];
+            }
+            acc[firstLetter].push(url);
+            return acc;
+        },
+        {}
+    );
+}
+
 /* No singleton pattern necessary.
    Next.js fetch() automatically memoizes data 
    */
@@ -84,26 +98,39 @@ export default async function CategoriesPage({
     if (slugs.length === 0) {
         return (
             <>
-                <div className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-                    <div className="inline-block max-w-lg text-center justify-center">
-                        <h1 className="text-3xl font-bold pb-10">Categories</h1>
+                <div className="flex flex-col items-center justify-center gap-6 py-10 md:py-12">
+                    <div className="inline-block max-w-2xl text-center">
+                        <h1 className="text-4xl font-bold pb-8">Categories</h1>
                         <UrlsLetters />
-                        <div className="grid grid-cols-1 gap-4">
-                            {urls.map((url) => (
-                                <Card
-                                    key={url.key}
-                                    className="p-4"
+                        {Object.entries(groupUrlsByFirstLetter(urls)).map(
+                            ([letter, urls]) => (
+                                <div
+                                    key={letter}
+                                    className="mt-8 first:mt-0 pb-8 border-b border-gray-200 dark:border-gray-700"
                                 >
-                                    <h2 className="text-xl font-bold">
-                                        <Link
-                                            href={`/categories/category/${url.url}`}
-                                        >
-                                            {url.key}
-                                        </Link>
+                                    <h2 className="text-2xl font-semibold mb-4">
+                                        {letter.toUpperCase()}
                                     </h2>
-                                </Card>
-                            ))}
-                        </div>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                        {urls.map((url) => (
+                                            <Card
+                                                key={url.key}
+                                                className="p-4 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                                            >
+                                                <h2 className="text-xl font-bold">
+                                                    <Link
+                                                        href={`/categories/category/${url.url}`}
+                                                        className="text-blue-600 hover:text-blue-800 dark:hover:text-blue-400"
+                                                    >
+                                                        {url.key}
+                                                    </Link>
+                                                </h2>
+                                            </Card>
+                                        ))}
+                                    </div>
+                                </div>
+                            )
+                        )}
                     </div>
                 </div>
             </>
