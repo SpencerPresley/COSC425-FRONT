@@ -8,7 +8,18 @@ import { AzRender } from "./azRender/az";
 import { UrlsLetters } from "@/components/componentsCategoriesPage/urlsLetters";
 
 interface CategoryObject {
-  [key: string]: {
+    [key: string]: {
+        url: string;
+        faculty_count: number;
+        department_count: number;
+        article_count: number;
+        faculty: string[];
+        departments: string[];
+        titles: string[];
+    };
+}
+
+interface CategoryData {
     url: string;
     faculty_count: number;
     department_count: number;
@@ -16,86 +27,86 @@ interface CategoryObject {
     faculty: string[];
     departments: string[];
     titles: string[];
-  };
-}
-
-interface CategoryData {
-  url: string;
-  faculty_count: number;
-  department_count: number;
-  article_count: number;
-  faculty: string[];
-  departments: string[];
-  titles: string[];
 }
 
 interface CategoryProps {
-  category: string;
+    category: string;
 }
 
 /* No singleton pattern necessary.
    Next.js fetch() automatically memoizes data 
    */
 async function fetchS3Data() {
-  const data = (await fetch(
-    "http://cosc425-category-data.s3.amazonaws.com/processed_category_data.json"
-  ).then((res) => res.json())) as CategoryObject;
+    const data = (await fetch(
+        "http://cosc425-category-data.s3.amazonaws.com/processed_category_data.json"
+    ).then((res) => res.json())) as CategoryObject;
 
-  return data;
+    return data;
 }
 
 async function getUrls() {
-  const data = await fetchS3Data();
+    // const data = await fetchS3Data();
 
-  return Object.values(data)
-    .map((item) => item.url)
-    .sort();
+    // return Object.values(data)
+    //     .map((item) => item.url)
+    //     .sort();
+
+    const data = await fetchS3Data();
+    return Object.entries(data)
+        .map(([key, item]) => ({ key, url: item.url }))
+        .sort((a, b) => a.url.localeCompare(b.url)); // Sorting by URL
 }
 
 export default async function CategoriesPage({
-  params,
+    params,
 }: {
-  params: {
-      slug?: string[];
-  };
+    params: {
+        slug?: string[];
+    };
 }) {
-  const slugs = params.slug || [];
-  const urls = await getUrls();
-  // console.log(urls);
+    const slugs = params.slug || [];
+    const urls = await getUrls();
 
-  if (!urls) {
-    return <div>Loading...</div>;
-  }
+    // console.log(urls);
 
-  if (slugs.length === 1) {
-    return (
-      <div>
-        <AzRender letter={slugs[0]} />
-      </div>
-    );
-  }
+    if (!urls) {
+        return <div>Loading...</div>;
+    }
 
-  if (slugs.length === 0) {  
+    if (slugs.length === 1) {
+        return (
+            <div>
+                <AzRender letter={slugs[0]} />
+            </div>
+        );
+    }
 
-  return (
-    <>
-      <div className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-        <div className="inline-block max-w-lg text-center justify-center">
-          <h1 className="text-3xl font-bold pb-10">Categories</h1>
-          <UrlsLetters />
-          <div className="grid grid-cols-1 gap-4">
-            {urls.map((url) => (
-              <Card key={url} className="p-4">
-                <h2 className="text-xl font-bold">
-                  <Link href={`/categories/category/${url}`}>{url}</Link>
-                </h2>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </div>
-    </>
-  );
-  }
+    if (slugs.length === 0) {
+        return (
+            <>
+                <div className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+                    <div className="inline-block max-w-lg text-center justify-center">
+                        <h1 className="text-3xl font-bold pb-10">Categories</h1>
+                        <UrlsLetters />
+                        <div className="grid grid-cols-1 gap-4">
+                            {urls.map((url) => (
+                                <Card
+                                    key={url.key}
+                                    className="p-4"
+                                >
+                                    <h2 className="text-xl font-bold">
+                                        <Link
+                                            href={`/categories/category/${url.url}`}
+                                        >
+                                            {url.key}
+                                        </Link>
+                                    </h2>
+                                </Card>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </>
+        );
+    }
 }
-  
