@@ -78,7 +78,7 @@ export async function AzRender({ letter }: { letter: string }) {
                                 <h2 className="text-xl font-bold">
                                     <Link
                                         href={`/categories/category/${url.url}`}
-                                        className="text-blue-600 hover:text-blue-800 dark:hover:text-blue-400"
+                                        className="text-blue-600 hover:text-blue-700 dark:hover:text-blue-400"
                                     >
                                         {url.key}
                                     </Link>
