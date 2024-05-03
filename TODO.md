@@ -17,7 +17,7 @@
   - A JSON file already exists which associates abstracts and titles.
 
 #### Improvements | Must Have
-- 1. [ ] Faculty and Article lists are unsorted on their respective pages. Sort them alphabetically.
+- 1. [x] Faculty and Article lists are unsorted on their respective pages. Sort them alphabetically. -> Fixed by Isaac on a fork and pull requested in. 
 - 2. [ ] Current styling of some pages leads to jarring color changes when toggling between light and dark mode. See a category page where when toggling to light mode the display box turns entirely black.
 - 3. [ ] Add space between articles and faculty lists.
 - 4. [ ] Clickable links need to be underlined and bolded. They should be highlighted in the SU Maroon color, or a lighter red color if SU Maroon impedes readability. On hover opacity should drop to add a darkening effect.
@@ -30,12 +30,12 @@
   - [ ] Highlight the name of the category page you're on in the side nav. If I'm viewing math the math category should be bolded in the side nav.
 
 #### Bug Fixes | Major
-- 1. [ ] Fix the category A-Z pages from displaying the URL version of the category name to displaying the actual name.
+- 1. [x] Fix the category A-Z pages from displaying the URL version of the category name to displaying the actual name.
 
 #### Bug Fixes | Minor
 - 1. [ ] When the faculty or article list is too long on the faculty/ article pages it creates a scrollbar inside the container. This leads to a scrollbar for the total window, a scrollbar for the side nav, and a scrollbar for the article / faculty content, leading to 3 scroll bars on one page.
     - See: Business -> Articles and Education and Educational Research -> Faculty
-- 2. [ ] On the home page 'related' is spelled 'realted', fix this.
+- 2. [x] On the home page 'related' is spelled 'realted', fix this. -> Fixed by Isaac on a fork and pull requested in
 
 ### Documentation
 - 1. [ ] Document code verbosely. 
