@@ -95,7 +95,7 @@ export default async function CategoriesPage({// This is what displays the actua
         );
     }
 
-    if (slugs.length === 0) {
+    if (slugs.length === 0) {//this is what the defualt for the page would like is returned. shows all entries
         return (
             <>
                 <div className="flex flex-col items-center justify-center gap-6 py-10 md:py-12">{/** Centers the body top the center of the screen. Uses tailwind css to style the body, and fro different size screens*/}
