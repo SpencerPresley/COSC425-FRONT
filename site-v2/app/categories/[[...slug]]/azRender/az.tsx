@@ -69,7 +69,7 @@ export async function AzRender({ letter }: { letter: string }) {//function that 
                 <div className="inline-block max-w-2xl text-center">{/**This contains components to dynamically display all the categories. Uses tailwind css to style the body  */}
                     <h1 className="text-4xl font-bold pb-8">Categories</h1>{/**Displays the title of the page. Uses tailind css to stile it */}
                     <UrlsLetters />{/**Displays the letters for pagination between different letters. Allows user to click which letter they would like to start with*/}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">{/**displays the card componets in a grid like system. Uses Tailwind css styling. Varies depending size depending on screen size */}
                         {urls.map((url) => (// It maps the entries that were given by the url data. Specifically it repertedly makes cards that show the category and allowthe user to click on the card to go to the category page.
                             <Card //card component that comes from nextui. It holds they key for the card. It uses tailwind css for styling. 
                                 key={url.key}// key for the card
