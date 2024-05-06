@@ -49,7 +49,7 @@ function groupUrlsByFirstLetter(urls: { key: string; url: string }[]) {
 
 /* No singleton pattern necessary.
    Next.js fetch() automatically memoizes data 
-   */
+*/
 async function fetchS3Data() {
     const data = (await fetch(
         "http://cosc425-category-data.s3.amazonaws.com/processed_category_data.json"

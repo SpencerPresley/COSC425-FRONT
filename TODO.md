@@ -4,7 +4,7 @@
 
 ### Core Features
 - 1. [ ] Add theme data to category pages.
-- 2. [ ] Add department list to faculty page.
+- 2. [x] Add department list to faculty page.
 - 3. [ ] Pages need to be statically generated. They are currently making calls to the S3 bucket a ludicrous number of times.
 - 4. [ ] Add most influential papers and faculty to category pages.
   - Limit display of each to 5 items.
@@ -19,7 +19,7 @@
 #### Improvements | Must Have
 - 1. [x] Faculty and Article lists are unsorted on their respective pages. Sort them alphabetically. -> Fixed by Isaac on a fork and pull requested in. 
 - 2. [ ] Current styling of some pages leads to jarring color changes when toggling between light and dark mode. See a category page where when toggling to light mode the display box turns entirely black.
-- 3. [ ] Add space between articles and faculty lists.
+- 3. [x] Add space between articles and faculty lists.
 - 4. [ ] Clickable links need to be underlined and bolded. They should be highlighted in the SU Maroon color, or a lighter red color if SU Maroon impedes readability. On hover opacity should drop to add a darkening effect.
 
 #### Improvements | Nice to Have
@@ -60,6 +60,3 @@
 3. [ ] Document code verbosely. 
    - [ ] Make a branch of the final main release and go through all the code you've been involved in and write abundant amounts of comments. I'm talking 2-3 comments per individual line. When we come back this will help immensely with getting back up to speed on how we implemented things.
    - [ ] Write general documentation of the code and how it's used and why it was written how it was.
-
-
-
