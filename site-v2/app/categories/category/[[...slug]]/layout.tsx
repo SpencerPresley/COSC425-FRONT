@@ -11,12 +11,10 @@ export default function CategoryLayout ({
                 <div className="md:basis-1/4 pr-5">
                     <SideNav />
                 </div>
-                <div className="basis-4/4 md:basis-2/4 mb-20">
+                <div className="basis-4/4 md:basis-3asdfd/4 mb-20">
                     {children}
                 </div>
-                <div className="md:basis-1/4 pl-5">
-                    <SideNav />
-                </div>
+
             </div>
         </>
     );

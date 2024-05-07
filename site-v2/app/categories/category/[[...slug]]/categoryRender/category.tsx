@@ -19,6 +19,9 @@ interface CategoryObject {
     faculty: string[];
     departments: string[];
     titles: string[];
+    tc_count: number;
+    citation_average: number;
+    themes: string[];
   };
 }
 
@@ -30,6 +33,9 @@ interface CategoryData {
   faculty: string[];
   departments: string[];
   titles: string[];
+  tc_count: number;
+  citation_average: number;
+  themes: string[];
 }
 
 interface CategoryProps {
@@ -80,57 +86,36 @@ export async function RenderCategory({ category }: CategoryProps) {
     faculty,
     departments,
     titles,
+    tc_count,
+    citation_average,
+    themes,
   } = data;
-
-  const themes = [
-    "Resilience Training",
-    "Job Satisfaction",
-    "Turnover Intentions",
-    "Role Stressors",
-    "Stress Arousal",
-    "Burnout",
-  ];
 
   return (
     <>
-      <div className="inline-block max-w-lg text-center justify-center">
-        <h1 className="text-2xl font-bold">{categoryName}</h1>
+      <div className="flex flex-col items-center justify-center w-full py-5">
+        <h1 className="text-3xl font-bold text-center">{categoryName}</h1>
       </div>
-      {/* <div className="bg-background dark:bg-background border ">
-                <div className="flex flex-col items-center justify-center">
-                    <h1 className="text-2xl font-bold">{categoryName}</h1>
-                </div>
-            </div> */}
-      {/* grid-flow-row-dense */}
-      <div className="grid grid-cols-12 grid-rows-6 px-4 gap-10 w-full py-7">
-        <Card className="dark:bg-suMaroon/70 bg-suMaroon text-white font-bold w-full col-span-6 px-2">
-          <div className=" p-4" key={faculty_count}>
-            <Link
-              className="hover:text-suGold text-white"
-              href={`/categories/category/${category}/faculty/`}
-            >
+  
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 py-4">
+        <Card className="bg-suMaroon dark:bg-suMaroon/70 text-white font-bold">
+          <div className="p-4">
+            <h2 className="text-xl">Counts</h2>
+            <Link className="hover:text-suGold block" href={`/categories/category/${category}/faculty/`}>
               Faculty Count: {faculty_count}
             </Link>
-
-            <Link
-              className="hover:text-suGold text-white"
-              href={`/categories/category/${category}/faculty/`}
-            >
+            <Link className="hover:text-suGold block" href={`/categories/category/${category}/faculty/`}>
               Department Count: {department_count}
             </Link>
-
-            <Link
-              className="hover:text-suGold text-white"
-              href={`/categories/category/${category}/articles/`}
-            >
-              Article Count:
-              {article_count}
+            <Link className="hover:text-suGold block" href={`/categories/category/${category}/articles/`}>
+              Article Count: {article_count}
             </Link>
           </div>
         </Card>
-        <Card className="dark:bg-suMaroon/70 bg-suMaroon text-white font-bold w-full col-span-6 px-2">
-          <div className="row-span-1 p-4">
-            <h2 className="flex justify-center"> Departments</h2>
+  
+        <Card className="bg-suMaroon dark:bg-suMaroon/70 text-white font-bold">
+          <div className="p-4">
+            <h2 className="text-xl">Departments</h2>
             <ul>
               {departments.map((department) => (
                 <li key={department}>{department}</li>
@@ -138,34 +123,31 @@ export async function RenderCategory({ category }: CategoryProps) {
             </ul>
           </div>
         </Card>
-
-        <Card className="dark:bg-suMaroon/70 bg-suMaroon text-white font-bold w-full col-span-6 px-2">
-          <div className="row-span-1  p-4">
-            <h2 className="flex justify-center underline">
-              <Link href={`/categories/category/${category}/faculty/`}>
-                Faculty
-              </Link>
-            </h2>
-            {/* <ul className="overflow-hidden max-h-[50vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-                        {faculty.map((faculty) => (
-                            <li>{faculty}</li>
-                        ))}
-                    </ul> */}
+  
+        <Card className="bg-suMaroon dark:bg-suMaroon/70 text-white font-bold">
+          <div className="p-4">
+            <h2 className="text-xl">Themes</h2>
+            <ul className="space-y-2 overflow-y-auto max-h-60">
+              {themes.map((theme) => (
+                <li key={theme}>{theme}</li>
+              ))}
+            </ul>
           </div>
         </Card>
-
-        <Card className="dark:bg-suMaroon/70 bg-suMaroon text-white font-bold w-full col-span-6 px-2">
-          <div className="row-span-1 col-span-1 p-4">
-            <h2 className="flex justify-center underline">
+  
+        <Card className="bg-suMaroon dark:bg-suMaroon/70 text-white font-bold col-span-1 md:col-span-2 lg:col-span-3">
+          <div className="p-4">
+            <h2 className="text-xl underline">
               <Link href={`/categories/category/${category}/articles/`}>
                 Titles
               </Link>
             </h2>
-            {/* <ul className="overflow-hidden max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-                        {titles.map((title) => (
-                            <li>{title}</li>
-                        ))}
-                    </ul> */}
+            {/* Consider uncommenting and using the following if you have many titles to display */}
+            {/* <ul className="overflow-y-auto max-h-60">
+              {titles.map((title) => (
+                <li key={title}>{title}</li>
+              ))}
+            </ul> */}
           </div>
         </Card>
       </div>
