@@ -30,11 +30,10 @@ export async function SideNav() {
     const categoryUrls = await getUrls();
 
     return (
-        <div className="md:w-full text-white dark:text-white bg-slate-900 dark:bg-background hidden md:flex max-h-screen">
-            {/* ... */}
-            <div className="flex flex-col space-y-2 md:px-6 overflow-scroll max-h-screen">
-                <h1 className="shrink-0 pb-5 font-bold text-3xl w-full text-center my-auto">
-                    Category A-Z
+        <div className="md:w-full border-double border-4 border-black  dark:border-white dark:border-separate dark:rounded-lg border-separate rounded-lg text-white dark:text-white bg-suMaroon dark:bg-suMaroon/70 hidden md:flex max-h-[80vh]">
+            <div className="flex flex-col space-y-1 md:px-6 overflow-scroll max-h-[80vh] px-20">
+                <h1 className="font-bold text-2xl w-full text-center py-5 hover:text-suGold cursor-pointer transition duration-150 ease-in-out">
+                    <Link href="/categories">Explore Categories</Link>
                 </h1>
                 {categoryUrls.map((url) => (
                     <div
@@ -42,11 +41,11 @@ export async function SideNav() {
                         className="shrink-0 w-full text-center my-auto"
                     >
                         <Link href={`/categories/category/${url}`}>
-                            <h2 className="text-md">
+                            <h2 className="text-md hover:text-suGold hover:font-semibold cursor-pointer transition duration-150 ease-in-out">
                                 {url
                                     .split("-")
                                     .map(
-                                        (word: any) =>
+                                        (word: string) =>
                                             word.charAt(0).toUpperCase() +
                                             word.slice(1)
                                     )
@@ -56,7 +55,6 @@ export async function SideNav() {
                     </div>
                 ))}
             </div>
-            {/* ... */}
         </div>
     );
 }
