@@ -7,7 +7,7 @@ export default function CategoryLayout ({
 }) {
     return (
         <>
-            <div className="flex h-full w-full">
+            <div className="flex">
                     {children}
             </div>
         </>
