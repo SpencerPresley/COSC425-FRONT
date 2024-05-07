@@ -66,8 +66,8 @@ export default function Categories ({
     /* IF SLUGS EXIST RENDER CONTENT RELATED TO THE SLUG(S) */
     if (params.slug) {
         if (params.slug.length === 2) { 
-            // console.log("params.slug[0]", params.slug[0]);
-            // console.log("params.slug[1]", params.slug[1]);
+            console.log("params.slug[0]", params.slug[0]);
+            console.log("params.slug[1]", params.slug[1]);
             if (params.slug[1] === 'articles') {
                 return <div>
                     <Articles category={params.slug[0]} />

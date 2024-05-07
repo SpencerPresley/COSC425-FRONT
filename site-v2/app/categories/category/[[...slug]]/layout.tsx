@@ -14,8 +14,8 @@ export default function CategoryLayout ({
                 <div className="basis-4/4 md:basis-2/4 mb-20">
                     {children}
                 </div>
-                <div className="md:basis-1/4">
-                    <p></p>
+                <div className="md:basis-1/4 pl-5">
+                    <SideNav />
                 </div>
             </div>
         </>
