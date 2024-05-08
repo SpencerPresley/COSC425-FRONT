@@ -80,8 +80,6 @@ export async function AzRender({ letter }: { letter: string }) {
                                                 <h2 className="text-xl font-bold">
                                           
                                                 <Link
-                                                      key={url.key}
-
                                                       href={`/categories/category/${url.url}`} >
                                                         {url.key}
                                                         </Link>
