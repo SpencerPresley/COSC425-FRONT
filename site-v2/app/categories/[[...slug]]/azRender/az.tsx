@@ -46,7 +46,6 @@ async function fetchS3Data() {
 }
 
 async function getUrlsForLetter(letter: string) {
-    letter = letter.toLowerCase();
     const data = await fetchS3Data();
     const obj = Object.entries(data)
         .filter(([key, item]) => item.url.startsWith(letter))

@@ -54,7 +54,7 @@ export const UrlsLetters = () => {
 
   /* creates an array of all the aphabetical characters.
     split('') is a method that splits a string into an array of characters. */
-  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  const letters = "abcdefghijklmnopqrstuvwxyz".split("");
 
   return (
     <div>
