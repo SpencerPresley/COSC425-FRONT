@@ -154,7 +154,7 @@ export async function RenderCategory({ category }: CategoryProps) {
   // console.log(data);
 
   if (!data) {
-    return <div>Faculty not found</div>;
+    return <div>Category not found</div>;
   }
 
   const {
