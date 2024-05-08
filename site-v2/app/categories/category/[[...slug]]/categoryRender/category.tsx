@@ -178,6 +178,14 @@ export async function RenderCategory({ category }: CategoryProps) {
     .sort((a, b) => b[1] - a[1])
     .slice(0, 3);
 
+  let th = null;
+  if (themes.length < 5) {
+    th = themes;
+  } else {
+    th = themes.slice(0, 5);
+  }
+
+
   return (
     <>
       <div className="grid grid-cols-12 grid-rows-9 gap-4 max-h-[80vh] gap-y-3 xl:px-10 grid-flow-row-dense ">
@@ -267,7 +275,7 @@ export async function RenderCategory({ category }: CategoryProps) {
               <div className="px-4">
                 <ul className="list-disc">
                   {" "}
-                  {themes.slice(0, 5).map((theme) => (
+                  {th.map((theme) => (
                     <li className="ml-1 md:ml-2.5 py-0.5" key={theme}>
                       <h3 className="text-white font-normal md:font-medium text-sm md:text-lg leading-none">
                         {theme}
