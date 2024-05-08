@@ -3,8 +3,8 @@
 ## Frontend
 
 ### Core Features
-- 1. [ ] Add theme data to category pages.
-- 2. [ ] Add department list to faculty page.
+- 1. [x] Add theme data to category pages.
+- 2. [x] Add department list to faculty page.
 - 3. [ ] Pages need to be statically generated. They are currently making calls to the S3 bucket a ludicrous number of times.
 - 4. [ ] Add most influential papers and faculty to category pages.
   - Limit display of each to 5 items.
@@ -12,15 +12,15 @@
 ### UI/UX
 
 #### Features
-- 1. [ ] SU colors for light and dark theme. We do not need to go crazy here. Just use a little bit of the maroon and a little bit of the gold on areas of the website which will not impede with readability or user experience. Use common sense.
+- 1. [x]] SU colors for light and dark theme. We do not need to go crazy here. Just use a little bit of the maroon and a little bit of the gold on areas of the website which will not impede with readability or user experience. Use common sense.
 - 2. [ ] Add modal popup for titles, when clicked popup will appear displaying that papers abstract.
   - A JSON file already exists which associates abstracts and titles.
 
 #### Improvements | Must Have
 - 1. [x] Faculty and Article lists are unsorted on their respective pages. Sort them alphabetically. -> Fixed by Isaac on a fork and pull requested in. 
 - 2. [ ] Current styling of some pages leads to jarring color changes when toggling between light and dark mode. See a category page where when toggling to light mode the display box turns entirely black.
-- 3. [ ] Add space between articles and faculty lists.
-- 4. [ ] Clickable links need to be underlined and bolded. They should be highlighted in the SU Maroon color, or a lighter red color if SU Maroon impedes readability. On hover opacity should drop to add a darkening effect.
+- 3. [x] Add space between articles and faculty lists.
+- 4. [x] Clickable links need to be underlined and bolded. They should be highlighted in the SU Maroon color, or a lighter red color if SU Maroon impedes readability. On hover opacity should drop to add a darkening effect.
 
 #### Improvements | Nice to Have
 - 1. [ ] On category A-Z page, display under each category name smaller, italic, right-aligned text which displays a preview of the page via saying article and faculty count like so: Articles: 6, Faculty: 3.
@@ -38,7 +38,7 @@
 - 2. [x] On the home page 'related' is spelled 'realted', fix this. -> Fixed by Isaac on a fork and pull requested in
 
 ### Documentation
-- 1. [ ] Document code verbosely. 
+- 1. [x] Document code verbosely. 
    - [ ] Make a branch of the final main release and go through all the code you've been involved in and write abundant amounts of comments. I'm talking 2-3 comments per individual line. When we come back this will help immensely with getting back up to speed on how we implemented things.
    - [ ] Write general documentation of the code and how it's used and why it was written how it was.
 
@@ -50,8 +50,8 @@
 - 1. [ ] Add a color coding system associated with article counts to denote how "hot" a category is, thermometer like feature, and/or key word (i.e "Hot Topic", "Topic of Interest", "Topic of limited interest", "Obscure topic"). This would help the user better understand the relative strength of the concentration in a topic without needing to look it up on a sorted list.
 
 ## Backend
-1. [ ] Export raw data in spreadsheet format to deliver to client.  
-2. [ ] Finish auxillary stats
+1. [x] Export raw data in spreadsheet format to deliver to client.  
+2. [x] Finish auxillary stats
    - Total citations for category.
    - Total citations per paper per category. Needed for displaying most influential papers.
    - Total citation per author per category. Needed for displaying most influential faculty.
@@ -60,6 +60,3 @@
 3. [ ] Document code verbosely. 
    - [ ] Make a branch of the final main release and go through all the code you've been involved in and write abundant amounts of comments. I'm talking 2-3 comments per individual line. When we come back this will help immensely with getting back up to speed on how we implemented things.
    - [ ] Write general documentation of the code and how it's used and why it was written how it was.
-
-
-

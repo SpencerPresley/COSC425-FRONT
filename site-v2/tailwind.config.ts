@@ -14,6 +14,15 @@ module.exports = {
             colors: {
                 primary: "#8a0000",
                 secondary: "#ffff0f",
+                suMaroon: "#8a0000",
+                suGold: "#FFC420",
+                suGray: "#888a8d",
+                suBlue: "#0084ae",
+                suGreen: "#00827e",
+                suPurple: "#614b78",
+            },
+            fontFamily: {
+                fontSerif: ['var(--font-serif)'],
             },
         },
     },
@@ -28,9 +37,16 @@ module.exports = {
                         },
                         background: "#1e2124",
                         focus: "#22c55e",
+                        suMaroon: "#8a0000",
+                        suGold: "#FFC420",
+                        suGray: "#888a8d",
+                        suBlue: "#0084ae",
+                        suGreen: "#00827e",
+                        suPurple: "#614b78",
                     },
                 },
             },
         }),
+
     ],
 };
