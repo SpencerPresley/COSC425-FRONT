@@ -63,11 +63,21 @@ export default function Categories ({
 
     // console.log("params.slug", params.slug); // Add this line to check what slug contains
 
+    if (!params.slug) {
+        return <div>
+            <h1>not found 0</h1>
+        </div>
+    }
+
+    console.log("params.slug[0]", params.slug[0]);
+    console.log("params.slug[1]", params.slug[1]);
+
     /* IF SLUGS EXIST RENDER CONTENT RELATED TO THE SLUG(S) */
     if (params.slug) {
+        console.log("params.slug", params.slug);
         if (params.slug.length === 2) { 
-            // console.log("params.slug[0]", params.slug[0]);
-            // console.log("params.slug[1]", params.slug[1]);
+            console.log("params.slug[0]", params.slug[0]);
+            console.log("params.slug[1]", params.slug[1]);
             if (params.slug[1] === 'articles') {
                 return <div>
                     <Articles category={params.slug[0]} />
@@ -89,6 +99,7 @@ export default function Categories ({
     }
 
     /* IF SLUGS DON'T EXIST RENDER CATEGORIES A-Z PAGE */
+    console.log("params.slug", params.slug);
     return <div>
         <h1>not found 1</h1>
     </div>
