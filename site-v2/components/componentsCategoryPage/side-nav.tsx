@@ -1,4 +1,6 @@
 import Link from "next/link";
+import {ScrollShadow} from "@nextui-org/scroll-shadow";
+
 interface CategoryObject {
     [key: string]: {
         url: string;
@@ -30,18 +32,22 @@ export async function SideNav() {
     const categoryUrls = await getUrls();
 
     return (
-        <div className="md:w-full border-3 border-black  dark:border-white dark:border-separate dark:rounded-lg border-separate rounded-lg text-white dark:text-white bg-suMaroon dark:bg-suMaroon/95 hidden md:flex max-h-[62vh]">
+        <div className="md:w-full border-1 border-black  dark:border-white rounded-r-sm rounded-b-xs rounded-br-xs rounded-tr-xs rounded-tl-xl rounded-bl-xl text-white dark:text-white bg-suMaroon dark:bg-suMaroon dark:bg-opacity-80 hidden md:flex max-h-[62vh] shadow-md shadow-black">
             <div className="flex  flex-col space-y-1 md:px-6 overflow-scroll max-h-[62vh] px-20">
-                <h1 className="opacity-100 font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-300 to-amber-200 text-2xl w-full text-center pt-3  pb-1 hover:opacity-80 cursor-pointer transition duration-400 ease-in-out">
+                <div className="sticky top-0 z-10">
+
+                <h1 className="opacity-100 font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-300 to-amber-200 text-xl w-full text-center pt-3  pb-1 hover:opacity-60 cursor-pointer transition duration-400 ease-in-out">
                     <Link href="/categories">Explore Categories</Link>
                 </h1>
+                </div>
+                <ScrollShadow >
                 {categoryUrls.map((url) => (
                     <div
                         key={url}
                         className="shrink-0 w-full text-center my-auto"
                     >
                         <Link href={`/categories/category/${url}`}>
-                            <h2 className="text-md hover:text-suGold hover:font-semibold cursor-pointer transition duration-150 ease-in-out">
+                            <h2 className="text-md hover:text-suGold font-medium cursor-pointer transition duration-150 ease-in-out">
                                 {url
                                     .split("-")
                                     .map(
@@ -54,6 +60,7 @@ export async function SideNav() {
                         </Link>
                     </div>
                 ))}
+                </ScrollShadow>
             </div>
         </div>
     );
