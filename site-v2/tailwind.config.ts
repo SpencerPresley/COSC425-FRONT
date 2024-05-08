@@ -21,6 +21,9 @@ module.exports = {
                 suGreen: "#00827e",
                 suPurple: "#614b78",
             },
+            fontFamily: {
+                fontSerif: ['var(--font-serif)'],
+            },
         },
     },
     darkMode: "class",

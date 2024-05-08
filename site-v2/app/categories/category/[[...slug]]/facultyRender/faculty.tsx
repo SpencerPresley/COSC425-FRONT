@@ -51,7 +51,7 @@ async function getFacultyData(category: string) {
 
 export async function Faculty({ category }: FacultyProps) {
   const data = await getFacultyData(category);
-  console.log(data);
+  // console.log(data);
 
   if (!data) {
     return <div>Faculty not found</div>;

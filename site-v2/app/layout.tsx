@@ -1,12 +1,11 @@
 import "@/styles/globals.css";
 import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
-import { fontSans } from "@/config/fonts";
+import { fontSans, fontSerif, fontMono } from "@/config/fonts";
 import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
-import type { Viewport } from 'next';
 
 export const metadata: Metadata = {
     title: {
@@ -42,8 +41,8 @@ export default function RootLayout({
             <head />
             <body
                 className={clsx(
-                    "min-h-screen dark:bg-black bg-background font-sans antialiased",
-                    fontSans.variable
+                    "min-h-screen dark:bg-black bg-background font-serif antialiased",
+                    fontSerif.variable, fontSans.variable, fontMono.variable
                 )}
             >
                 <Providers
