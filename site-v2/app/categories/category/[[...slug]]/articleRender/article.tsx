@@ -1,3 +1,5 @@
+import { Card } from "@nextui-org/card";
+
 interface CategoryObject {
   [key: string]: {
     url: string;
@@ -61,16 +63,19 @@ export async function Articles({ category }: ArticleProps) {
   const { categoryName, faculty, departments, titles } = data;
 
   return (
-    <div className="bg-gray-800 dark:bg-gray-700 flex flex-col items-center justify-center gap-6 text-white p-6 rounded-lg shadow-lg">
-      <h1 className="text-4xl font-bold text-center">{categoryName}</h1>
-      <h2 className="text-2xl font-semibold mt-4">Articles</h2>
-      <ul className="list-disc pl-5 max-h-[65vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-        {titles.sort().map((title: string) => (
-          <li key={title} className="mb-2">
-            {title}
-          </li>
-        ))}
-      </ul>
-    </div>
+<Card className="bg-suMaroon dark:bg-suMaroon/95 text-white h-full border-3 border-black dark:border-white rounded-lg flex flex-col items-center">
+  <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-300 to-amber-200 pb-1 text-center">
+    {categoryName}
+  </h1>
+  <h2 className="text-3xl font-semibold text-center">Articles</h2>
+  <ul className="list-disc pl-5 max-h-[65vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 mt-2 text-xl">
+    {titles.sort().map((title: string) => (
+      <li key={title} className="mb-2 text-white">
+        {title}
+      </li>
+    ))}
+  </ul>
+</Card>
+
   );
 }

@@ -1,3 +1,4 @@
+import { Card } from "@nextui-org/card";
 interface CategoryObject {
   [key: string]: {
     url: string;
@@ -60,24 +61,37 @@ export async function Faculty({ category }: FacultyProps) {
   const { categoryName, faculty, departments, titles } = data;
 
   return (
-    <div className="bg-gray-800 dark:bg-gray-700 flex flex-col items-center justify-center gap-6 text-white p-6 rounded-lg shadow-lg">
+    <div>
+      <div className="bg-suMaroon dark:bg-suMaroon/95 justify-center gap-6 text-white p-6 rounded-lg shadow-lg border-3 border-black mb-5">
       <h1 className="text-4xl font-bold text-center">{categoryName}</h1>
-      <h2 className="text-2xl font-semibold mt-4">Faculty</h2>
-      <ul className="list-disc pl-5 max-h-[65vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-        {faculty.sort().map((facultyMember: string) => (
-          <li key={facultyMember} className="mb-2">
-            {facultyMember}
-          </li>
-        ))}
-      </ul>
-      <h2 className="text-2xl font-semibold mt-4">Departments</h2>
-      <ul className="list-disc pl-5 max-h-[65vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-        {departments.sort().map((department: string) => (
-          <li key={department} className="mb-2">
-            {department}
-          </li>
-        ))}
-      </ul>
-    </div>
+      </div>
+    
+<div className="flex flex-row justify-center gap-12">
+  {/* First Card - Faculty */}
+  <Card className="bg-suMaroon dark:bg-suMaroon/95 flex flex-col items-center justify-center gap-6 text-white p-6 rounded-lg shadow-lg border-3 border-black">
+    
+    <h2 className="text-2xl font-semibold mt-4">Faculty</h2>
+    <ul className="list-disc pl-5 max-h-[65vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+      {faculty.sort().map((facultyMember: string) => (
+        <li key={facultyMember} className="mb-2">
+          {facultyMember}
+        </li>
+      ))}
+    </ul>
+  </Card>
+
+  {/* Second Card - Departments */}
+  <Card className="bg-suMaroon dark:bg-suMaroon/95 flex flex-col items-center justify-center gap-6 text-white p-6 rounded-lg shadow-lg border-3 border-black">
+    <h2 className="text-2xl font-semibold mt-4">Departments</h2>
+    <ul className="list-disc pl-5 max-h-[65vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+      {departments.sort().map((department: string) => (
+        <li key={department} className="mb-2">
+          {department}
+        </li>
+      ))}
+    </ul>
+  </Card>
+</div>
+</div>
   );
 }
