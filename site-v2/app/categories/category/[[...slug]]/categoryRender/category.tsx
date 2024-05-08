@@ -186,11 +186,11 @@ export async function RenderCategory({ category }: CategoryProps) {
             {categoryName}
           </h1>
           <p className="text-center text-medium font-semibold">
-            "the study and design of intelligent agents" where an intelligent
+            &ldquo;the study and design of intelligent agents&rdquo; where an intelligent
             agent is a system that perceives its environment and takes actions
             that maximize its chances of success. John McCarthy, who coined the
-            term in 1955, defines it as "the science and engineering of making
-            intelligent machines."
+            term in 1955, defines it as &ldquo;the science and engineering of making
+            intelligent machines.&rdquo;
           </p>
         </div>
         <div className="col-span-3 col-start-1 row-start-3 row-span-7">
