@@ -130,7 +130,7 @@ async function fetchS3Data() {
     "http://cosc425-category-data.s3.amazonaws.com/processed_category_data.json"
   ).then((res) => res.json())) as CategoryObject;
 
-  console.log(data);
+  // console.log(data);
   return data;
 }
 

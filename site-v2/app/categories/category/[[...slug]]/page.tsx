@@ -7,6 +7,15 @@ import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
 
+
+// user clicks a letter
+// wer fetch all the categories and their data that start with that letter
+// we sort it
+// we display it
+
+
+
+
 /* FOR CONDITIONAL RENDERING */
 import { Faculty } from "./facultyRender/faculty";
 import { Articles } from "./articleRender/article";
@@ -15,19 +24,32 @@ import { RenderCategory } from "./categoryRender/category";
 /* FOR BASE PAGE STYLING */
 import { Card } from "@nextui-org/card";
 
+/* INTERFACES */
+interface CategoryObject {
+    [key: string]: {
+        url: string;
+        faculty_count: number;
+        department_count: number;
+        article_count: number;
+        faculty: string[];
+        departments: string[];
+        titles: string[];
+    };
+}
 
-/* CATEGORY INTERFACES */
-import { type CategoryObject, type CategoryData, type CategoryProps } from "@/types/index";
+interface CategoryData {
+    url: string;
+    faculty_count: number;
+    department_count: number;
+    article_count: number;
+    faculty: string[];
+    departments: string[];
+    titles: string[];
+}
 
-/* FACULTY STATS INTERFACES */
-
-
-// user clicks a letter
-// wer fetch all the categories and their data that start with that letter
-// we sort it
-// we display it
-
-
+interface CategoryProps {
+    params: { category: string };
+}
 
 export default function Categories ({
     params,
@@ -44,8 +66,8 @@ export default function Categories ({
     /* IF SLUGS EXIST RENDER CONTENT RELATED TO THE SLUG(S) */
     if (params.slug) {
         if (params.slug.length === 2) { 
-            console.log("params.slug[0]", params.slug[0]);
-            console.log("params.slug[1]", params.slug[1]);
+            // console.log("params.slug[0]", params.slug[0]);
+            // console.log("params.slug[1]", params.slug[1]);
             if (params.slug[1] === 'articles') {
                 return <div>
                     <Articles category={params.slug[0]} />

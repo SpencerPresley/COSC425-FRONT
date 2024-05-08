@@ -4,7 +4,7 @@ import fetchCategoryData from "@/lib/categoryData/fetchCategoryData";
 async function loadCategoryData () {
     try {
         const data = await fetchCategoryData();
-        console.log(data);
+        // console.log(data);
     } catch (error) {
         console.error("FAILED TO FETCH CATEGORY DATA", error);
     }

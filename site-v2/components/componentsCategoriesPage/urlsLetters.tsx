@@ -58,13 +58,13 @@ export const UrlsLetters = () => {
 
   return (
     <div>
-      <Link className="pr-2" href={`${url}`}>
+      <Link href={`${url}`}>
         {" "}
         <strong>All</strong>{" "}
       </Link>
       {letters.map((letter) => (
         <>
-          <Link className="pr-1" key={letter} href={`${url}/${letter}`}>
+          <Link key={letter} href={`${url}/${letter}`}>
             {letter}
           </Link>{" "}
         </>

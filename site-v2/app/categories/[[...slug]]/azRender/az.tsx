@@ -51,13 +51,13 @@ async function getUrlsForLetter(letter: string) {
         .filter(([key, item]) => item.url.startsWith(letter))
         .map(([key, item]) => ({ key, url: item.url }))
         .sort((a, b) => a.url.localeCompare(b.url)); // Sorting by URL
-    console.log(obj);
+    console.log("GETURLSOBJ", obj);
     return obj;
 }
 
 export async function AzRender({ letter }: { letter: string }) {
     const urls = await getUrlsForLetter(letter);
-    // console.log(urls);
+    console.log("URLS", urls);
 
     if (!urls) {
         return <div>Loading...</div>;
@@ -71,20 +71,23 @@ export async function AzRender({ letter }: { letter: string }) {
                     <UrlsLetters />
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
                                         {urls.map((url) => (
-                                                      <Link
-                                                      key={url.key}
-
-                                                      href={`/categories/category/${url.url}`}
-                                                  >
+                                                  
                                             <Card
                                                 className="p-4 dark:bg-suMaroon/90 hover:bg-gray-100 bg-gray-50 shadow-black drop-shadow-md hover:drop-shadow-xl dark:hover:bg-suMaroon/70 transition-colors text-suMaroon dark:text-yellow-300 duration-150 ease-in-out"
+                                                key={url.key}
+
                                             >
                                                 <h2 className="text-xl font-bold">
                                           
+                                                <Link
+                                                      key={url.key}
+
+                                                      href={`/categories/category/${url.url}`} >
                                                         {url.key}
+                                                        </Link>
                                                 </h2>
                                             </Card>
-                                            </Link>
+                                           
 
                                         ))}
                                     </div>

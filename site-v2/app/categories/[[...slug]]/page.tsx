@@ -113,21 +113,27 @@ export default async function CategoriesPage({
                                     </h2>
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                         {urls.map((url) => (
-                                                      <Link
-                                                      key={url.key}
 
-                                                      href={`/categories/category/${url.url}`}
-                                                      className="text-blue-600 hover:text-blue-800 dark:hover:text-blue-400"
-                                                  >
+                                                  
                                             <Card
                                                 className="p-4 dark:bg-suMaroon/90 hover:bg-gray-100 bg-gray-50 shadow-black drop-shadow-md hover:drop-shadow-xl dark:hover:bg-suMaroon/70 transition-colors text-suMaroon dark:text-yellow-300 duration-150 ease-in-out"
+
+                                                key={url.key}
                                             >
-                                                <h2 className="text-xl font-bold">
+
+<Link
+                                                     
+
+                                                      href={`/categories/category/${url.url}`}
+                                                      className="text-blue-600 hover:text-blue-800 dark:hover:text-blue-400" >                                                <h2 className="text-xl font-bold">
                                           
+                                                        
                                                         {url.key}
                                                 </h2>
+                                                </Link>
+
                                             </Card>
-                                            </Link>
+                                            
 
                                         ))}
                                     </div>
