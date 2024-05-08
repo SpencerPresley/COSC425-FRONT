@@ -32,10 +32,10 @@ module.exports = {
                 dark: {
                     colors: {
                         primary: {
-                            DEFAULT: "#ef4444",
-                            foreground: "#22d3ee",
+                            DEFAULT: "#000000",
+                            foreground: "#000000",
                         },
-                        background: "#1e2124",
+                        background: "#000000",
                         focus: "#22c55e",
                         suMaroon: "#8a0000",
                         suGold: "#FFC420",
