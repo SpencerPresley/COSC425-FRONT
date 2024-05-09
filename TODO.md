@@ -44,7 +44,7 @@
 
 ### Other | Only work on if everything else above this is done.
 - 1. [ ] Investigate converting department names from their shortened WoS versions (i.e. 'Hist') to their full version (i.e. 'History').
-- 2. [ ] REQUIRES BACKEND: Have chatgpt write a short 1-paragraph / 1-sentence generic definition of each category. Display this below the category title on the category page.
+- 2. [x] REQUIRES BACKEND: Have chatgpt write a short 1-paragraph / 1-sentence generic definition of each category. Display this below the category title on the category page.
 
 ### Future | Not this semester
 - 1. [ ] Add a color coding system associated with article counts to denote how "hot" a category is, thermometer like feature, and/or key word (i.e "Hot Topic", "Topic of Interest", "Topic of limited interest", "Obscure topic"). This would help the user better understand the relative strength of the concentration in a topic without needing to look it up on a sorted list.
