@@ -4,10 +4,6 @@ export const siteConfig = {
 	name: "Rommel Center Initiative",
 	description: "AI Powered Research Database",
 	navItems: [
-		{
-			label: "Home",
-			href: "/",
-		},
     {
       label: "Docs",
       href: "/docs",
