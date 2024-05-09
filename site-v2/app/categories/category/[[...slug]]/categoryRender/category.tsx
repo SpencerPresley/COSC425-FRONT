@@ -178,6 +178,10 @@ export async function RenderCategory({ category }: CategoryProps) {
     .sort((a, b) => b[1] - a[1])
     .slice(0, 3);
 
+  if (department_count === 0) {
+    departments.push("No departments currently available, check back later.");
+  }
+
   let th = null;
   if (themes === undefined) {
     th =["No themes currently available, check back later."];
