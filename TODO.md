@@ -12,19 +12,19 @@
 ### UI/UX
 
 #### Features
-- 1. [x]] SU colors for light and dark theme. We do not need to go crazy here. Just use a little bit of the maroon and a little bit of the gold on areas of the website which will not impede with readability or user experience. Use common sense.
+- 1. [x] SU colors for light and dark theme. We do not need to go crazy here. Just use a little bit of the maroon and a little bit of the gold on areas of the website which will not impede with readability or user experience. Use common sense.
 - 2. [ ] Add modal popup for titles, when clicked popup will appear displaying that papers abstract.
   - A JSON file already exists which associates abstracts and titles.
 
 #### Improvements | Must Have
 - 1. [x] Faculty and Article lists are unsorted on their respective pages. Sort them alphabetically. -> Fixed by Isaac on a fork and pull requested in. 
-- 2. [ ] Current styling of some pages leads to jarring color changes when toggling between light and dark mode. See a category page where when toggling to light mode the display box turns entirely black.
+- 2. [x] Current styling of some pages leads to jarring color changes when toggling between light and dark mode. See a category page where when toggling to light mode the display box turns entirely black.
 - 3. [x] Add space between articles and faculty lists.
 - 4. [x] Clickable links need to be underlined and bolded. They should be highlighted in the SU Maroon color, or a lighter red color if SU Maroon impedes readability. On hover opacity should drop to add a darkening effect.
 
 #### Improvements | Nice to Have
 - 1. [ ] On category A-Z page, display under each category name smaller, italic, right-aligned text which displays a preview of the page via saying article and faculty count like so: Articles: 6, Faculty: 3.
-- 2. [ ] Sticky category name on category pages.
+- 2. [x] Sticky category name on category pages.
   - [ ] When you click on a category and view its content, the category side nav container goes to the top of the list. As you dig down, you can no longer see the category listed you just selected (as in you click on history, then when you go down history is not on the side nav). Fixing this would be nice.
   - [ ] Have the side nav position stay relative to where its at so that if one is on the history page they see the history link in the side nav and the stuff above and below it. This would work with static pages, but current pages are dynamic. This may be solved indirectly when pages are made static.
   - [ ] Highlight the name of the category page you're on in the side nav. If I'm viewing math the math category should be bolded in the side nav.
