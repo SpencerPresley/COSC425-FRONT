@@ -179,7 +179,9 @@ export async function RenderCategory({ category }: CategoryProps) {
     .slice(0, 3);
 
   let th = null;
-  if (themes.length < 5) {
+  if (themes === undefined) {
+    th = "No themes currently available, check back later.";
+  } else if (themes.length < 5) {
     th = themes;
   } else {
     th = themes.slice(0, 5);
