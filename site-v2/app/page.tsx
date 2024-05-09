@@ -5,10 +5,11 @@ import { button as buttonStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
+import { Card } from "@nextui-org/card";
 
 export default function Home() {
 	return (
-		<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+		<Card className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 bg-suMaroon rounded-lg">
 			<div className="inline-block max-w-lg text-center justify-center">
 				<h1 className={title()}>Search Through SU Research Categories</h1>
 				
@@ -34,12 +35,12 @@ export default function Home() {
 				</Link>
 				</div>
 				<Link
-            className={buttonStyles({ color: "primary", radius: "full", variant: "shadow" })}
+            className={buttonStyles({ radius: "full", variant: "bordered" })}
             href="/categories"
         >
             Start Browsing Categories
         </Link>
 
-		</section>
+		</Card>
 	);
 }
