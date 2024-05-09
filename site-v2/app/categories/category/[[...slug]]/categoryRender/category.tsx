@@ -168,6 +168,7 @@ export async function RenderCategory({ category }: CategoryProps) {
     tc_count,
     citation_average,
     themes,
+    definition,
   } = data;
 
   const sortedFacultyData = Object.entries(facultyData).sort(
@@ -180,6 +181,10 @@ export async function RenderCategory({ category }: CategoryProps) {
 
   if (department_count === 0) {
     departments.push("No departments currently available, check back later.");
+  }
+
+  if (definition === undefined) {
+    let definition = "Definition coming soon.";
   }
 
   let th = null;
@@ -195,16 +200,12 @@ export async function RenderCategory({ category }: CategoryProps) {
   return (
     <>
       <div className="grid grid-cols-12 grid-rows-9 gap-4 max-h-[80vh] gap-y-3 xl:px-10 grid-flow-row-dense ">
-        <div className="col-span-10 row-span-2 col-start-2">
-          <h1 className="font-bold text-center text-4xl pb-1">
+        <div className="col-span-10 row-span-2 col-start-2 z-30">
+          <h1 className="font-bold text-center text-4xl pb-2">
             {categoryName}
           </h1>
-          <p className="text-center text-medium font-semibold">
-            &ldquo;the study and design of intelligent agents&rdquo; where an intelligent
-            agent is a system that perceives its environment and takes actions
-            that maximize its chances of success. John McCarthy, who coined the
-            term in 1955, defines it as &ldquo;the science and engineering of making
-            intelligent machines.&rdquo;
+          <p className="text-center text-medium leading-tight max-h-[10vh] overflow-hidden text-ellipsis hover:overflow-visible">
+            {definition}
           </p>
         </div>
         <div className="col-span-3 col-start-1 row-start-3 row-span-7 ">

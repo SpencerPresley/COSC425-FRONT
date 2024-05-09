@@ -18,6 +18,7 @@ export interface CategoryObject {
     tc_count: number;
     citation_average: number;
     themes: string[];
+    definition: string;
   };
 }
 
