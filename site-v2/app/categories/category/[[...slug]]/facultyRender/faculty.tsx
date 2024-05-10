@@ -139,8 +139,8 @@ export async function Faculty({ category, categoryName }: FacultyProps) {
 
   return (
     <div className="bg-gray-300 dark:bg-gray-800 flex flex-col items-center justify-center gap-6 text-white p-6 rounded-lg shadow-lg">
-      <h1 className="text-4xl font-bold text-center">{categoryName}</h1>
-      <h2 className="text-2xl font-semibold mt-4">Faculty - Sorted by Total Citations</h2>
+      <h1 className="text-4xl font-bold text-center text-suMaroon dark:text-suGold">{categoryName}</h1>
+      <h2 className="text-2xl font-semibold mt-4 text-suGold dark:text-white">Faculty - Sorted by Total Citations</h2>
       <div className="grid grid-cols-3 gap-4">
   {facultyData
     .sort((a, b) => b.total_citations - a.total_citations || b.average_citations - a.average_citations)
@@ -156,8 +156,8 @@ export async function Faculty({ category, categoryName }: FacultyProps) {
       );
     })}
 </div>
-      <h2 className="text-2xl font-semibold mt-4">Departments</h2>
-      <ul className="list-disc pl-5 max-h-[65vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+      <h2 className="text-2xl font-semibold mt-4 text-suMaroon">Departments</h2>
+      <ul className="text-gray-900 dark:text-white/90 list-disc pl-5 max-h-[65vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
         {departments.sort().map((department: string) => (
           <li key={department} className="mb-2">
             {department}
