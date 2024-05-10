@@ -51,7 +51,42 @@ interface CategoryProps {
     params: { category: string };
 }
 
-export default function Categories ({
+async function fetchS3Data() {
+    const data = (await fetch(
+      "http://cosc425-category-data.s3.amazonaws.com/processed_category_data.json"
+    ).then((res) => res.json())) as CategoryObject;
+  
+    // console.log(data);
+    return data;
+  }
+  
+  async function getCategoryData(category: any) {
+    const data = await fetchS3Data();
+  
+    const categoryEntry = Object.entries(data).find(
+      ([_, itemData]) => itemData.url === category
+    );
+  
+    if (categoryEntry) {
+      const [categoryName, categoryData] = categoryEntry;
+      return { categoryName, ...categoryData };
+    }
+  
+    return null;
+  }
+
+
+  export default async function Page({
+    params,
+}: {
+    params: {
+        slug?: string[];
+    };
+}) {
+    return <Categories params={params} />;
+}
+
+async function Categories({
     params,
 }: {
     params: {
@@ -59,7 +94,8 @@ export default function Categories ({
     };
 }) {
 
-    const letters = "abcdefghijklmnopqrstuvwxyz".split("");
+
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
     // console.log("params.slug", params.slug); // Add this line to check what slug contains
 
@@ -79,8 +115,15 @@ export default function Categories ({
             console.log("params.slug[0]", params.slug[0]);
             console.log("params.slug[1]", params.slug[1]);
             if (params.slug[1] === 'articles') {
+                const categoryData = await getCategoryData(params.slug[0]);
+                if (!categoryData) {
+                    return <div>
+                        <h1>not found 3</h1>
+                    </div>
+                }
+                console.log("CATEGORYDATA CATEGORYNAME", categoryData.categoryName);
                 return <div>
-                    <Articles category={params.slug[0]} />
+                    <Articles categoryName={categoryData.categoryName} />
                 </div>
             } else if (params.slug[1] === 'faculty') {
                 return <div>

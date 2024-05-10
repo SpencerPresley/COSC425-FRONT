@@ -8,8 +8,17 @@ import { SideNav } from "@/components/componentsCategoryPage/side-nav";
 /* CATEGORY INTERFACES */
 import { CategoryObject, CategoryData, CategoryProps } from "@/types/index";
 
+interface CategoryArticleData {
+  [categoryName: string]: ArticleData;  // Maps category names to their data
+}
+
 interface ArticleData {
   article_citation_map: CitationMap;
+}
+
+interface ArticleInfo {
+  title: string;
+  citations: number;
 }
 
 const managementData: ArticleData = {
@@ -52,7 +61,7 @@ const managementData: ArticleData = {
 };
 
 interface CitationMap {
-  [articleTitle: string]: number;
+  [articleTitle: string]: number;  // Maps article titles to their citation counts
 }
 
 interface FacultyData {
@@ -125,6 +134,7 @@ const facultyData: FacultyDataset = {
    Next.js fetch() automatically memoizes data 
    */
 
+/* START CATEGORY DATA FETCHING */
 async function fetchS3Data() {
   const data = (await fetch(
     "http://cosc425-category-data.s3.amazonaws.com/processed_category_data.json"
@@ -148,6 +158,33 @@ async function getCategoryData(category: any) {
 
   return null;
 }
+/* END CATEGORY DATA FETCHING */
+
+/* START ARTICLE FETCHING */
+async function fetchArticleData() {
+  const data = (await fetch(
+    "https://cosc425-category-data.s3.us-east-2.amazonaws.com/processed_article_stats_data.json"
+  ).then((res) => res.json())) as CategoryArticleData;
+
+  // console.log(data);
+  return data;
+}
+
+
+async function getArticleData(categoryName: string) {
+  const data = await fetchArticleData();
+  const articleData = data[categoryName] as ArticleData;
+
+  const sortedArticles = Object.entries((articleData as ArticleData).article_citation_map)
+    .sort((a, b) => b[1] - a[1])
+    .map(([title, citations]): ArticleInfo => ({ title, citations }))
+    .slice(0, 3);
+
+  return {
+    sortedArticles
+  };
+}
+/* END ARTICLE FETCHING */
 
 export async function RenderCategory({ category }: CategoryProps) {
   const data = await getCategoryData(category);
@@ -196,6 +233,15 @@ export async function RenderCategory({ category }: CategoryProps) {
     th = themes.slice(0, 5);
   }
 
+  let articleData = await getArticleData(categoryName);
+
+  if (!articleData) {
+    articleData = {
+      sortedArticles: [{ title: "No articles currently available, check back later.", citations: 0 }]
+    }
+  }
+
+  const { sortedArticles: articleInfo } = articleData;
 
   return (
     <>
@@ -339,7 +385,7 @@ export async function RenderCategory({ category }: CategoryProps) {
             <ScrollShadow>
               <div className="px-4">
                 <ul className="list-disc pl-1">
-                  {sortedArticles.map(([title, citations]) => (
+                  {articleData.sortedArticles.map(({ title, citations }) => (
                     <li className="ml-2 md:ml-4 py-2" key={title}>
                       <h3 className="text-white font-normal md:font-medium text-sm md:text-lg">
                         {title}{" "}
