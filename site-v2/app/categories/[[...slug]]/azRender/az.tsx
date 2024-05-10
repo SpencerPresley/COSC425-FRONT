@@ -46,6 +46,7 @@ async function fetchS3Data() {
 }
 
 async function getUrlsForLetter(letter: string) {
+    letter = letter.toLowerCase();
     const data = await fetchS3Data();
     const obj = Object.entries(data)
         .filter(([key, item]) => item.url.startsWith(letter))
@@ -56,41 +57,34 @@ async function getUrlsForLetter(letter: string) {
 }
 
 export async function AzRender({ letter }: { letter: string }) {
+    letter = letter.toLowerCase();
     const urls = await getUrlsForLetter(letter);
     console.log("URLS", urls);
-
+  
     if (!urls) {
-        return <div>Loading...</div>;
+      return <div>Loading...</div>;
     }
-
+  
     return (
-        <>
-            <div className="flex flex-col items-center justify-center gap-6 py-10 md:py-12">
-                <div className="inline-block max-w-2xl text-center">
-                    <h1 className="text-4xl font-bold pb-8">Categories</h1>
-                    <UrlsLetters />
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
-                                        {urls.map((url) => (
-                                                  
-                                            <Card
-                                                className="p-4 dark:bg-suMaroon/90 hover:bg-gray-100 bg-gray-50 shadow-black drop-shadow-md hover:drop-shadow-xl dark:hover:bg-suMaroon/70 transition-colors text-suMaroon dark:text-yellow-300 duration-150 ease-in-out"
-                                                key={url.key}
-
-                                            >
-                                                <h2 className="text-xl font-bold">
-                                          
-                                                <Link
-                                                      href={`/categories/category/${url.url}`} >
-                                                        {url.key}
-                                                        </Link>
-                                                </h2>
-                                            </Card>
-                                           
-
-                                        ))}
-                                    </div>
-                </div>
+      <>
+        <div className="flex flex-col items-center justify-center gap-6 py-10 md:py-12">
+          <div className="inline-block max-w-2xl text-center">
+            <h1 className="text-4xl font-bold pb-8">Categories</h1>
+            <UrlsLetters />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
+              {urls.map((url) => (
+                <Card
+                  className="p-4 dark:bg-suMaroon/90 hover:bg-gray-100 bg-gray-50 shadow-black drop-shadow-md hover:drop-shadow-xl dark:hover:bg-suMaroon/70 transition-colors text-suMaroon dark:text-yellow-300 duration-150 ease-in-out"
+                  key={url.key}
+                >
+                  <h2 className="text-xl font-bold">
+                    <Link href={`/categories/category/${url.url}`}>{url.key}</Link>
+                  </h2>
+                </Card>
+              ))}
             </div>
-        </>
+          </div>
+        </div>
+      </>
     );
-}
+  }
