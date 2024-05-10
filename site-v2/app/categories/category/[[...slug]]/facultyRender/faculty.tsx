@@ -138,7 +138,7 @@ export async function Faculty({ category, categoryName }: FacultyProps) {
 
 
   return (
-    <div className="bg-gray-800 dark:bg-gray-700 flex flex-col items-center justify-center gap-6 text-white p-6 rounded-lg shadow-lg">
+    <div className="bg-gray-300 dark:bg-gray-800 flex flex-col items-center justify-center gap-6 text-white p-6 rounded-lg shadow-lg">
       <h1 className="text-4xl font-bold text-center">{categoryName}</h1>
       <h2 className="text-2xl font-semibold mt-4">Faculty - Sorted by Total Citations</h2>
       <div className="grid grid-cols-3 gap-4">
@@ -148,7 +148,7 @@ export async function Faculty({ category, categoryName }: FacultyProps) {
       const { name, total_citations, article_count, average_citations } = facultyMember;
       return (
         <div key={name} className="mb-2 bg-gray-50 hover:bg-gray-100 hover:shadow-lg p-4 dark:bg-suMaroon/90 dark:text-suGold rounded-lg shadow">
-          <div className="font-bold">{name}</div>
+          <div className="font-bold text-suMaroon dark:text-suGold">{name}</div>
           <div className="text-gray-900 dark:text-white/90">Total Citations: {total_citations}</div>
           <div className="text-gray-900 dark:text-white/90">Article Count: {article_count}</div>
           <div className="text-gray-900 dark:text-white/90">Average Citations: {average_citations.toFixed(2)}</div>
