@@ -118,7 +118,7 @@ async function Categories({
                 const categoryData = await getCategoryData(params.slug[0]);
                 if (!categoryData) {
                     return <div>
-                        <h1>not found 3</h1>
+                        <h1>not found 3 ARTICLES</h1>
                     </div>
                 }
                 console.log("CATEGORYDATA CATEGORYNAME", categoryData.categoryName);
@@ -126,8 +126,14 @@ async function Categories({
                     <Articles categoryName={categoryData.categoryName} />
                 </div>
             } else if (params.slug[1] === 'faculty') {
+                const categoryData = await getCategoryData(params.slug[0]);
+                if (!categoryData) {
+                    return <div>
+                        <h1>not found 3 FACULTY</h1>
+                    </div>
+                }
                 return <div>
-                    <Faculty category={params.slug[0]} />
+                    <Faculty category={categoryData.url} categoryName={categoryData.categoryName} />
                 </div>
             } else {
                 return <div>

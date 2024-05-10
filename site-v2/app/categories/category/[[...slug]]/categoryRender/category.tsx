@@ -21,45 +21,6 @@ interface ArticleInfo {
   citations: number;
 }
 
-const managementData: ArticleData = {
-  article_citation_map: {
-    "The Effects of Expertise and Social Status on Team Member Influence and the Moderating Roles of Intragroup Conflicts": 7,
-    "The Capacious Model and Leader Identity: An Integrative Framework": 3,
-    "Customer courtesy and service performance: The roles of self-efficacy and social context": 2,
-    "The balance between positive and negative affect in employee well-being": 8,
-    "Watching you descend, I help others rise: the influence of leader humility on prosocial motivation": 2,
-    "Self-Leadership and Psychological Capital as Key Cognitive Resources for Shaping Health-Protective Behaviors during the COVID-19 Pandemic": 29,
-    "Responding to pandemic challenges: leadership lessons from multinational enterprises (MNEs) in India": 4,
-    "Relationship conflict and counterproductive work behavior: the roles of affective well-being and emotional intelligence": 1,
-    "Predictors of employees' strike attitudes in multinational corporations in China: a multilevel relational model": 0,
-    "Rude customers and service performance: roles of motivation and personality": 18,
-    "Changes in foreign ownership and innovation investment: the case of Korean corporate governance reforms": 1,
-    "The rise of emerging Indian multinationals: strategic learning for EMNC foreign market entry and internationalization": 4,
-    "R&D investment, intellectual capital, organizational learning, and firm performance: a study of Chinese software companies": 1,
-    "Market performance and the loss aversion behind green management": 0,
-    "Predicting supply chain risks through big data analytics: role of risk alert tool in mitigating business disruption": 7,
-    "Managing environmental uncertainty for improved firm financial performance: the moderating role of supply chain risk management practices on managerial decision making": 22,
-    "Patterns of alliances and acquisitions: An exploratory study": 0,
-    "Do African resource rents promote rent-seeking at the expense of entrepreneurship?": 13,
-    "IT Application Maturity, Management Institutional Capability and Process Management Capability": 27,
-    "Modes of governance for market entry by international franchisors: factors affecting the choice": 2,
-    "The effect of in-store electronic word of mouth on local competitor spillovers in the quick service restaurant industry": 0,
-    "Internationalization and family firm performance A cross-cultural meta-analysis of the main effect and moderating factors": 10,
-    "Stock market reactions to store-in-store agreements": 5,
-    "Impact of strategic and operational risk management practices on firm performance: An empirical investigation": 20,
-    "When CEO compensation plan based on risk changes firm strategic variation and strategic deviation? The moderating role of shareholder return": 0,
-    "To Lead Is to Err: The Mediating Role of Attribution in the Relationship Between Leader Error and Leader Ratings": 8,
-    "Entrepreneurial Processes and industry Development:The Case of Baltimore's Calming Entrepreneurs": 1,
-    "U-shaped relationship between market liberalisation and technology exploration: evidence from South Korean firms": 0,
-    "Relative Importance of Major Job Performance Dimensions in Determining Supervisors' Overall Job Performance Ratings": 6,
-    "Managing the adverse effect of supply chain risk on corporate reputation: The mediating role of corporate social responsibility practices": 7,
-    "Impact of Korean pro-market reforms on firm innovation strategies": 3,
-    "The cross-cultural moderators of the influence of emotional intelligence on organizational citizenship behavior and counterproductive work behavior": 24,
-    "Building supply chain risk resilience Role of big data analytics in supply chain disruption mitigation": 97,
-    "Value of corporate political contributions from the investors' perspective": 0,
-  },
-};
-
 interface CitationMap {
   [articleTitle: string]: number;  // Maps article titles to their citation counts
 }
@@ -73,62 +34,15 @@ interface FacultyData {
   };
 }
 
-interface FacultyDataset {
-  [name: string]: FacultyData;
+interface CategoryFacultyStats {
+  faculty_stats: {
+    [facultyName: string]: FacultyData;
+  };
 }
 
-const facultyData: FacultyDataset = {
-  "Munemo, Jonathan": {
-    total_citations: 13,
-    article_count: 1,
-    average_citations: 13,
-    citation_map: {
-      article_citation_map: {
-        "Do African resource rents promote rent-seeking at the expense of entrepreneurship?": 13,
-      },
-    },
-  },
-  "Hoffman, Richard": {
-    total_citations: 2,
-    article_count: 1,
-    average_citations: 2,
-    citation_map: {
-      article_citation_map: {
-        "Modes of governance for market entry by international franchisors: factors affecting the choice": 2,
-      },
-    },
-  },
-  "Sen, Argha": {
-    total_citations: 0,
-    article_count: 1,
-    average_citations: 0,
-    citation_map: {
-      article_citation_map: {
-        "The effect of in-store electronic word of mouth on local competitor spillovers in the quick service restaurant industry": 0,
-      },
-    },
-  },
-  "Pasirayi, Simbarashe": {
-    total_citations: 5,
-    article_count: 1,
-    average_citations: 5,
-    citation_map: {
-      article_citation_map: {
-        "Stock market reactions to store-in-store agreements": 5,
-      },
-    },
-  },
-  "Leonel, Ronei": {
-    total_citations: 0,
-    article_count: 1,
-    average_citations: 0,
-    citation_map: {
-      article_citation_map: {
-        "When CEO compensation plan based on risk changes firm strategic variation and strategic deviation? The moderating role of shareholder return": 0,
-      },
-    },
-  },
-};
+interface FacultyDataset {
+  [categoryName: string]: CategoryFacultyStats;
+}
 
 /* No singleton pattern necessary.
    Next.js fetch() automatically memoizes data 
@@ -186,6 +100,46 @@ async function getArticleData(categoryName: string) {
 }
 /* END ARTICLE FETCHING */
 
+
+/* START FACULTY FETCHING */
+async function fetchFacultyData() {
+  const data = (await fetch(
+    "https://cosc425-category-data.s3.us-east-2.amazonaws.com/processed_faculty_stats_data.json"
+  ).then((res) => res.json())) as FacultyDataset;
+
+  // console.log(data);
+  return data;
+}
+
+async function getFacultyData(categoryName: string) {
+  const data = await fetchFacultyData();
+  const categoryFacultyStats = data[categoryName]?.faculty_stats;
+
+  if (!categoryFacultyStats || Object.keys(categoryFacultyStats).length === 0) {
+    // Handle the case where there is no faculty data
+    return [{
+      name: "No faculty currently available, check back later.",
+      total_citations: 0,
+      article_count: 0,
+      average_citations: 0,
+      citation_map: {
+        article_citation_map: {}
+      }
+    }];
+  }
+
+  // If faculty data exists, transform it into an array of FacultyData objects
+  const sortedFacultyData = Object.entries(categoryFacultyStats)
+    .map(([name, facultyData]) => ({
+      name,
+      ...facultyData
+    }))
+    .sort((a, b) => b.total_citations - a.total_citations);
+
+  return sortedFacultyData;
+}
+/* END FACULTY FETCHING */
+
 export async function RenderCategory({ category }: CategoryProps) {
   const data = await getCategoryData(category);
   // console.log(data);
@@ -207,14 +161,6 @@ export async function RenderCategory({ category }: CategoryProps) {
     themes,
     definition,
   } = data;
-
-  const sortedFacultyData = Object.entries(facultyData).sort(
-    (a, b) => b[1].total_citations - a[1].total_citations
-  );
-
-  const sortedArticles = Object.entries(managementData.article_citation_map)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 3);
 
   if (department_count === 0) {
     departments.push("No departments currently available, check back later.");
@@ -242,6 +188,24 @@ export async function RenderCategory({ category }: CategoryProps) {
   }
 
   const { sortedArticles: articleInfo } = articleData;
+
+  let facultyData = await getFacultyData(categoryName);
+
+  if (facultyData.length === 0) {
+    facultyData = [{
+      name: "No faculty currently available, check back later.",
+      total_citations: 0,
+      article_count: 0,
+      average_citations: 0,
+      citation_map: {
+        article_citation_map: {}
+      }
+    }];
+  } else {
+    // Destructure the first faculty member's data if facultyData is not empty
+    const [firstFacultyMember] = facultyData;
+    const { name, total_citations, article_count, average_citations, citation_map } = firstFacultyMember;
+  }
 
   return (
     <>
@@ -350,26 +314,21 @@ export async function RenderCategory({ category }: CategoryProps) {
             </div>
             <ScrollShadow>
               <div className="px-4">
-                <ul className="list-disc pl-1">
-                  {sortedFacultyData.map(([name, facultyData]) => (
-                    <li className="ml-2 md:ml-4 py-1" key={name}>
-                      <h3 className="text-white font-normal md:font-medium text-sm md:text-lg leading-none">
-                        {name}
-                        <br />
-                        <span className="mt-[-0.5em] text-xs bg-clip-text text-transparent bg-white md:text-sm text-left opacity-90 italic font-normal block">
-                          {facultyData.article_count}{" "}
-                          {facultyData.article_count === 1
-                            ? "Article"
-                            : "Articles"}
-                          , {facultyData.total_citations} Citations
-                        </span>
-                      </h3>
-                      {/* <p className="text-xs bg-clip-text text-transparent bg-white md:text-sm text-left opacity-90 italic font-normal pt-0 mt-0">
-                    {facultyData.article_count} {facultyData.article_count === 1 ? "Article" : "Articles"},{" "}
-                    {facultyData.total_citations} Citations
-                    </p> */}
-                    </li>
-                  ))}
+              <ul className="list-disc pl-1">
+                  {facultyData
+                    .slice(0, 4) // Take only the first 4 elements of the array
+                    .map(({ name, article_count, total_citations }) => ( // Destructure the faculty object
+                      <li className="ml-2 md:ml-4 py-1" key={name}>
+                        <h3 className="text-white font-normal md:font-medium text-sm md:text-lg leading-none">
+                          {name}
+                          <br />
+                          <span className="mt-[-0.5em] text-xs bg-clip-text text-transparent bg-white md:text-sm text-left opacity-90 italic font-normal block">
+                            {article_count} {article_count === 1 ? "Article" : "Articles"}, {total_citations} Citations
+                          </span>
+                        </h3>
+                      </li>
+                    ))
+                  }
                 </ul>
               </div>
             </ScrollShadow>
