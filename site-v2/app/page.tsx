@@ -9,7 +9,7 @@ import { Card } from "@nextui-org/card";
 
 export default function Home() {
 	return (
-		<Card className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 bg-suMaroon rounded-lg">
+		<Card className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 bg-suMaroon rounded-lg text-white">
 			<div className="inline-block max-w-lg text-center justify-center">
 				<h1 className={title()}>Search Through SU Research Categories</h1>
 				
