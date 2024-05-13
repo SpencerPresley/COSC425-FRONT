@@ -120,7 +120,6 @@ export default async function CategoriesPage({
                       >
                         <Link
                           href={`/categories/category/${url.url}`}
-                          className="text-blue-600 hover:text-blue-800 dark:hover:text-blue-400"
                         >
                                                       {" "}
                           <h2 className="text-xl font-bold">{url.key}</h2>

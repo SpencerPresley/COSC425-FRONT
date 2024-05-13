@@ -33,7 +33,7 @@ module.exports = {
                     colors: {
                         primary: {
                             DEFAULT: "#ef4444",
-                            foreground: "#22d3ee",
+                            foreground: "#ffffff",
                         },
                         background: "#1e2124",
                         focus: "#22c55e",
