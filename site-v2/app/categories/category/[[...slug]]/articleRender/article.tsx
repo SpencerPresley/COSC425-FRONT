@@ -77,15 +77,15 @@ export async function Articles({ categoryName }: ArticleProps) {
   const { sortedArticles } = data;
 
   return (
-    <div className="bg-gray-800 dark:bg-gray-700 flex flex-col items-center justify-center gap-6 text-white p-6 rounded-lg shadow-lg">
-      <h1 className="text-4xl font-bold text-center">{categoryName}</h1>
-      <h2 className="text-2xl font-semibold mt-4">Articles</h2>
-      <ul className="list-disc pl-1">
+    <div className="bg-gray-300 dark:bg-gray-800 gap-6 text-white p-6 rounded-lg shadow-lg min-h-[85vh]">
+      <h1 className="text-4xl font-bold text-center text-suMaroon dark:text-suGold pb-4">{categoryName}</h1>
+      <h2 className="text-2xl font-semibold mt-5 text-suMaroon dark:text-suGold text-center pb-4">Articles</h2>
+      <ul className="grid grid-cols-1 lg:grid-cols-3 gap-4 pb-2">
         {data.sortedArticles.map(({ title, citations }) => (
-          <li className="ml-2 md:ml-4 py-2" key={title}>
-            <h3 className="text-white font-normal md:font-medium text-sm md:text-lg">
-              {title}{' '}
-              <span className="text-xs bg-clip-text text-transparent bg-white md:text-sm text-left opacity-90 italic font-normal">
+          <li key={title} className="mb-2 bg-gray-50 hover:bg-gray-100 hover:shadow-lg p-4 dark:bg-suMaroon/90 dark:text-suGold rounded-lg shadow transform transition duration-300 ease-in-out origin-center">
+            <h3 className="font-bold text-suMaroon dark:text-suGold">
+              {title}
+              <span className="block text-xs text-gray-900 dark:text-white/90 italic font-normal">
                 ({citations} citations)
               </span>
             </h3>

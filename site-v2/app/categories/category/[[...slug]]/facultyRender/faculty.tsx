@@ -146,14 +146,15 @@ export async function Faculty({ category, categoryName }: FacultyProps) {
   }
 
   return (
-    <div className="bg-gray-300 dark:bg-gray-800 flex flex-col items-center justify-center gap-6 text-white p-6 rounded-lg shadow-lg">
+    <div className="bg-gray-300 dark:bg-gray-800 gap-6 text-white p-6 rounded-lg shadow-lg min-h-[85vh]">
       <h1 className="text-4xl font-bold text-center text-suMaroon dark:text-suGold">
         {categoryName}
       </h1>
-      <h2 className="text-2xl font-semibold mt-4 text-gray-900 dark:text-white">
-        Faculty - Sorted by Total Citations
+      <h2 className="text-2xl text-center font-semibold mt-4 text-gray-900 dark:text-white">
+        Faculty
       </h2>
-      <div className="grid grid-cols-3 gap-4">
+      <p className="text-center text-medium font-normal text-gray-700 dark:text-white/50">Sorted by Total Citations</p>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-7 pb-2">
         {facultyData
           .sort(
             (a, b) =>
@@ -184,14 +185,16 @@ export async function Faculty({ category, categoryName }: FacultyProps) {
             );
           })}
       </div>
-      <h2 className="text-2xl font-semibold mt-4 text-suMaroon">Departments</h2>
-      <ul className="text-gray-900 dark:text-white/90 list-disc pl-5 max-h-[65vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-        {departments.sort().map((department: string) => (
-          <li key={department} className="mb-2">
-            {department}
-          </li>
-        ))}
-      </ul>
+      <h2 className="text-2xl text-center font-semibold mt-6 text-gray-900 dark:text-white">Departments</h2>
+<ul className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-4 pb-2">
+  {departments.sort().map((department: string) => (
+    <li key={department} className="mb-2 bg-gray-50 hover:bg-gray-100 hover:shadow-lg p-4 dark:bg-suMaroon/90 dark:text-suGold rounded-lg shadow">
+      <div className="font-bold text-suMaroon dark:text-suGold">
+        {department}
+      </div>
+    </li>
+  ))}
+</ul>
     </div>
   );
 }
