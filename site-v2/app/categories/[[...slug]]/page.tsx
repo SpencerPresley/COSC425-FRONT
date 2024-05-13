@@ -1,11 +1,11 @@
-import { Card } from "@nextui-org/card";
-import { button as buttonStyles } from "@nextui-org/theme";
-import { Code } from "@nextui-org/code";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
-import Link from "next/link";
-import { AzRender } from "./azRender/az";
-import { UrlsLetters } from "@/components/componentsCategoriesPage/urlsLetters";
+import { Card } from '@nextui-org/card';
+import { button as buttonStyles } from '@nextui-org/theme';
+import { Code } from '@nextui-org/code';
+import { title, subtitle } from '@/components/primitives';
+import { GithubIcon } from '@/components/icons';
+import Link from 'next/link';
+import { AzRender } from './azRender/az';
+import { UrlsLetters } from '@/components/componentsCategoriesPage/urlsLetters';
 
 interface CategoryObject {
   [key: string]: {
@@ -52,7 +52,7 @@ function groupUrlsByFirstLetter(urls: { key: string; url: string }[]) {
 */
 async function fetchS3Data() {
   const data = (await fetch(
-    "http://cosc425-category-data.s3.amazonaws.com/processed_category_data.json"
+    'http://cosc425-category-data.s3.amazonaws.com/processed_category_data.json'
   ).then((res) => res.json())) as CategoryObject;
 
   return data;
@@ -112,20 +112,16 @@ export default async function CategoriesPage({
                     {letter.toUpperCase()}
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {urls.map((url) => (                        
-                      <Card
-                        className="p-4 dark:bg-suMaroon/90 hover:bg-gray-100 bg-gray-50 shadow-black drop-shadow-md hover:drop-shadow-xl dark:hover:bg-suMaroon/70 transition-colors text-suMaroon dark:text-yellow-300 duration-150 ease-in-out"
+                    {urls.map((url) => (
+                      <Link
+                        href={`/categories/category/${url.url}`}
                         key={url.key}
-                        
                       >
-                        <Link
-                          href={`/categories/category/${url.url}`}
-                          className="text-blue-600 hover:text-blue-800 dark:hover:text-blue-400"
-                        >
-                                                      {" "}
+                        <Card className="p-4 dark:bg-suMaroon/90 hover:bg-gray-100 bg-gray-50 shadow-black drop-shadow-md hover:drop-shadow-xl dark:hover:bg-suMaroon/70 transition-colors text-suMaroon dark:text-yellow-300 duration-150 ease-in-out">
+                          {' '}
                           <h2 className="text-xl font-bold">{url.key}</h2>
-                        </Link>
-                      </Card>
+                        </Card>
+                      </Link>
                     ))}
                   </div>
                 </div>

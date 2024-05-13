@@ -1,15 +1,9 @@
 {
-    "version": "0.2",
-    "ignorePaths": [],
-    "dictionaryDefinitions": [],
-    "dictionaries": [],
-    "words": [
-        "tailwindcss"
-    ],
-    "ignoreWords": [
-        "nextui",
-        "nextjs",
-        "clsx"
-    ],
-    "import": []
+  "version": "0.2",
+  "ignorePaths": [],
+  "dictionaryDefinitions": [],
+  "dictionaries": [],
+  "words": ["tailwindcss"],
+  "ignoreWords": ["nextui", "nextjs", "clsx"],
+  "import": []
 }
