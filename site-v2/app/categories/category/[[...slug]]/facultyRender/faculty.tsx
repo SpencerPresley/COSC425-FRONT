@@ -1,9 +1,8 @@
-
 /* CATEGORY INTERFACES */
-import { CategoryObject, CategoryData, CategoryProps } from "@/types/index";
+import { CategoryObject, CategoryData, CategoryProps } from '@/types/index';
 
 interface CategoryArticleData {
-  [categoryName: string]: ArticleData;  // Maps category names to their data
+  [categoryName: string]: ArticleData; // Maps category names to their data
 }
 
 interface ArticleData {
@@ -16,7 +15,7 @@ interface ArticleInfo {
 }
 
 interface CitationMap {
-  [articleTitle: string]: number;  // Maps article titles to their citation counts
+  [articleTitle: string]: number; // Maps article titles to their citation counts
 }
 
 interface FacultyData {
@@ -46,7 +45,7 @@ interface FacultyProps {
 /* START CATEGORY DATA FETCHING */
 async function fetchS3Data() {
   const data = (await fetch(
-    "http://cosc425-category-data.s3.amazonaws.com/processed_category_data.json"
+    'http://cosc425-category-data.s3.amazonaws.com/processed_category_data.json'
   ).then((res) => res.json())) as CategoryObject;
 
   // console.log(data);
@@ -72,7 +71,7 @@ async function getCategoryData(category: any) {
 /* START FACULTY FETCHING */
 async function fetchFacultyData() {
   const data = (await fetch(
-    "https://cosc425-category-data.s3.us-east-2.amazonaws.com/processed_faculty_stats_data.json"
+    'https://cosc425-category-data.s3.us-east-2.amazonaws.com/processed_faculty_stats_data.json'
   ).then((res) => res.json())) as FacultyDataset;
 
   // console.log(data);
@@ -85,22 +84,24 @@ async function getFacultyData(categoryName: string) {
 
   if (!categoryFacultyStats || Object.keys(categoryFacultyStats).length === 0) {
     // Handle the case where there is no faculty data
-    return [{
-      name: "No faculty currently available, check back later.",
-      total_citations: 0,
-      article_count: 0,
-      average_citations: 0,
-      citation_map: {
-        article_citation_map: {}
-      }
-    }];
+    return [
+      {
+        name: 'No faculty currently available, check back later.',
+        total_citations: 0,
+        article_count: 0,
+        average_citations: 0,
+        citation_map: {
+          article_citation_map: {},
+        },
+      },
+    ];
   }
 
   // If faculty data exists, transform it into an array of FacultyData objects
   const sortedFacultyData = Object.entries(categoryFacultyStats)
     .map(([name, facultyData]) => ({
       name,
-      ...facultyData
+      ...facultyData,
     }))
     .sort((a, b) => b.total_citations - a.total_citations);
 
@@ -121,41 +122,68 @@ export async function Faculty({ category, categoryName }: FacultyProps) {
   let facultyData = await getFacultyData(categoryName);
 
   if (facultyData.length === 0) {
-    facultyData = [{
-      name: "No faculty currently available, check back later.",
-      total_citations: 0,
-      article_count: 0,
-      average_citations: 0,
-      citation_map: {
-        article_citation_map: {}
-      }
-    }];
+    facultyData = [
+      {
+        name: 'No faculty currently available, check back later.',
+        total_citations: 0,
+        article_count: 0,
+        average_citations: 0,
+        citation_map: {
+          article_citation_map: {},
+        },
+      },
+    ];
   } else {
     // Destructure the first faculty member's data if facultyData is not empty
     const [firstFacultyMember] = facultyData;
-    const { name, total_citations, article_count, average_citations, citation_map } = firstFacultyMember;
+    const {
+      name,
+      total_citations,
+      article_count,
+      average_citations,
+      citation_map,
+    } = firstFacultyMember;
   }
-
 
   return (
     <div className="bg-gray-300 dark:bg-gray-800 flex flex-col items-center justify-center gap-6 text-white p-6 rounded-lg shadow-lg">
-      <h1 className="text-4xl font-bold text-center text-suMaroon dark:text-suGold">{categoryName}</h1>
-      <h2 className="text-2xl font-semibold mt-4 text-gray-900 dark:text-white">Faculty - Sorted by Total Citations</h2>
+      <h1 className="text-4xl font-bold text-center text-suMaroon dark:text-suGold">
+        {categoryName}
+      </h1>
+      <h2 className="text-2xl font-semibold mt-4 text-gray-900 dark:text-white">
+        Faculty - Sorted by Total Citations
+      </h2>
       <div className="grid grid-cols-3 gap-4">
-  {facultyData
-    .sort((a, b) => b.total_citations - a.total_citations || b.average_citations - a.average_citations)
-    .map((facultyMember) => {
-      const { name, total_citations, article_count, average_citations } = facultyMember;
-      return (
-        <div key={name} className="mb-2 bg-gray-50 hover:bg-gray-100 hover:shadow-lg p-4 dark:bg-suMaroon/90 dark:text-suGold rounded-lg shadow">
-          <div className="font-bold text-suMaroon dark:text-suGold">{name}</div>
-          <div className="text-gray-900 dark:text-white/90">Total Citations: {total_citations}</div>
-          <div className="text-gray-900 dark:text-white/90">Article Count: {article_count}</div>
-          <div className="text-gray-900 dark:text-white/90">Average Citations: {average_citations.toFixed(2)}</div>
-        </div>
-      );
-    })}
-</div>
+        {facultyData
+          .sort(
+            (a, b) =>
+              b.total_citations - a.total_citations ||
+              b.average_citations - a.average_citations
+          )
+          .map((facultyMember) => {
+            const { name, total_citations, article_count, average_citations } =
+              facultyMember;
+            return (
+              <div
+                key={name}
+                className="mb-2 bg-gray-50 hover:bg-gray-100 hover:shadow-lg p-4 dark:bg-suMaroon/90 dark:text-suGold rounded-lg shadow"
+              >
+                <div className="font-bold text-suMaroon dark:text-suGold">
+                  {name}
+                </div>
+                <div className="text-gray-900 dark:text-white/90">
+                  Total Citations: {total_citations}
+                </div>
+                <div className="text-gray-900 dark:text-white/90">
+                  Article Count: {article_count}
+                </div>
+                <div className="text-gray-900 dark:text-white/90">
+                  Average Citations: {average_citations.toFixed(2)}
+                </div>
+              </div>
+            );
+          })}
+      </div>
       <h2 className="text-2xl font-semibold mt-4 text-suMaroon">Departments</h2>
       <ul className="text-gray-900 dark:text-white/90 list-disc pl-5 max-h-[65vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
         {departments.sort().map((department: string) => (

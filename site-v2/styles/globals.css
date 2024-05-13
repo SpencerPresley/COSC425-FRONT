@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .roboto {
-    font-family: var(--font-roboto);
+  font-family: var(--font-roboto);
 }
