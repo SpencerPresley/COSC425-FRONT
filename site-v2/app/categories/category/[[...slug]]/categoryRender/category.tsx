@@ -328,7 +328,7 @@ export async function RenderCategory({ category }: CategoryProps) {
               </h2>
             </div>
             <ScrollShadow>
-              <div className="px-4 mb-2">
+              <div className="px-4 mb-2 py-1">
                 <ul className="md:list-disc md:pl-1 text-center md:text-left">
                   {facultyData
                     .slice(0, 4) // Take only the first 4 elements of the array
@@ -336,7 +336,7 @@ export async function RenderCategory({ category }: CategoryProps) {
                       (
                         { name, article_count, total_citations } // Destructure the faculty object
                       ) => (
-                        <li className="md:ml-4 py-1" key={name}>
+                        <li className="md:ml-4 py-2" key={name}>
                           <h3 className="text-white font-normal md:font-medium text-medium md:text-lg leading-none">
                             {name}
                             <br />
@@ -362,7 +362,7 @@ export async function RenderCategory({ category }: CategoryProps) {
               </h2>
             </div>
             <ScrollShadow>
-              <div className="px-4 mb-2">
+              <div className="px-4 mb-2 py-1">
                 <ul className="ml-10 mr-10 md:ml-0 md:mr-0 md:list-disc md:pl-1 text-center md:text-left">
                   {articleData.sortedArticles.map(({ title, citations }) => (
                     <li className="ml-2 md:ml-4 py-2" key={title}>
