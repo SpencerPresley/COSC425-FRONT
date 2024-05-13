@@ -32,8 +32,8 @@ export async function SideNav() {
     const categoryUrls = await getUrls();
 
     return (
-        <div className="md:w-full border-1 border-black  dark:border-white rounded-r-sm rounded-b-xs rounded-br-xs rounded-tr-xs rounded-tl-xl rounded-bl-xl text-white dark:text-white bg-suMaroon dark:bg-suMaroon dark:bg-opacity-80 hidden md:flex max-h-[62vh] shadow-md shadow-black">
-            <div className="flex  flex-col space-y-1 md:px-6 overflow-scroll max-h-[62vh] px-20">
+        <div className="md:w-full border-1 border-black  dark:border-white rounded-r-sm rounded-b-xs rounded-br-xs rounded-tr-xs rounded-tl-xl rounded-bl-xl text-white dark:text-white bg-suMaroon dark:bg-suMaroon dark:bg-opacity-80 hidden lg:flex max-h-[66vh] shadow-md shadow-black">
+            <div className="flex  flex-col space-y-1 md:px-6 overflow-scroll max-h-[66vh] px-20">
                 <div className="sticky top-0 z-10">
 
                 <h1 className="opacity-100 font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-300 to-amber-200 text-xl w-full text-center pt-3  pb-1 hover:opacity-60 cursor-pointer transition duration-400 ease-in-out">
