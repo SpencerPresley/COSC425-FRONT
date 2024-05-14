@@ -233,7 +233,7 @@ export async function RenderCategory({ category }: CategoryProps) {
             {definition}
           </p>
         </div>
-        <div className="col-span-1 lg:col-span-3 lg:row-start-3 lg:row-span-7">
+        <div className="col-span-1 lg:col-span-3 lg:row-start-3 lg:row-span-9">
           <SideNav />
         </div>
         <div className="col-span-1 lg:col-span-3 lg:row-span-3 lg:col-start-4 lg:row-start-3">
