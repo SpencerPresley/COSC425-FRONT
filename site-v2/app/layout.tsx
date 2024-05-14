@@ -33,37 +33,42 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <head />
-      <body
-        className={clsx(
-          'min-h-screen dark:bg-black bg-background font-serif antialiased',
-          fontSerif.variable,
-          fontSans.variable,
-          fontMono.variable
-        )}
-      >
-        <Providers themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
-          <div className="relative flex flex-col md:h-screen">
-            <Navbar />
-            <main className="container mx-auto max-w-7xl pt-2 px-6 flex-grow">
-              {children}
-            </main>
-            <footer className="w-full flex items-center justify-center py-3">
-              <Link
-                isExternal
-                className="flex items-center gap-1 text-current"
-                href="https://www.salisbury.edu/explore-academics/programs/undergraduate-degree-programs/majors/computer-science-major.aspx"
-                title="Salisbury University Computer Science Page"
-              >
-                <span className="text-default-600">Powered by</span>
-                <p className="text-primary">SU Students</p>
-              </Link>
-            </footer>
-          </div>
-        </Providers>
-      </body>
-    </html>
-  );
+    return (
+        <html
+            lang="en"
+            suppressHydrationWarning
+        >
+            <head />
+            <body
+                className={clsx(
+                    "min-h-screen dark:bg-black bg-background font-serif antialiased",
+                    fontSerif.variable, fontSans.variable, fontMono.variable
+                )}
+            >
+                <Providers
+                    themeProps={{ attribute: "class", defaultTheme: "dark" }}
+                >
+                    <div className="relative flex flex-col h-screen">
+                        <Navbar />
+                        <main className="container mx-auto max-w-7xl pt-8 px-6 flex-grow">
+                            {children}
+                        </main>
+                        <footer className="w-full flex items-center justify-center py-3">
+                            <Link
+                                isExternal
+                                className="flex items-center gap-1 text-current"
+                                href="https://www.salisbury.edu/"
+                                title="nextui.org homepage"
+                            >
+                                <span className="text-default-600">
+                                    Powered by
+                                </span>
+                                <p className="text-primary">SU Students</p>
+                            </Link>
+                        </footer>
+                    </div>
+                </Providers>
+            </body>
+        </html>
+    );
 }
