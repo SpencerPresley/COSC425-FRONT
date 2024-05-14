@@ -1,27 +1,27 @@
-import "@/styles/globals.css";
-import { Metadata } from "next";
-import { siteConfig } from "@/config/site";
-import { fontSans, fontSerif, fontMono } from "@/config/fonts";
-import { Providers } from "./providers";
-import { Navbar } from "@/components/navbar";
-import { Link } from "@nextui-org/link";
-import clsx from "clsx";
+import '@/styles/globals.css';
+import { Metadata } from 'next';
+import { siteConfig } from '@/config/site';
+import { fontSans, fontSerif, fontMono } from '@/config/fonts';
+import { Providers } from './providers';
+import { Navbar } from '@/components/navbar';
+import { Link } from '@nextui-org/link';
+import clsx from 'clsx';
 
 export const metadata: Metadata = {
-    title: {
-        default: siteConfig.name,
-        template: `%s - ${siteConfig.name}`,
-    },
-    themeColor: [
-        { media: "(prefers-color-scheme: light)", color: "black" },
-        { media: "(prefers-color-scheme: dark)", color: "white" },
-    ],
-    description: siteConfig.description,
-    icons: {
-        icon: "/favicon.ico",
-        shortcut: "/favicon-16x16.png",
-        apple: "/apple-touch-icon.png",
-    },
+  title: {
+    default: siteConfig.name,
+    template: `%s - ${siteConfig.name}`,
+  },
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: 'black' },
+    { media: '(prefers-color-scheme: dark)', color: 'white' },
+  ],
+  description: siteConfig.description,
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 // export const viewport: Viewport = {
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
 // }
 
 export default function RootLayout({
-    children,
+  children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) {
     return (
         <html

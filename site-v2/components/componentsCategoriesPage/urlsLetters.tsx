@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 interface CategoryObject {
   [key: string]: {
@@ -31,7 +31,7 @@ interface CategoryProps {
      */
 async function fetchS3Data() {
   const data = (await fetch(
-    "http://cosc425-category-data.s3.amazonaws.com/processed_category_data.json"
+    'http://cosc425-category-data.s3.amazonaws.com/processed_category_data.json'
   ).then((res) => res.json())) as CategoryObject;
 
   return data;
@@ -50,21 +50,24 @@ interface UrlsLettersProps {
 }
 
 export const UrlsLetters = () => {
-  const url = "/categories";
+  const url = '/categories';
 
-  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
   return (
     <div>
       <Link href={`${url}`}>
-        {" "}
-        <strong>All</strong>{" "}
+        {' '}
+        <strong>All</strong>{' '}
       </Link>
       {letters.map((letter) => (
         <>
-          <Link key={letter.toLowerCase()} href={`${url}/${letter.toLowerCase()}`}>
+          <Link
+            key={letter.toLowerCase()}
+            href={`${url}/${letter.toLowerCase()}`}
+          >
             {letter}
-          </Link>{" "}
+          </Link>{' '}
         </>
       ))}
     </div>
