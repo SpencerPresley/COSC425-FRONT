@@ -2,8 +2,8 @@ import { title } from "@/components/primitives";
 
 export default function AboutPage() {
 	return (
-		<div>
-			<h1 className={title()}>About</h1>
+		<div className="flex flex-col w-full h-full">
+			<h1 className={title()}>Rommel Center Initiative</h1>
 		</div>
 	);
 }
