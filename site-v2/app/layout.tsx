@@ -54,8 +54,8 @@ export default function RootLayout({
               <Link
                 isExternal
                 className="flex items-center gap-1 text-current"
-                href="#"
-                title="nextui.org homepage"
+                href="https://www.salisbury.edu/explore-academics/programs/undergraduate-degree-programs/majors/computer-science-major.aspx"
+                title="Salisbury University Computer Science Page"
               >
                 <span className="text-default-600">Powered by</span>
                 <p className="text-primary">SU Students</p>
