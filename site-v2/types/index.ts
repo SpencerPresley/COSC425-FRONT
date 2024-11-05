@@ -64,3 +64,26 @@ export interface FacultyCategoryData {
     faculty_stats: CategoryFacultyStats;
   };
 }
+
+export interface CrossrefArticleDetails {
+  /**
+   * An interface representing details about an individual article.
+   *
+   * Attributes:
+   *     tc_count (number): Total citation count for the article.
+   *     faculty_members (string[]): List of faculty members associated with the article.
+   *     faculty_affiliations (Record<string, string[]>): Mapping of faculty members to their affiliations.
+   */
+  _id: string;
+  title: string;
+  tc_count: number;
+  faculty_members: string[];
+  faculty_affiliations: Record<string, string[]>;
+  abstract: string;
+  license_url: string;
+  date_published_print: string;
+  date_published_online: string;
+  journal: string;
+  download_url: string;
+  doi: string;
+}
