@@ -99,8 +99,9 @@ export default async function CategoriesPage({
     return (
       <>
         <div className="flex flex-col items-center justify-center gap-6 py-10 md:py-12">
-          <div className="inline-block max-w-2xl text-center">
+          <div className="inline-block max-w-2xl text-center h-fulls">
             <h1 className="text-4xl font-bold pb-8">Categories</h1>
+            <div className="h-screen overflow-y-auto">
             <UrlsLetters />
             {Object.entries(groupUrlsByFirstLetter(urls)).map(
               ([letter, urls]) => (
@@ -127,6 +128,7 @@ export default async function CategoriesPage({
                 </div>
               )
             )}
+            </div>
           </div>
         </div>
       </>

@@ -1,5 +1,8 @@
 // src/app/items/page.tsx
 import  clientPromise  from '@/lib/mongodb';
+import { Article } from '@/components/article'
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { AppSidebar } from "@/components/app-sidebar"
 
 interface CrossrefArticleDetails {
     /**
@@ -52,37 +55,24 @@ export default async function ArticlesPage() {
     }));
     
     return (
-        <div className="container mx-auto p-4 h-full">
-            <h1 className="text-3xl font-bold mb-4">Articles</h1>
-            <div className="overflow-y-auto h-screen">
-                <ul className="space-y-4 h-screen">
-                    {articles.map((article) => (
-                        <li key={article._id} className="shadow-md rounded-lg p-4">
-                            <h2 className="text-2xl font-semibold text-black dark:text-white">{article.title}</h2>
-                            <h3 className="text-xl font-semibold text-black dark:text-white">Abstract:</h3>
-                            <p className="text-gray-600 dark:text-white mt-2">{article.abstract}</p>
-                            <p className="text-gray-600 dark:text-white mt-2"><strong>Citation Count:</strong> {article.tc_count}</p>
-                            <p className="text-gray-600 dark:text-white"><strong>Journal:</strong> {article.journal}</p>
-                            <p className="text-gray-600 dark:text-white"><strong>Published Online:</strong> {article.date_published_online}</p>
-                            <p className="text-gray-600 dark:text-white"><strong>Published Print:</strong> {article.date_published_print}</p>
-                            <div className="mt-4">
-                                <a href={article.download_url} className="text-blue-500 hover:underline mr-4">Download</a>
-                                <a href={article.license_url} className="text-blue-500 hover:underline">License</a>
-                            </div>
-                            <p className="text-white mt-2"><strong>DOI:</strong> {article.doi}</p>
-                            <h3 className="text-xl font-semibold text-white mt-4">Faculty Members:</h3>
-                            <ul className="list-none">
-                                {article.faculty_members.map((member, index) => (
-                                    <li key={index} className="text-gray-600 dark:text-white space-x-4">
-                                        <p>{member}</p><p>{article.faculty_affiliations[member]}</p>
-                                    </li>
-                                ))}
-                            </ul>
-                            <p className="text-gray-600 dark:text-white">{article.url}</p>
-                        </li>
-                    ))}
-                </ul>
-            </div>
+
+        <div className="flex h-screen space-x-2 bg-white dark:bg-black">
+            <SidebarProvider>
+                <AppSidebar className="flex flex-col w-64 bg-gray-800 text-white"/>
+                <SidebarTrigger />
+                <div className="flex flex-col overflow-y-auto p-4">
+                    <h1 className="text-3xl font-bold mb-4">Articles</h1>
+                    <div className="overflow-y-auto h-full">
+                        <ul className="space-y-4 bg-white dark:bg-black">
+                            {articles.map((article) => (
+                                <li key={article._id} className="p-4 dark:bg-suMaroon/90 hover:bg-gray-100 bg-gray-50 shadow-black drop-shadow-md hover:drop-shadow-xl dark:hover:bg-suMaroon/70 transition-colors text-suMaroon dark:text-yellow-300 duration-150 ease-in-out">
+                                    <Article article={article} />
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            </SidebarProvider>
         </div>
         
     );
